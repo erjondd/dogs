@@ -1,8 +1,9 @@
 @import "../../index.scss";
+
 .about {
   padding-top: 180px;
   padding-bottom: 50px;
-   h1 {
+  h1 {
     font-family: Eirene;
     font-weight: 700;
     font-style: Bold;
@@ -14,5 +15,101 @@
     font-weight: 400;
     font-size: 20px;
     color: #858585;
+  }
+}
+.mainContent {
+  display: flex;
+  flex-direction: column;
+  padding: 50px;
+  background-color: #151515;
+  margin-top: 30px;
+  .title {
+    font-family: Eirene;
+    font-weight: 700;
+    font-size: 50px;
+    color: $primary-color;
+    padding-bottom: 50px;
+  }
+  .text {
+    font-family: DM Sans;
+    font-weight: 400;
+    font-size: 20px;
+    padding-bottom: 50px;
+    color: $text-color;
+  }
+}
+.contactForm {
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    label {
+      font-weight: bold;
+      margin-bottom: 0.2rem;
+    }
+
+    input,
+    textarea {
+      padding: 0.75rem;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 1rem;
+    }
+
+    button {
+      padding: 0.75rem 1.5rem;
+      background-color: #333;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+
+      &:hover {
+        background-color: #555;
+      }
+    }
+  }
+}
+.others {
+  display: flex;
+  .left {
+    line-height: 1.7;
+  }
+}
+.contactForm {
+  width: 50%;
+  div {
+    display: flex;
+  }
+  input,
+  textarea {
+    width: 100%;
+    background: transparent;
+    border-top: none !important;
+    border-left: none !important;
+    border-right: none !important;
+    border-radius: 0 !important;
+    font-family: DM Sans !important;
+    font-weight: 400 !important;
+    font-size: 14px !important;
+    padding-left: 10px !important;
+    padding-bottom: 3px !important;
+    padding-top: 0px !important;
+    border-color: #858585 !important;
+    color:$text-color !important;
+  }
+  button {
+    width: 100%;
+    background: #004f44 !important;
+    border-top: none !important;
+    border-left: none !important;
+    border-right: none !important;
+    border-radius: 5px !important;
+    font-family: DM Sans !important;
+    font-weight: 400 !important;
+    font-size: 14px !important;
+    padding:19px !important;
   }
 }
