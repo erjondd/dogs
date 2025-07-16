@@ -27,7 +27,7 @@ function Dogs() {
             </div>
           </div>
         </section>
-        <CardList limit={100} />
+        <CardList />
 
       </Container>
     </section>

@@ -28,7 +28,7 @@
 // }
 .hero {
   padding-top: 180px;
-  padding-bottom: 50px;
+  padding-bottom: 100px;
   h1 {
     font-family: Eirene;
     font-weight: 700;
@@ -56,6 +56,7 @@
       height: auto;
       border-radius: $radius;
       max-height:515px;
+      object-fit: cover;
     }
     p {
       font-family: DM Sans;
