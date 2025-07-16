@@ -32,7 +32,7 @@ export default function SingleDog() {
             <h2>DOBERMAN BLACK & RUST</h2>
             <h3>2,800$</h3>
 
-            <Button variant="primary">View Available Pups</Button>
+            <Button variant="primary">Contact Us</Button>
             <div className={styles.details}>
               <div>
                 <span className={styles.detleft}>SKU</span>

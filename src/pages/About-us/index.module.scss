@@ -1,0 +1,18 @@
+@import "../../index.scss";
+.about {
+  padding-top: 180px;
+  padding-bottom: 50px;
+   h1 {
+    font-family: Eirene;
+    font-weight: 700;
+    font-style: Bold;
+    font-size: 50px;
+    color: $text-color;
+  }
+  p {
+    font-family: DM Sans;
+    font-weight: 400;
+    font-size: 20px;
+    color: #858585;
+  }
+}
