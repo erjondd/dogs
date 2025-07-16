@@ -1,0 +1,77 @@
+@import "../../../index.scss";
+
+.wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: 75px 0px;
+}
+.slider {
+  width: 100%;
+  max-width: 100%;
+  button:first-child {
+    left: -100px;
+  }
+  button:last-child {
+    right: -100px;
+  }
+  @media (max-width: 1024px) {
+    button {
+      display: none;
+    }
+  }
+}
+.slide {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+
+  img {
+    width: 64px;
+    height: auto;
+    margin-bottom: 0.5rem;
+  }
+  p {
+    font-size: 12px;
+    letter-spacing: 1px;
+    margin: 0;
+    font-weight: 600;
+    font-size: 13px;
+    padding-top: 15px;
+    font-family: DM-Sans, sans-serif;
+  }
+}
+
+.arrow {
+  background: #000;
+  color: $text-color;
+  border: none;
+  border-radius: 50%;
+  width: 56px;
+  height: 56px;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  svg {
+    color: $primary-color;
+    height: 30px;
+  }
+  &.swiper-button-disabled {
+    opacity: 0.3;
+    pointer-events: none;
+  }
+  &::after {
+    display: none;
+  }
+  &:hover {
+    svg {
+      color: white;
+    }
+  }
+}

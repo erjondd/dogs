@@ -1,0 +1,84 @@
+@import "../../index.scss";
+
+.header {
+  width: 100%;
+  height: 85px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 2;
+}
+.logoImage {
+  object-fit: cover;
+}
+.icons{
+    svg{
+        cursor: pointer;
+    }
+}
+.logo {
+  height: 100%;
+   position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  a {
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+  }
+}
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+.links {
+  display: flex;
+  a {
+    color: $text-color;
+    margin-left: 1rem;
+    text-decoration: none;
+    transition: color 0.2s;
+
+    &:hover {
+      color: $primary-color;
+    }
+  }
+
+  @media (max-width: 768px) {
+    display: none;
+    flex-direction: column;
+    background-color: #222;
+    position: absolute;
+    top: 60px;
+    right: 1rem;
+    padding: 1rem;
+    border-radius: 5px;
+    z-index: 100;
+  }
+
+  &.active {
+    display: flex;
+  }
+}
+
+.menuToggle {
+  display: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+
+  @media (max-width: 768px) {
+    display: block;
+    position: absolute;
+    right: 25px;
+  }
+}

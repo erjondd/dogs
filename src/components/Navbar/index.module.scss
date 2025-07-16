@@ -1,0 +1,26 @@
+@import "../../index.scss";
+.nav {
+  display: flex;
+
+  ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    margin-block-start: 0em;
+    margin-block-end: 0em;
+    padding-inline-start: 0px;
+    li {
+      margin-right: 1.3rem;
+      a {
+        text-decoration: none;
+        color: $text-color;
+        transition: 0.3s ease;
+        font-size:16px;
+        font-weight:400;
+        &:hover {
+          color: $primary-color;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,25 @@
+import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
+import Home from "./pages/Home/Home";
+import About from "./pages/About-us/About";
+import Contact from "./pages/Contact-us/Contact";
+import Layout from "./components/Layout/Layout";
+import Dogs from "./pages/Dogs/Dogs";
+import SingleDog from "./pages/SingleDog/SingleDog";
+
+function App() {
+  return (
+    <Router>
+      <Layout style={{width: "100%"}}>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/dogs" element={<Dogs />} />
+          <Route path="/dog/:id" element={<SingleDog />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
+        </Routes>
+      </Layout>
+    </Router>
+  );
+}
+
+export default App;

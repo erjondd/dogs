@@ -1,0 +1,58 @@
+@import "../../index.scss";
+
+.button {
+  font-family: $secondary-font;
+  background-color: $primary-color;
+  color: $text-color;
+  padding: $button-padding;
+  border-radius: $radius;
+  font-size: 16px;
+  font-weight: 400;
+  cursor: pointer;
+  transition: 0.3s;
+  color: $text-color;
+  svg {
+    padding-left: 10px;
+
+    path {
+      fill: $text-color;
+      transition: 0.3s;
+    }
+  }
+  &.primary {
+    background-color: $primary-color;
+    border: 1px solid $primary-color;
+    &:hover {
+      background-color: $secondary-color;
+      border: 1px solid $secondary-color;
+    }
+  }
+  &.secondary {
+    background-color: transparent;
+    border: 1px solid $text-color;
+    color: $text-color;
+    &:hover {
+      background-color: $text-color;
+      color: $bg-color;
+      svg {
+        path {
+          fill: $bg-color;
+        }
+      }
+    }
+  }
+  &.third {
+    background-color: transparent;
+    border: 1px solid $primary-color;
+    color: $primary-color;
+    &:hover {
+      background-color: $text-color;
+      color: $bg-color;
+      svg {
+        path {
+          fill: $bg-color;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,127 @@
+@import "../../index.scss";
+
+// .singleDog {
+//   background-image: url("../../../public/images/hero.png"); // adjust path if needed
+//   background-size: cover;
+//   background-position: center;
+//   min-height: 100vh; // full screen height
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+//   color: white;
+// }
+
+// .overlay {
+//   position: absolute;
+//   top: 0;
+//   left: 0;
+//   width: 100%;
+//   height: 100%;
+//   background: linear-gradient(
+//     to bottom,
+//     rgb(0 0 0 / 96%) 0%,
+//     transparent 30%,
+//     transparent 70%,
+//     rgb(0 0 0 / 91%) 100%
+//   );
+//   z-index: 1;
+// }
+.hero {
+  padding-top: 180px;
+  padding-bottom: 50px;
+  h1 {
+    font-family: Eirene;
+    font-weight: 700;
+    font-style: Bold;
+    font-size: 50px;
+    color: $text-color;
+  }
+  p {
+    font-family: DM Sans;
+    font-weight: 400;
+    font-size: 20px;
+    color: #858585;
+  }
+}
+.mainDetails {
+  display: flex;
+  background-color: #151515;
+  padding: 20px;
+  border-radius: $radius;
+  margin-bottom: 100px;
+  .left {
+    width: 45%;
+    img {
+      width: 100%;
+      height: auto;
+      border-radius: $radius;
+    }
+    p {
+      font-family: DM Sans;
+      font-weight: 400;
+      font-size: 16px;
+      color: #eff7f5;
+      padding-top: 10px;
+    }
+  }
+  .right {
+    width: 55%;
+    padding-left: 20px;
+    h2 {
+      font-family: Eirene;
+      font-weight: 700;
+      font-size: 32px;
+      color: $secondary-color;
+      margin: 0;
+    }
+    h3 {
+      font-weight: 900;
+      font-size: 36px;
+      color: $text-color;
+      font-family: DM Sans;
+      margin: 0;
+      padding-bottom: 25px;
+    }
+    button {
+      width: 100%;
+      margin-bottom: 15px;
+    }
+  }
+}
+.details {
+  div {
+    width: 100%;
+    display: flex;
+    border-bottom: 1px solid $secondary-color;
+    padding-top: 15px;
+    padding-bottom: 2px;
+  }
+  .detleft {
+    min-width: 200px;
+    font-family: DM Sans;
+    font-weight: 400;
+    font-size: 14px;
+    color: $secondary-color;
+    padding-left: 10px;
+  }
+  .detright {
+    flex: 1;
+    font-family: DM Sans;
+    font-weight: 400;
+    font-size: 14px;
+  }
+}
+.gallery {
+  display: flex;
+  gap: 50px;
+  flex-wrap: wrap;
+  img {
+    width: calc(33.33% - 34px);
+    max-height: 350px;
+    min-height: 350px;
+    border-radius: $radius;
+    object-fit: cover;
+
+    object-fit: cover;
+  }
+}
