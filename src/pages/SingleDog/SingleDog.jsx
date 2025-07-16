@@ -5,6 +5,7 @@ import dogs from "../../data/dogs";
 import Container from "../../components/Container/Container";
 import Button from "../../components/Button/Button";
 import GalleryLightbox from "../../components/GalleryLightbox/GalleryLightbox";
+import Card from "../../components/Homepage/Card/Card";
 
 export default function SingleDog() {
   const {id} = useParams();
@@ -20,7 +21,6 @@ export default function SingleDog() {
           <h1>Our Dogs</h1>
           <p>
             {dog.breed} - {dog.name}
-            
           </p>
         </section>
         <section className={styles.mainDetails}>
@@ -31,7 +31,7 @@ export default function SingleDog() {
           <div className={styles.right}>
             <h2>DOBERMAN BLACK & RUST</h2>
             <h3>2,800$</h3>
-            
+
             <Button variant="primary">View Available Pups</Button>
             <div className={styles.details}>
               <div>
@@ -82,7 +82,6 @@ export default function SingleDog() {
                 <span className={styles.detleft}>Location</span>
                 <span className={styles.detright}>: {dog.location}</span>
               </div>
-              {/* Add more fields here */}
             </div>
           </div>
         </section>
@@ -91,19 +90,24 @@ export default function SingleDog() {
           {dog.gallery && <GalleryLightbox images={dog.gallery} />}
         </section>
 
-        {/*
         <section className={styles.seeMore}>
           <h2>See More Puppies</h2>
           <div className={styles.moreGrid}>
-            {[...Array(4)].map((_, i) => (
-              <div className={styles.card} key={i}>
-                <img src={`/images/puppy${i + 1}.jpg`} alt={`puppy ${i + 1}`} />
-                <h4>Breed Name</h4>
-                <p>3,000$</p>
-              </div>
-            ))}
+            <div className={styles.dogList}>
+              {dogs.slice(0, 4).map((dog) => (
+                <Card
+                  key={dog.id}
+                  id={dog.id}
+                  image={dog.image}
+                  breed={dog.breed}
+                  gender={dog.gender}
+                  age={dog.age}
+                  price={dog.price}
+                />
+              ))}
+            </div>
           </div>
-        </section> */}
+        </section>
       </Container>
     </div>
   );

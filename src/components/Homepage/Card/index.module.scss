@@ -2,7 +2,7 @@
 .card {
   padding: 8px;
   border-radius: $radius;
-  background-color: $bg-color;
+  background-color: #151515;
   display: flex;
   flex-direction: column;
   font-family: "DM Sans", sans-serif;
@@ -13,6 +13,7 @@
   img {
     width: 100%;
     height: auto;
+    border-radius: $radius;
   }
 }
 .content {
