@@ -20,12 +20,27 @@
   display: flex;
   flex-wrap: wrap;
   gap: 14px;
+ margin-top:50px;
+  .row {
+    display: flex;
+    flex-wrap: nowrap;
+    width: 100%;
+    gap: 14px;
+  }
 
   .fourty {
-    flex: 0 0 calc(40% - 14px);
+    width: calc(40% + 60px);
+    padding: 19px;
+    background: #151515;
+    border-radius: 5px;
+    text-align: center;
   }
 
   .twenty {
-    flex: 0 0 calc(20% - 14px);
+    width: 20%;
+    padding: 19px;
+    background: #151515;
+    border-radius: 5px;
+    text-align: center;
   }
 }

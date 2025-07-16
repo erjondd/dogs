@@ -7,15 +7,15 @@ function DogPosts() {
     <section className={styles.dogPosts}>
       <Container className={styles.containerBackground}>
         <div className={styles.allTexts}>
-        <div className={styles.texts}>
-          <p className={styles.subTitle}>Whats new ?</p>
-          <h2 className={styles.title}>Take a look at some of our pets</h2>
+          <div className={styles.texts}>
+            <p className={styles.subTitle}>Whats new ?</p>
+            <h2 className={styles.title}>Take a look at some of our pets</h2>
+          </div>
+          <div className={styles.buttons}>
+            <Button variant="third">View All</Button>
+          </div>
         </div>
-        <div className={styles.buttons}>
-          <Button variant="third">View All</Button>
-        </div>
-        </div>
-        <CardList />
+        <CardList limit={8} />
       </Container>
     </section>
   );

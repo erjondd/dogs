@@ -3,10 +3,12 @@ import Card from "../Card/Card";
 import dogs from "../../../data/dogs";
 import styles from "./index.module.scss";
 
-function CardList() {
+function CardList({ limit }) {
+  const dogList = limit ? dogs.slice(0, limit) : dogs;
+
   return (
     <div className={styles.dogList}>
-      {dogs.slice(0, 8).map((dog) => (
+      {dogList.map((dog) => (
         <Card
           key={dog.id}
           id={dog.id}
