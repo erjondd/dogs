@@ -20,6 +20,7 @@ export default function SingleDog() {
           <h1>Our Dogs</h1>
           <p>
             {dog.breed} - {dog.name}
+            
           </p>
         </section>
         <section className={styles.mainDetails}>
