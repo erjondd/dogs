@@ -1,0 +1,31 @@
+@import "../../index.scss";
+.dogs {
+  padding-top: 180px;
+  padding-bottom: 50px;
+  h1 {
+    font-family: Eirene;
+    font-weight: 700;
+    font-style: Bold;
+    font-size: 50px;
+    color: $text-color;
+  }
+  p {
+    font-family: DM Sans;
+    font-weight: 400;
+    font-size: 20px;
+    color: #858585;
+  }
+}
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+
+  .fourty {
+    flex: 0 0 calc(40% - 14px);
+  }
+
+  .twenty {
+    flex: 0 0 calc(20% - 14px);
+  }
+}
