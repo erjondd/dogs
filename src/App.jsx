@@ -15,7 +15,6 @@ function App() {
           <Route path="/dogs" element={<Dogs />} />
           <Route path="/dog/:id" element={<SingleDog />} />
           <Route path="/about" element={<About />} />
-          <Route path="/contact" element={<Contact />} />
         </Routes>
       </Layout>
     </Router>

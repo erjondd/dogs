@@ -30,7 +30,7 @@ function About() {
   };
 
   return (
-    <div className={styles.about}>
+    <section className={styles.about}>
       <Container>
         <h1>About Us</h1>
         <p>Home / About us</p>
@@ -123,7 +123,7 @@ function About() {
           </div>
         </div>
       </Container>
-    </div>
+    </section>
   );
 }
 

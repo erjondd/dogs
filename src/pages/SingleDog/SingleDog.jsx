@@ -14,7 +14,7 @@ export default function SingleDog() {
   if (!dog) return <p>Dog not found</p>;
   console.log(dogs);
   return (
-    <div className={styles.singleDog}>
+    <section className={styles.singleDog}>
       <Container>
         <section className={styles.hero}>
           {/* <div className={styles.overlay}></div> */}
@@ -109,6 +109,6 @@ export default function SingleDog() {
           </div>
         </section>
       </Container>
-    </div>
+    </section>
   );
 }
