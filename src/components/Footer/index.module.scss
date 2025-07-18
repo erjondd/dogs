@@ -28,6 +28,9 @@
 .footerContent {
   padding-top: 60px;
   padding-bottom: 55px;
+  @media (max-width: 768px) {
+    padding-top: 50px;
+  }
   .containerBackground {
     display: flex;
     flex-direction: row;
@@ -82,8 +85,8 @@
 .secondColumn,
 .thirdColumn,
 .fourthColumn,
-.fifthColumn{
-  @media(max-width:768px){
-    margin-bottom:40px;
+.fifthColumn {
+  @media (max-width: 768px) {
+    margin-bottom: 40px;
   }
 }
