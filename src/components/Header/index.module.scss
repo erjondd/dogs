@@ -15,14 +15,14 @@
 .logoImage {
   object-fit: cover;
 }
-.icons{
-    svg{
-        cursor: pointer;
-    }
+.icons {
+  svg {
+    cursor: pointer;
+  }
 }
 .logo {
   height: 100%;
-   position: absolute;
+  position: absolute;
   left: 50%;
   transform: translateX(-50%);
   top: 50%;
@@ -80,5 +80,10 @@
     display: block;
     position: absolute;
     right: 25px;
+  }
+}
+.icons {
+  @media (max-width: 1024px) {
+    display: none;
   }
 }

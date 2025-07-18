@@ -28,7 +28,6 @@ function Dogs() {
           </div>
         </section>
         <CardList />
-
       </Container>
     </section>
   );
