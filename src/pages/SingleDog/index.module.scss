@@ -55,7 +55,7 @@
       width: 100%;
       height: auto;
       border-radius: $radius;
-      max-height:515px;
+      max-height: 515px;
       object-fit: cover;
     }
     p {
@@ -136,7 +136,7 @@
     font-weight: 600;
     font-size: 30px;
     color: #858585;
-    padding-bottom:30px;
+    padding-bottom: 30px;
   }
 }
 .dogList {
@@ -146,5 +146,11 @@
 
   a {
     width: calc(25% - 15px);
+    @media (max-width: 768px) {
+      width: calc(33% - 15px);
+    }
+    @media (max-width: 600px) {
+      width: calc(50% - 15px);
+    }
   }
 }

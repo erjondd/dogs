@@ -8,14 +8,20 @@
   font-family: "DM Sans", sans-serif;
   // width: calc(25% - 31px);
 
-
-
   img {
-  width: 100%;
+    width: 100%;
     height: 100%;
     border-radius: $radius;
     max-height: 260px;
     object-fit: cover;
+    @media (max-width: 1024px) {
+      max-width: 209px;
+      max-height: 209px;
+    }
+      @media (max-width: 600px) {
+      max-width: 153px;
+      max-height: 153px;
+    }
   }
 }
 .content {
@@ -41,7 +47,6 @@
   font-size: 14px;
   color: $text-color;
 }
-.link{
- text-decoration: none;
- ;
+.link {
+  text-decoration: none;
 }

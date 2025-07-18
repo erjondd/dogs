@@ -74,14 +74,24 @@
 }
 .others {
   display: flex;
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
   .left {
     line-height: 1.7;
   }
 }
 .contactForm {
   width: 50%;
+  @media (max-width: 768px) {
+    width: 100%;
+    padding-top: 50px;
+  }
   div {
     display: flex;
+    @media (max-width: 768px) {
+      flex-direction: column;
+    }
   }
   input,
   textarea {
