@@ -20,7 +20,7 @@ export default function Navbar() {
             <Link to="/adoption">Adoption</Link>
           </li>
           <li>
-            <Link to="/about-us">About Us</Link>
+            <Link to="/about">About Us</Link>
           </li>
           <li>
             <Link to="/contact-us">Contact Us</Link>

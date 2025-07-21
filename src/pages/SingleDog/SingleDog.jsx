@@ -15,8 +15,8 @@ export default function SingleDog() {
   useEffect(() => {
     async function fetchData() {
       try {
-        const dogData = await getDogById(id); // fetch dog by ID from API
-        const allDogs = await getAllDogs(); // optionally fetch more dogs for "see more"
+        const dogData = await getDogById(id);
+        const allDogs = await getAllDogs();
 
         setDog(dogData);
         setOtherDogs(allDogs.filter((d) => d.id !== parseInt(id)).slice(0, 4));
@@ -35,7 +35,7 @@ export default function SingleDog() {
   if (!dog) {
     return <p>Dog not found</p>;
   }
-  console.log(otherDogs, "otherdogs");
+  console.log(dog);
 
   // Dangerous HTML TEXT
   function stripHtml(html) {
@@ -120,6 +120,35 @@ export default function SingleDog() {
             {dog.title.rendered} - {dog.title.rendered}
           </p>
         </section>
+    
+  {/* <section className={styles.parentsSection}>
+    <h2>Meet the Parents</h2>
+    <div className={styles.parentsGrid}>
+      {dog.acf.female && (
+        <div className={styles.parentCard}>
+          <img
+            src={dog.acf.female.picture?.url || dog.acf.parents.mother.picture}
+            alt={dog.acf.parents.mother.name}
+            loading="lazy"
+          />
+          <h3>Mother</h3>
+          <p>{dog.acf.parents.mother.name}</p>
+        </div>
+      )}
+      {dog.acf.parents.father && (
+        <div className={styles.parentCard}>
+          <img
+            src={dog.acf.parents.father.picture?.url || dog.acf.parents.father.picture}
+            alt={dog.acf.parents.father.name}
+            loading="lazy"
+          />
+          <h3>Father</h3>
+          <p>{dog.acf.parents.father.name}</p>
+        </div>
+      )}
+    </div>
+  </section> */}
+
         <section className={styles.mainDetails}>
           <div className={styles.left}>
             <img

@@ -176,3 +176,44 @@
     }
   }
 }
+.parentsSection {
+  margin-top: 60px;
+  text-align: center;
+
+  h2 {
+    font-size: 2rem;
+    margin-bottom: 30px;
+  }
+
+  .parentsGrid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+  }
+
+  .parentCard {
+    background: #1a1a1a;
+    border-radius: 10px;
+    padding: 20px;
+    max-width: 200px;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+
+    img {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+      margin-bottom: 15px;
+    }
+
+    h3 {
+      margin: 10px 0 5px;
+      color: #fff;
+    }
+
+    p {
+      color: #ccc;
+    }
+  }
+}
