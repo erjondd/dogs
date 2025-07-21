@@ -11,12 +11,20 @@ export default function Navbar() {
             <Link to="/">Home</Link>
           </li>
           <li>
-            <Link to="/dogs">Our Dogs</Link>
+            <Link to="/dogs">For sale</Link>
           </li>
           <li>
-            <Link to="/about">About Us</Link>
+            <Link to="/dogs">Parents</Link>
           </li>
-       
+          <li>
+            <Link to="/adoption">Adoption</Link>
+          </li>
+          <li>
+            <Link to="/about-us">About Us</Link>
+          </li>
+          <li>
+            <Link to="/contact-us">Contact Us</Link>
+          </li>
         </ul>
       </nav>
     </Container>

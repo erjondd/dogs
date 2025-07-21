@@ -1,22 +1,30 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import Card from "../Card/Card";
-import dogs from "../../../data/dogs";
 import styles from "./index.module.scss";
+import {getAllDogs} from "../../../data/dogsWP";
 
-function CardList({ limit }) {
-  const dogList = limit ? dogs.slice(0, limit) : dogs;
+function CardList() {
+  const [dogs, setDogs] = useState([]);
+  const [loading, setLoading] = useState(true);
 
+  useEffect(() => {
+    getAllDogs()
+      .then(setDogs)
+      .finally(() => setLoading(false));
+  }, []);
+  console.log(dogs);
+  if (loading) return <p>Loading...</p>;
   return (
     <div className={styles.dogList}>
-      {dogList.map((dog) => (
+      {dogs.map((dog) => (
         <Card
           key={dog.id}
           id={dog.id}
-          image={dog.image}
-          breed={dog.breed}
+          image={dog.acf.picture}
+          breed={dog.title.rendered}
           gender={dog.gender}
-          age={dog.age}
-          price={dog.price}
+          age={dog.acf.age}
+          price={dog.acf.price}
         />
       ))}
     </div>

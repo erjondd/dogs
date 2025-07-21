@@ -1,8 +1,10 @@
+
 import Button from "../../Button/Button";
 import Container from "../../Container/Container";
 import styles from "./index.module.scss";
 
 export default function Hero() {
+
   return (
     <section className={styles.hero}>
       <div className={styles.overlay}></div>
