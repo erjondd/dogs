@@ -12,7 +12,7 @@ export default function SingleDog() {
   const [dog, setDog] = useState(null);
   const [otherDogs, setOtherDogs] = useState([]);
   const [loading, setLoading] = useState(true);
-
+  console.log(dog);
   useEffect(() => {
     async function fetchData() {
       try {
@@ -33,7 +33,6 @@ export default function SingleDog() {
   if (loading) {
     return <SingleDogSkeleton />;
   }
-
   if (!dog) {
     return <p>Dog not found</p>;
   }
@@ -82,6 +81,7 @@ export default function SingleDog() {
     if (classList.includes("category-adult")) return "Adult";
     return "Unknown";
   }
+  console.log(dog.acf.gallery);
   return (
     <section className={styles.singleDog}>
       <Container>
@@ -94,7 +94,11 @@ export default function SingleDog() {
         </section>
         <section className={styles.mainDetails}>
           <div className={styles.left}>
-            <img src={dog.acf.picture} lazy="loading" />
+            <img
+              src={dog.acf.picture.url || dog.acf.picture}
+              alt={dog.title.rendered}
+              loading="lazy"
+            />
             <p className={styles.description}>{plainText}</p>
           </div>
           <div className={styles.right}>
@@ -162,7 +166,11 @@ export default function SingleDog() {
         </section>
 
         <section className={styles.gallery}>
-          {dog.gallery && <GalleryLightbox images={dog.gallery} />}
+          {dog.acf.gallery && dog.acf.gallery.length > 0 && (
+            <GalleryLightbox
+              images={dog.acf.gallery.map((img) => img.image || img)}
+            />
+          )}
         </section>
 
         <section className={styles.seeMore}>

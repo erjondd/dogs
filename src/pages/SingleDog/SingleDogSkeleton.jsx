@@ -10,7 +10,7 @@ export default function SingleDogSkeleton() {
       <section className={styles.singleDog}>
         <div className={styles.hero}>
           <div className={styles.overlay}></div>
-     <h1>Our Dogs</h1>
+          <h1>Our Dogs</h1>
           <Skeleton variant="text" width={350} height={30} />
         </div>
 
