@@ -6,7 +6,7 @@ import Button from "../../components/Button/Button";
 import GalleryLightbox from "../../components/GalleryLightbox/GalleryLightbox";
 import Card from "../../components/Homepage/Card/Card";
 import {getDogById, getAllDogs} from "../../data/dogsWP";
-
+import SingleDogSkeleton from "./SingleDogSkeleton";
 export default function SingleDog() {
   const {id} = useParams();
   const [dog, setDog] = useState(null);
@@ -30,9 +30,13 @@ export default function SingleDog() {
     fetchData();
   }, [id]);
 
-  if (loading) return <p>Loading...</p>;
-  if (!dog) return <p>Dog not found</p>;
-  console.log(dog);
+  if (loading) {
+    return <SingleDogSkeleton />;
+  }
+
+  if (!dog) {
+    return <p>Dog not found</p>;
+  }
 
   // Dangerous HTML TEXT
   function stripHtml(html) {
