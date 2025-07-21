@@ -1,58 +1,129 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import styles from "./index.module.scss";
 import {useParams} from "react-router-dom";
-import dogs from "../../data/dogs";
 import Container from "../../components/Container/Container";
 import Button from "../../components/Button/Button";
 import GalleryLightbox from "../../components/GalleryLightbox/GalleryLightbox";
 import Card from "../../components/Homepage/Card/Card";
+import {getDogById, getAllDogs} from "../../data/dogsWP";
 
 export default function SingleDog() {
   const {id} = useParams();
-  const dog = dogs.find((d) => d.id === parseInt(id));
+  const [dog, setDog] = useState(null);
+  const [otherDogs, setOtherDogs] = useState([]);
+  const [loading, setLoading] = useState(true);
 
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        const dogData = await getDogById(id); // fetch dog by ID from API
+        const allDogs = await getAllDogs(); // optionally fetch more dogs for "see more"
+
+        setDog(dogData);
+        setOtherDogs(allDogs.filter((d) => d.id !== parseInt(id)).slice(0, 4));
+      } catch (error) {
+        console.error("Error fetching dog:", error);
+      } finally {
+        setLoading(false);
+      }
+    }
+    fetchData();
+  }, [id]);
+
+  if (loading) return <p>Loading...</p>;
   if (!dog) return <p>Dog not found</p>;
-  console.log(dogs);
+  console.log(dog);
+
+  // Dangerous HTML TEXT
+  function stripHtml(html) {
+    const doc = new DOMParser().parseFromString(html, "text/html");
+    return doc.body.textContent || "";
+  }
+  const plainText = stripHtml(dog.content.rendered);
+
+  //calcyulate age
+
+  function calculateAge(birthDateStr) {
+    if (!birthDateStr) return "Unknown";
+
+    const [day, month, year] = birthDateStr.split("/").map(Number);
+    const birthDate = new Date(year, month - 1, day);
+    const today = new Date();
+
+    let years = today.getFullYear() - birthDate.getFullYear();
+    let months = today.getMonth() - birthDate.getMonth();
+
+    if (months < 0) {
+      years--;
+      months += 12;
+    }
+
+    // Optional: prevent future dates
+    if (birthDate > today) return "Invalid date";
+
+    return `${years} year${years !== 1 ? "s" : ""} ${months} month${
+      months !== 1 ? "s" : ""
+    }`;
+  }
+
+  //check for gender and size in dog array
+  function getGenderFromClassList(classList) {
+    if (classList.includes("category-female")) return "Female";
+    if (classList.includes("category-male")) return "Male";
+    return "Unknown";
+  }
+
+  function getSizeFromClassList(classList) {
+    if (classList.includes("category-puppy")) return "Puppy";
+    if (classList.includes("category-adult")) return "Adult";
+    return "Unknown";
+  }
   return (
     <section className={styles.singleDog}>
       <Container>
         <section className={styles.hero}>
-          {/* <div className={styles.overlay}></div> */}
+          <div className={styles.overlay}></div>
           <h1>Our Dogs</h1>
           <p>
-            {dog.breed} - {dog.name}
+            {dog.title.rendered} - {dog.title.rendered}
           </p>
         </section>
         <section className={styles.mainDetails}>
           <div className={styles.left}>
-            <img src={dog.image} lazy="loading" />
-            <p className={styles.description}>{dog.description}</p>
+            <img src={dog.acf.picture} lazy="loading" />
+            <p className={styles.description}>{plainText}</p>
           </div>
           <div className={styles.right}>
-            <h2>DOBERMAN BLACK & RUST</h2>
-            <h3>2,800$</h3>
+            <h2>{dog.title.rendered}</h2>
+            <h3>{dog.acf.price}</h3>
 
             <Button variant="primary">Contact Us</Button>
             <div className={styles.details}>
               <div>
                 <span className={styles.detleft}>SKU</span>
-                <span className={styles.detright}>: {dog.SKU}</span>
+                <span className={styles.detright}>: {dog.id}</span>
               </div>
               <div>
                 <span className={styles.detleft}>Gender</span>
-                <span className={styles.detright}>: {dog.gender}</span>
+                <span className={styles.detright}>
+                  : {getGenderFromClassList(dog.class_list)}
+                </span>
               </div>
               <div>
                 <span className={styles.detleft}>Age</span>
-                <span className={styles.detright}>: {dog.age}</span>
+                <span className={styles.detright}>
+                  : {calculateAge(dog.acf.age)}
+                </span>
               </div>
               <div>
                 <span className={styles.detleft}>Size</span>
-                <span className={styles.detright}>: {dog.size}</span>
+                <span className={styles.detright}>
+                  : {getSizeFromClassList(dog.class_list)}
+                </span>
               </div>
               <div>
                 <span className={styles.detleft}>Color</span>
-                <span className={styles.detright}>: {dog.color}</span>
+                <span className={styles.detright}>: {dog.acf.colour}</span>
               </div>
               <div>
                 <span className={styles.detleft}>Vaccinated</span>
@@ -94,7 +165,7 @@ export default function SingleDog() {
           <h2>See More Puppies</h2>
           <div className={styles.moreGrid}>
             <div className={styles.dogList}>
-              {dogs.slice(0, 4).map((dog) => (
+              {otherDogs.slice(0, 4).map((dog) => (
                 <Card
                   key={dog.id}
                   id={dog.id}
