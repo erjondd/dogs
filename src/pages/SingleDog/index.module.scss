@@ -113,6 +113,28 @@
     font-size: 14px;
   }
 }
+.detailss {
+  div {
+    width: 100%;
+    display: flex;
+    padding-top: 15px;
+    padding-bottom: 2px;
+  }
+  .detleft {
+    min-width: 200px;
+    font-family: DM Sans;
+    font-weight: 400;
+    font-size: 14px;
+    color: $secondary-color;
+    padding-left: 10px;
+  }
+  .detright {
+    flex: 1;
+    font-family: DM Sans;
+    font-weight: 400;
+    font-size: 14px;
+  }
+}
 .gallery {
   display: flex;
   gap: 50px;

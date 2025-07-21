@@ -45,7 +45,7 @@ export default function SingleDogSkeleton() {
             />
 
             {/* Details list */}
-            <div className={styles.details}>
+            <div className={styles.detailss}>
               {[
                 "SKU",
                 "Gender",
