@@ -12,7 +12,6 @@ export default function SingleDog() {
   const [dog, setDog] = useState(null);
   const [otherDogs, setOtherDogs] = useState([]);
   const [loading, setLoading] = useState(true);
-  console.log(dog);
   useEffect(() => {
     async function fetchData() {
       try {
@@ -36,6 +35,7 @@ export default function SingleDog() {
   if (!dog) {
     return <p>Dog not found</p>;
   }
+  console.log(otherDogs, "otherdogs");
 
   // Dangerous HTML TEXT
   function stripHtml(html) {
@@ -81,7 +81,35 @@ export default function SingleDog() {
     if (classList.includes("category-adult")) return "Adult";
     return "Unknown";
   }
-  console.log(dog.acf.gallery);
+
+  //calc years only for age
+  function calculateAgeDisplay(birthDateStr) {
+    if (!birthDateStr) return "Unknown";
+
+    const [day, month, year] = birthDateStr.split("/").map(Number);
+    const birthDate = new Date(year, month - 1, day);
+    const today = new Date();
+
+    if (birthDate > today) return "Invalid date";
+
+    let years = today.getFullYear() - birthDate.getFullYear();
+    let months = today.getMonth() - birthDate.getMonth();
+
+    if (today.getDate() < birthDate.getDate()) {
+      months -= 1;
+    }
+
+    if (months < 0) {
+      years--;
+      months += 12;
+    }
+
+    if (years <= 0) {
+      return `${months} month${months !== 1 ? "s" : ""}`;
+    } else {
+      return `${years} year${years !== 1 ? "s" : ""}`;
+    }
+  }
   return (
     <section className={styles.singleDog}>
       <Container>
@@ -181,11 +209,11 @@ export default function SingleDog() {
                 <Card
                   key={dog.id}
                   id={dog.id}
-                  image={dog.image}
-                  breed={dog.breed}
+                  image={dog.acf.picture}
+                  breed={dog.title.rendered}
                   gender={dog.gender}
-                  age={dog.age}
-                  price={dog.price}
+                  age={calculateAgeDisplay(dog.acf.age)}
+                  price={dog.acf.price}
                 />
               ))}
             </div>
