@@ -2,6 +2,7 @@ import React, {useEffect, useState} from "react";
 import Card from "../Card/Card";
 import styles from "./index.module.scss";
 import {getAllDogs} from "../../../data/dogsWP";
+import SkeletonCard from "../../SkeletonCard/SkeletonCard";
 
 function CardList() {
   const [dogs, setDogs] = useState([]);
@@ -12,8 +13,8 @@ function CardList() {
       .then(setDogs)
       .finally(() => setLoading(false));
   }, []);
-  console.log(dogs);
-  if (loading) return <p>Loading...</p>;
+
+  const skeletonCount = dogs.length > 0 ? dogs.length : 2;
 
   //calc years only for age
   function calculateAgeDisplay(birthDateStr) {
@@ -43,19 +44,24 @@ function CardList() {
       return `${years} year${years !== 1 ? "s" : ""}`;
     }
   }
+
   return (
     <div className={styles.dogList}>
-      {dogs.map((dog) => (
-        <Card
-          key={dog.id}
-          id={dog.id}
-          image={dog.acf.picture}
-          breed={dog.title.rendered}
-          gender={dog.gender}
-          age={calculateAgeDisplay(dog.acf.age)}
-          price={dog.acf.price}
-        />
-      ))}
+      {loading
+        ? Array.from({length: skeletonCount}).map((_, i) => (
+            <SkeletonCard key={i} />
+          ))
+        : dogs.map((dog) => (
+            <Card
+              key={dog.id}
+              id={dog.id}
+              image={dog.acf.picture}
+              breed={dog.title.rendered}
+              gender={dog.gender}
+              age={calculateAgeDisplay(dog.acf.age)}
+              price={dog.acf.price}
+            />
+          ))}
     </div>
   );
 }
