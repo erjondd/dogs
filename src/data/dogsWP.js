@@ -11,6 +11,13 @@ export async function getAllDogs() {
     return await response.json();
 }
 
+export async function getAllParents(id) {
+    const response = await fetch(`${API_BASE}/parent/${id}`);
+    if (!response.ok) {
+        throw new Error("Failed to fetch dogs");
+    }
+    return await response.json();
+}
 /**
  * Fetch a dog by ID
  */

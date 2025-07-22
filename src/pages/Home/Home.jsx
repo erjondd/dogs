@@ -6,7 +6,6 @@ import OurStory from "../../components/Homepage/OurStory/OurStory";
 export default function Home() {
   return (
     <>
-      <Hero />
       <HeroSlider />
       <DogPosts />
       <OurStory />
