@@ -5,21 +5,28 @@ import Container from "../../components/Container/Container";
 import Button from "../../components/Button/Button";
 import GalleryLightbox from "../../components/GalleryLightbox/GalleryLightbox";
 import Card from "../../components/Homepage/Card/Card";
-import {getDogById, getAllDogs} from "../../data/dogsWP";
+import {getDogById, getAllDogs, getAllParents} from "../../data/dogsWP";
 import SingleDogSkeleton from "./SingleDogSkeleton";
 export default function SingleDog() {
   const {id} = useParams();
   const [dog, setDog] = useState(null);
   const [otherDogs, setOtherDogs] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [mother, setMother] = useState(null);
+  const [father, setFather] = useState(null);
   useEffect(() => {
     async function fetchData() {
       try {
         const dogData = await getDogById(id);
-        const allDogs = await getAllDogs();
-
+        const motherID = dogData.acf?.female.ID || null;
+        const motherData = await getAllParents(motherID);
+        const fatherID = dogData.acf?.Stud.ID || null;
+        const fatherData = await getAllParents(fatherID);
+        const allDogs = await getAllDogs(id);
         setDog(dogData);
         setOtherDogs(allDogs.filter((d) => d.id !== parseInt(id)).slice(0, 4));
+        setMother(motherData);
+        setFather(fatherData);
       } catch (error) {
         console.error("Error fetching dog:", error);
       } finally {
@@ -36,6 +43,7 @@ export default function SingleDog() {
     return <p>Dog not found</p>;
   }
   console.log(dog);
+  console.log(mother, father);
 
   // Dangerous HTML TEXT
   function stripHtml(html) {
@@ -120,34 +128,93 @@ export default function SingleDog() {
             {dog.title.rendered} - {dog.title.rendered}
           </p>
         </section>
-    
-  {/* <section className={styles.parentsSection}>
-    <h2>Meet the Parents</h2>
-    <div className={styles.parentsGrid}>
-      {dog.acf.female && (
-        <div className={styles.parentCard}>
-          <img
-            src={dog.acf.female.picture?.url || dog.acf.parents.mother.picture}
-            alt={dog.acf.parents.mother.name}
-            loading="lazy"
-          />
-          <h3>Mother</h3>
-          <p>{dog.acf.parents.mother.name}</p>
-        </div>
-      )}
-      {dog.acf.parents.father && (
-        <div className={styles.parentCard}>
-          <img
-            src={dog.acf.parents.father.picture?.url || dog.acf.parents.father.picture}
-            alt={dog.acf.parents.father.name}
-            loading="lazy"
-          />
-          <h3>Father</h3>
-          <p>{dog.acf.parents.father.name}</p>
-        </div>
-      )}
-    </div>
-  </section> */}
+
+        <section className={styles.parentsSection}>
+          <div className={styles.parentsGrid}>
+            <div className={styles.parentsInfo}>
+              <div className={styles.top}>
+                <img
+                  src={mother.acf.picture.url || mother.acf.picture}
+                  alt={mother.acf.picture}
+                  loading="lazy"
+                />
+                <p className={styles.description}>{plainText}</p>
+              </div>
+              <div className={styles.bottom}>
+                <h2>{dog.acf.female.post_title}</h2>
+
+                <Button variant="primary">Contact Us</Button>
+                <div className={styles.details}>
+                  <div>
+                    <span className={styles.detleft}>Gender</span>
+                    <span className={styles.detright}>
+                      : {getGenderFromClassList(mother.class_list)}
+                    </span>
+                  </div>
+                  <div>
+                    <span className={styles.detleft}>Age</span>
+                    <span className={styles.detright}>
+                      : {calculateAge(mother.acf.age)}
+                    </span>
+                  </div>
+                  <div>
+                    <span className={styles.detleft}>Size</span>
+                    <span className={styles.detright}>
+                      : {getSizeFromClassList(mother.class_list)}
+                    </span>
+                  </div>
+                  <div>
+                    <span className={styles.detleft}>Color</span>
+                    <span className={styles.detright}>
+                      : {mother.acf.colour}
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className={styles.parentsInfo}>
+              <div className={styles.top}>
+                <img
+                  src={father.acf.picture.url || father.acf.picture}
+                  alt={father.acf.picture}
+                  loading="lazy"
+                />
+                <p className={styles.description}>{plainText}</p>
+              </div>
+              <div className={styles.bottom}>
+                <h2>{dog.acf.Stud.post_title}</h2>
+
+                <Button variant="primary">Contact Us</Button>
+                <div className={styles.details}>
+                  <div>
+                    <span className={styles.detleft}>Gender</span>
+                    <span className={styles.detright}>
+                      : {getGenderFromClassList(father.class_list)}
+                    </span>
+                  </div>
+                  <div>
+                    <span className={styles.detleft}>Age</span>
+                    <span className={styles.detright}>
+                      : {calculateAge(father.acf.age)}
+                    </span>
+                  </div>
+                  <div>
+                    <span className={styles.detleft}>Size</span>
+                    <span className={styles.detright}>
+                      : {getSizeFromClassList(father.class_list)}
+                    </span>
+                  </div>
+                  <div>
+                    <span className={styles.detleft}>Color</span>
+                    <span className={styles.detright}>
+                      : {father.acf.colour}
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
 
         <section className={styles.mainDetails}>
           <div className={styles.left}>

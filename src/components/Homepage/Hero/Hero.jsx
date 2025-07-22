@@ -3,7 +3,7 @@ import Button from "../../Button/Button";
 import Container from "../../Container/Container";
 import styles from "./index.module.scss";
 
-export default function Hero({isHomepage, pathName, title}) {
+export default function Hero({isHomepage, pathName}) {
   const childComponent = useMemo(() => {
     switch (pathName) {
       case "/":

@@ -43,6 +43,22 @@
     color: #858585;
   }
 }
+.parentsInfo{
+   display: flex;
+  background-color: #151515;
+  padding: 10px;
+  border-radius: $radius;
+  margin-bottom: 100px;
+  width:50%;
+  flex-direction: column;
+  img{
+        border-radius: 5px;
+    width: 100%;
+    height: 100%;
+    max-height: 525px;
+    object-fit: cover;
+  }
+}
 .mainDetails {
   display: flex;
   background-color: #151515;
@@ -187,9 +203,8 @@
 
   .parentsGrid {
     display: flex;
-    flex-wrap: wrap;
     justify-content: center;
-    gap: 30px;
+    gap:50px;
   }
 
   .parentCard {

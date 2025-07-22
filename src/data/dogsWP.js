@@ -10,12 +10,18 @@ export async function getAllDogs() {
     }
     return await response.json();
 }
-
+/**
+ * Fetch all parents of a dog by its ID
+ * @param {number} id - The ID of the dog
+ * @return {Promise<Array>} - A promise that resolves to an array of parent dogs
+ * @throws {Error} - Throws an error if the fetch fails
+ */
 export async function getAllParents(id) {
     const response = await fetch(`${API_BASE}/parent/${id}`);
     if (!response.ok) {
         throw new Error("Failed to fetch dogs");
     }
+    console.log(response, "reponse")
     return await response.json();
 }
 /**
