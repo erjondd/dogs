@@ -5,6 +5,14 @@ import styles from "./index.module.scss";
 
 export default function Hero({isHomepage, pathName}) {
   const childComponent = useMemo(() => {
+    if (pathName.startsWith("/dog/")) {
+      return (
+        <>
+          <h1>Meet Our Doberman</h1>
+          <p>Home / Our Dogs / Details</p>
+        </>
+      );
+    }
     switch (pathName) {
       case "/":
         return (
@@ -25,13 +33,18 @@ export default function Hero({isHomepage, pathName}) {
       case "/dogs":
         return (
           <>
-            <h1>Our Dogs</h1>
-            <p>
-              Explore our exceptional dogs, each a testament to quality and
-              care.
-            </p>
+            <h1>Discover our Doberman collection</h1>
+            <p>Home / Our Dogs</p>
           </>
         );
+      case "/about":
+        return (
+          <>
+            <h1>About Us</h1>
+            <p>Home / About us</p>
+          </>
+        );
+
       default:
         return null;
     }

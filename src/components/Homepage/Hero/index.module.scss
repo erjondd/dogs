@@ -10,7 +10,6 @@
   background-size: cover;
   background-position: center -170px;
   transition: all 0.3s linear;
-  
 }
 .pageOverlay {
   position: absolute;
@@ -78,10 +77,24 @@
   z-index: 2;
   text-align: left;
   max-width: 600px;
-  padding-bottom: 80px;
+  padding-top: 140px;
 }
 .buttons {
   display: flex;
   flex-direction: row;
   gap: 10px;
+}
+h1 {
+  font-family: Eirene;
+  font-weight: 700;
+  font-style: Bold;
+  font-size: 50px;
+  color: $text-color;
+  padding-bottom: 5px;
+}
+p {
+  font-family: DM Sans;
+  font-weight: 400;
+  font-size: 20px;
+  color: #858585;
 }

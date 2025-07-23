@@ -3,13 +3,13 @@ import styles from "./index.module.scss";
 import Container from "../../components/Container/Container";
 import CardList from "../../components/Homepage/CardList/CardList";
 
-function Dogs() {
+function Parents() {
   return (
     <section className={styles.dogs}>
       <Container>
         <section className={styles.hero}>
           {/* <div className={styles.overlay}></div> */}
-        
+
           <div className={styles.filters}>
             <div className={styles.row}>
               <div className={styles.fourty}>Race</div>
@@ -32,4 +32,4 @@ function Dogs() {
   );
 }
 
-export default Dogs;
+export default Parents;

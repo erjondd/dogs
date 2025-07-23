@@ -14,7 +14,7 @@ export default function Navbar() {
             <Link to="/dogs">For sale</Link>
           </li>
           <li>
-            <Link to="/dogs">Parents</Link>
+            <Link to="/parents">Parents</Link>
           </li>
           <li>
             <Link to="/adoption">Adoption</Link>

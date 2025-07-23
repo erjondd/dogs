@@ -1,26 +1,12 @@
 @import "../../index.scss";
 .dogs {
-  padding-top: 180px;
   padding-bottom: 100px;
-  h1 {
-    font-family: Eirene;
-    font-weight: 700;
-    font-style: Bold;
-    font-size: 50px;
-    color: $text-color;
-  }
-  p {
-    font-family: DM Sans;
-    font-weight: 400;
-    font-size: 20px;
-    color: #858585;
-  }
 }
 .filters {
   display: flex;
   flex-wrap: wrap;
   gap: 14px;
- margin-top:50px;
+  margin-top: 50px;
   .row {
     display: flex;
     flex-wrap: nowrap;

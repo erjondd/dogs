@@ -32,8 +32,6 @@ function About() {
   return (
     <section className={styles.about}>
       <Container>
-        <h1>About Us</h1>
-        <p>Home / About us</p>
         <div className={styles.mainContent}>
           <div className={styles.title}>Our Story</div>
           <div className={styles.text}>

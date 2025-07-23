@@ -8,11 +8,7 @@ export default function SingleDogSkeleton() {
   return (
     <Container>
       <section className={styles.singleDog}>
-        <div className={styles.hero}>
-          <div className={styles.overlay}></div>
-          <h1>Our Dogs</h1>
-          <Skeleton variant="text" width={350} height={30} />
-        </div>
+        <section className={styles.parentsSection}></section>
 
         <section className={styles.mainDetails}>
           <div className={styles.left}>

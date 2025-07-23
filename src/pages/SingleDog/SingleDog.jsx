@@ -51,6 +51,8 @@ export default function SingleDog() {
     return doc.body.textContent || "";
   }
   const plainText = stripHtml(dog.content.rendered);
+  const motherText = stripHtml(mother.content.rendered);
+  const fatherText = stripHtml(father.content.rendered);
 
   //calcyulate age
 
@@ -121,14 +123,6 @@ export default function SingleDog() {
   return (
     <section className={styles.singleDog}>
       <Container>
-        <section className={styles.hero}>
-          <div className={styles.overlay}></div>
-          <h1>Our Dogs</h1>
-          <p>
-            {dog.title.rendered} - {dog.title.rendered}
-          </p>
-        </section>
-
         <section className={styles.parentsSection}>
           <div className={styles.parentsGrid}>
             <div className={styles.parentsInfo}>
@@ -138,12 +132,10 @@ export default function SingleDog() {
                   alt={mother.acf.picture}
                   loading="lazy"
                 />
-                <p className={styles.description}>{plainText}</p>
+                <h2>{dog.acf.female.post_title}</h2>
+                <p className={styles.description}>{motherText}</p>
               </div>
               <div className={styles.bottom}>
-                <h2>{dog.acf.female.post_title}</h2>
-
-                <Button variant="primary">Contact Us</Button>
                 <div className={styles.details}>
                   <div>
                     <span className={styles.detleft}>Gender</span>
@@ -179,12 +171,10 @@ export default function SingleDog() {
                   alt={father.acf.picture}
                   loading="lazy"
                 />
-                <p className={styles.description}>{plainText}</p>
+                <h2>{dog.acf.Stud.post_title}</h2>
+                <p className={styles.description}>{fatherText}</p>
               </div>
               <div className={styles.bottom}>
-                <h2>{dog.acf.Stud.post_title}</h2>
-
-                <Button variant="primary">Contact Us</Button>
                 <div className={styles.details}>
                   <div>
                     <span className={styles.detleft}>Gender</span>
