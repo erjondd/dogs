@@ -2,16 +2,16 @@ import React from "react";
 import styles from "./index.module.scss";
 import Container from "../../components/Container/Container";
 import CardList from "../../components/Homepage/CardList/CardList";
-import {getAllParent} from "../../data/dogsWP";
+import {getAllAdoption} from "../../data/dogsWP";
 
-function Parents() {
+function Adoption() {
   return (
     <section className={styles.dogs}>
       <Container>
-        <CardList fetchData={getAllParent} />
+        <CardList fetchData={getAllAdoption} />
       </Container>
     </section>
   );
 }
 
-export default Parents;
+export default Adoption;

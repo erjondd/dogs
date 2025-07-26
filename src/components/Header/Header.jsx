@@ -19,7 +19,7 @@ export default function Header() {
             <Navbar />
           </nav>
           <div className={styles.logo}>
-            <Link to="/">
+            {/* <Link to="/">
               <img
                 src={LogoImage}
                 alt="example"
@@ -28,7 +28,7 @@ export default function Header() {
                 height="60"
                 className={styles.logoImage}
               />
-            </Link>
+            </Link> */}
           </div>
           <div className={styles.icons}>
             <SearchIcon />

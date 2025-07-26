@@ -44,6 +44,20 @@ export default function Hero({isHomepage, pathName}) {
             <p>Home / About us</p>
           </>
         );
+      case "/parents":
+        return (
+          <>
+            <h1>Discover our parents</h1>
+            <p>Home / Parents</p>
+          </>
+        );
+      case "/adoption":
+        return (
+          <>
+            <h1>Discover our adoptions</h1>
+            <p>Home / Adoption</p>
+          </>
+        );
 
       default:
         return null;

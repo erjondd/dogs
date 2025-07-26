@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./index.module.scss";
 import Container from "../../components/Container/Container";
 import CardList from "../../components/Homepage/CardList/CardList";
-
+import { getAllDogs } from "../../data/dogsWP";
 function Dogs() {
   return (
     <section className={styles.dogs}>
@@ -26,7 +26,7 @@ function Dogs() {
             </div>
           </div>
         </section>
-        <CardList />
+        <CardList fetchData={getAllDogs} />
       </Container>
     </section>
   );

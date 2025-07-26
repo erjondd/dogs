@@ -2,6 +2,7 @@ import styles from "./index.module.scss";
 import Container from "../../Container/Container";
 import Button from "../../Button/Button";
 import CardList from "../CardList/CardList";
+import {getAllDogs} from "../../../data/dogsWP";
 function DogPosts() {
   return (
     <section className={styles.dogPosts}>
@@ -15,7 +16,7 @@ function DogPosts() {
             <Button variant="third">View All</Button>
           </div>
         </div>
-        <CardList limit={8} />
+        <CardList limit={8} fetchData={getAllDogs} />
       </Container>
     </section>
   );
