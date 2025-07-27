@@ -44,7 +44,6 @@ export default function SingleDog() {
   }
   console.log(dog);
   console.log(mother, father, "adasd");
-
   // Dangerous HTML TEXT
   function stripHtml(html) {
     const doc = new DOMParser().parseFromString(html, "text/html");
