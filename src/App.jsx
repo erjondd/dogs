@@ -9,6 +9,7 @@ import Adoption from "./pages/Adoptions/Adoption";
 import Parents from "./pages/Parents/Parents";
 import SingleParent from "./pages/Parents/SingleParent";
 import SingleAdoption from "./pages/Adoptions/SingleAdoption";
+import Privacy from "./pages/Privacy/Privacy";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
           <Route path="/contact-us" element={<Contact />} />
           <Route path="/parent/:id" element={<SingleParent />} />
           <Route path="/adoption/:id" element={<SingleAdoption />} />
+          <Route path="/privacy" element={<Privacy />} />
           <Route path="/dog/:id" element={<SingleDog />} />
           <Route path="/about" element={<About />} />
         </Routes>

@@ -51,6 +51,12 @@ export default function Hero({isHomepage, pathName}) {
             <p>Home / Parents</p>
           </>
         );
+      case "/privacy":
+        return (
+          <>
+            <h1>Privacy & Policy</h1>
+          </>
+        );
       case "/adoption":
         return (
           <>

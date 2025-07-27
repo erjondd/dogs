@@ -25,77 +25,70 @@ function Contact() {
             <p>Available Monday to Saturday, 9 AM – 6 PM</p>
           </div>
 
-          {/* Contact Details */}
-          <div className={styles.title}>Contact Us</div>
-          <div className={styles.others}>
-            <div className={styles.left}>
-              {/* Email */}
-              <div className={styles.infoBlock}>
-                <h2>📧 Email</h2>
-                <p>
-                  Send us an email anytime at{" "}
-                  <strong>info@yourkennel.com</strong>
-                </p>
-                <p>We typically reply within 24 hours on business days.</p>
-              </div>
+          {/* Email */}
+          <div className={styles.text}>
+            <h2>📧 Email</h2>
+            <p>
+              Send us an email anytime at <strong>info@yourkennel.com</strong>
+            </p>
+            <p>We typically reply within 24 hours on business days.</p>
+          </div>
 
-              {/* Location */}
-              <div className={styles.infoBlock}>
-                <h2>📍 Location</h2>
-                <p>
-                  We operate between <strong>Largo, FL</strong> and{" "}
-                  <strong>Lakeland, FL</strong>
-                </p>
-                <p>
-                  Visits are by appointment only. Please contact us to schedule
-                  a time.
-                </p>
-              </div>
+          {/* Location */}
+          <div className={styles.text}>
+            <h2>📍 Location</h2>
+            <p>
+              We operate between <strong>Largo, FL</strong> and{" "}
+              <strong>Lakeland, FL</strong>
+            </p>
+            <p>
+              Visits are by appointment only. Please contact us to schedule a
+              time.
+            </p>
+          </div>
 
-              {/* Social Media */}
-              <div className={styles.infoBlock}>
-                <h2>💬 Social Media</h2>
-                <p>Follow and message us on:</p>
-                <ul>
-                  <li>
-                    🐾 Instagram:{" "}
-                    <a
-                      href="https://instagram.com/yourkennel"
-                      target="_blank"
-                      rel="noreferrer">
-                      @yourkennel
-                    </a>
-                  </li>
-                  <li>
-                    🐾 Facebook:{" "}
-                    <a
-                      href="https://facebook.com/yourkennel"
-                      target="_blank"
-                      rel="noreferrer">
-                      /yourkennel
-                    </a>
-                  </li>
-                  <li>
-                    🐾 TikTok:{" "}
-                    <a
-                      href="https://tiktok.com/@yourkennel"
-                      target="_blank"
-                      rel="noreferrer">
-                      @yourkennel
-                    </a>
-                  </li>
-                </ul>
-              </div>
+          {/* Social Media */}
+          <div className={styles.text}>
+            <h2>💬 Social Media</h2>
+            <p>Follow and message us on:</p>
+            <ul>
+              <li>
+                🐾 Instagram:{" "}
+                <a
+                  href="https://instagram.com/yourkennel"
+                  target="_blank"
+                  rel="noreferrer">
+                  @yourkennel
+                </a>
+              </li>
+              <li>
+                🐾 Facebook:{" "}
+                <a
+                  href="https://facebook.com/yourkennel"
+                  target="_blank"
+                  rel="noreferrer">
+                  /yourkennel
+                </a>
+              </li>
+              <li>
+                🐾 TikTok:{" "}
+                <a
+                  href="https://tiktok.com/@yourkennel"
+                  target="_blank"
+                  rel="noreferrer">
+                  @yourkennel
+                </a>
+              </li>
+            </ul>
+          </div>
 
-              {/* FAQ */}
-              <div className={styles.infoBlock}>
-                <h2>❓ Frequently Asked Questions</h2>
-                <p>
-                  Looking for quick answers? Check out our FAQ page to learn
-                  more about adoption, delivery, health guarantees, and more.
-                </p>
-              </div>
-            </div>
+          {/* FAQ */}
+          <div className={styles.text}>
+            <h2>❓ Frequently Asked Questions</h2>
+            <p>
+              Looking for quick answers? Check out our FAQ page to learn more
+              about adoption, delivery, health guarantees, and more.
+            </p>
           </div>
         </div>
       </Container>
