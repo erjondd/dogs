@@ -8,7 +8,7 @@ function Parents() {
   return (
     <section className={styles.dogs}>
       <Container>
-        <CardList fetchData={getAllParent} />
+        <CardList fetchData={getAllParent} type="parent" />
       </Container>
     </section>
   );

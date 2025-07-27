@@ -300,7 +300,6 @@ export default function SingleDog() {
                   gender={dog.gender}
                   age={calculateAgeDisplay(dog.acf.age)}
                   price={dog.acf.price}
-                  type="dog"
                 />
               ))}
             </div>

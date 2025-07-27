@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./index.module.scss";
 import {Link} from "react-router-dom";
 
-function Card({id, image, breed, gender, age, price, type = "dog"}) {
+function Card({id, image, breed, gender, age, price, type}) {
   return (
     <Link to={`/${type}/${id}`} className={styles.link}>
       <div className={styles.card}>

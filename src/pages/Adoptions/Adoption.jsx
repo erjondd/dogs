@@ -8,7 +8,7 @@ function Adoption() {
   return (
     <section className={styles.dogs}>
       <Container>
-        <CardList fetchData={getAllAdoption} />
+        <CardList fetchData={getAllAdoption} type="adoption" />
       </Container>
     </section>
   );
