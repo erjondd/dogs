@@ -4,18 +4,20 @@ import Container from "../../components/Container/Container";
 
 function Contact() {
   return (
-    <section className={styles.contactPage}>
+    <section className={styles.about}>
       <Container>
-        <div className={styles.header}>
-          <h1>Get in Touch</h1>
-          <p>
-            We’re here to help with any questions about our puppies, adoption
-            process, or delivery options.
-          </p>
-        </div>
+        <div className={styles.mainContent}>
+          {/* Section Title */}
+          <div className={styles.title}>Get in Touch</div>
+          <div className={styles.text}>
+            <p>
+              We’re here to help with any questions about our puppies, adoption
+              process, or delivery options.
+            </p>
+          </div>
 
-        <div className={styles.infoSection}>
-          <div className={styles.infoBlock}>
+          {/* Shipping Info */}
+          <div className={styles.text}>
             <h2>📞 Phone Support</h2>
             <p>
               Call or text us at <strong>+1 (904) 111-0123</strong>
@@ -23,60 +25,77 @@ function Contact() {
             <p>Available Monday to Saturday, 9 AM – 6 PM</p>
           </div>
 
-          <div className={styles.infoBlock}>
-            <h2>📧 Email</h2>
-            <p>
-              Send us an email anytime at <strong>info@yourkennel.com</strong>
-            </p>
-            <p>We typically reply within 24 hours on business days.</p>
-          </div>
+          {/* Contact Details */}
+          <div className={styles.title}>Contact Us</div>
+          <div className={styles.others}>
+            <div className={styles.left}>
+              {/* Email */}
+              <div className={styles.infoBlock}>
+                <h2>📧 Email</h2>
+                <p>
+                  Send us an email anytime at{" "}
+                  <strong>info@yourkennel.com</strong>
+                </p>
+                <p>We typically reply within 24 hours on business days.</p>
+              </div>
 
-          <div className={styles.infoBlock}>
-            <h2>📍 Location</h2>
-            <p>
-              We operate between <strong>Largo, FL</strong> and{" "}
-              <strong>Lakeland, FL</strong>
-            </p>
-            <p>
-              Visits are by appointment only. Please contact us to schedule a
-              time.
-            </p>
-          </div>
+              {/* Location */}
+              <div className={styles.infoBlock}>
+                <h2>📍 Location</h2>
+                <p>
+                  We operate between <strong>Largo, FL</strong> and{" "}
+                  <strong>Lakeland, FL</strong>
+                </p>
+                <p>
+                  Visits are by appointment only. Please contact us to schedule
+                  a time.
+                </p>
+              </div>
 
-          <div className={styles.infoBlock}>
-            <h2>💬 Social Media</h2>
-            <p>Follow and message us on:</p>
-            <ul>
-              <li>
-                🐾 Instagram:{" "}
-                <a href="https://instagram.com/yourkennel" target="_blank">
-                  {" "}
-                  @yourkennel
-                </a>
-              </li>
-              <li>
-                🐾 Facebook:{" "}
-                <a href="https://facebook.com/yourkennel" target="_blank">
-                  {" "}
-                  /yourkennel
-                </a>
-              </li>
-              <li>
-                🐾 TikTok:{" "}
-                <a href="https://tiktok.com/@yourkennel" target="_blank">
-                  {" "}
-                  @yourkennel
-                </a>
-              </li>
-            </ul>
-          </div>
+              {/* Social Media */}
+              <div className={styles.infoBlock}>
+                <h2>💬 Social Media</h2>
+                <p>Follow and message us on:</p>
+                <ul>
+                  <li>
+                    🐾 Instagram:{" "}
+                    <a
+                      href="https://instagram.com/yourkennel"
+                      target="_blank"
+                      rel="noreferrer">
+                      @yourkennel
+                    </a>
+                  </li>
+                  <li>
+                    🐾 Facebook:{" "}
+                    <a
+                      href="https://facebook.com/yourkennel"
+                      target="_blank"
+                      rel="noreferrer">
+                      /yourkennel
+                    </a>
+                  </li>
+                  <li>
+                    🐾 TikTok:{" "}
+                    <a
+                      href="https://tiktok.com/@yourkennel"
+                      target="_blank"
+                      rel="noreferrer">
+                      @yourkennel
+                    </a>
+                  </li>
+                </ul>
+              </div>
 
-          <div className={styles.infoBlock}>
-            <h2>❓ Frequently Asked Questions</h2>
-            <p>
-              Looking for quick answers? Check out our FAQ page to learn more
-              about adoption, delivery, health guarantees, and more.
-            </p>
+              {/* FAQ */}
+              <div className={styles.infoBlock}>
+                <h2>❓ Frequently Asked Questions</h2>
+                <p>
+                  Looking for quick answers? Check out our FAQ page to learn
+                  more about adoption, delivery, health guarantees, and more.
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </Container>

@@ -58,7 +58,13 @@ export default function Hero({isHomepage, pathName}) {
             <p>Home / Adoption</p>
           </>
         );
-
+      case "/contact-us":
+        return (
+          <>
+            <h1>Contact for puppies</h1>
+            <p>Home / Contact</p>
+          </>
+        );
       default:
         return null;
     }
