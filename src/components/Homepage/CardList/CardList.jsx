@@ -3,7 +3,7 @@ import Card from "../Card/Card";
 import styles from "./index.module.scss";
 import SkeletonCard from "../../SkeletonCard/SkeletonCard";
 
-function CardList({fetchData, isParentList = false}) {
+function CardList({fetchData}) {
   const [items, setItems] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -58,8 +58,8 @@ function CardList({fetchData, isParentList = false}) {
               breed={dog.title.rendered}
               gender={dog.gender}
               age={calculateAgeDisplay(dog.acf.age)}
-            price={dog.acf.price ? dog.acf.price : undefined}
-
+              price={dog.acf.price ? dog.acf.price : undefined}
+              type="adoption"
             />
           ))}
     </div>

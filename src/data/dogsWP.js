@@ -40,6 +40,14 @@ export async function getAllParents(id) {
     console.log(response, "reponse")
     return await response.json();
 }
+export async function getAllAdoptions(id) {
+    const response = await fetch(`${API_BASE}/adoption/${id}`);
+    if (!response.ok) {
+        throw new Error("Failed to fetch dogs");
+    }
+    console.log(response, "reponse")
+    return await response.json();
+}
 /**
  * Fetch a dog by ID
  */

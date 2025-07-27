@@ -7,7 +7,8 @@ import Dogs from "./pages/Dogs/Dogs";
 import SingleDog from "./pages/SingleDog/SingleDog";
 import Adoption from "./pages/Adoptions/Adoption";
 import Parents from "./pages/Parents/Parents";
-
+import SingleParent from "./pages/Parents/SingleParent";
+import SingleAdoption from "./pages/Adoptions/SingleAdoption";
 
 function App() {
   return (
@@ -19,7 +20,8 @@ function App() {
           <Route path="/parents" element={<Parents />} />
           <Route path="/adoption" element={<Adoption />} />
           <Route path="/contact-us" element={<Contact />} />
-
+          <Route path="/parent/:id" element={<SingleParent />} />
+          <Route path="/adoption/:id" element={<SingleAdoption />} />
           <Route path="/dog/:id" element={<SingleDog />} />
           <Route path="/about" element={<About />} />
         </Routes>

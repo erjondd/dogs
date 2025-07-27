@@ -43,7 +43,7 @@ export default function SingleDog() {
     return <p>Dog not found</p>;
   }
   console.log(dog);
-  console.log(mother, father);
+  console.log(mother, father, "adasd");
 
   // Dangerous HTML TEXT
   function stripHtml(html) {
@@ -300,6 +300,7 @@ export default function SingleDog() {
                   gender={dog.gender}
                   age={calculateAgeDisplay(dog.acf.age)}
                   price={dog.acf.price}
+                  type="dog"
                 />
               ))}
             </div>
