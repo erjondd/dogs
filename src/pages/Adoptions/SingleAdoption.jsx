@@ -5,17 +5,20 @@ import Container from "../../components/Container/Container";
 import Button from "../../components/Button/Button";
 import GalleryLightbox from "../../components/GalleryLightbox/GalleryLightbox";
 import Card from "../../components/Homepage/Card/Card";
-import {getAllAdoptions} from "../../data/dogsWP";
+import {getAllAdoption, getAllAdoptions} from "../../data/dogsWP";
 import SingleDogSkeleton from "../SingleDog/SingleDogSkeleton";
 export default function SingleAdoption() {
   const {id} = useParams();
   const [parent, setParent] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [otherDogs, setOtherDogs] = useState([]);
 
   useEffect(() => {
     async function fetchData() {
       try {
         const data = await getAllAdoptions(id);
+        const allDogs = await getAllAdoption();
+        setOtherDogs(allDogs.filter((d) => d.id !== parseInt(id)).slice(0, 4));
         setParent(data);
       } catch (error) {
         console.error("Error fetching parent dog:", error);
@@ -161,21 +164,21 @@ export default function SingleAdoption() {
         </section>
 
         <section className={styles.seeMore}>
-          <h2>See More Puppies</h2>
+          <h2>See More Adoption Puppies</h2>
           <div className={styles.moreGrid}>
-            <div className={styles.parentList}>
-              {/* {parent.slice(0, 4).map((parent) => (
+            <div className={styles.dogList}>
+              {otherDogs.slice(0, 4).map((dog) => (
                 <Card
-                  key={parent.id}
-                  id={parent.id}
-                  image={parent.acf.picture}
-                  breed={parent.title.rendered}
-                  gender={parent.gender}
-                  age={calculateAgeDisplay(parent.acf.age)}
-                  price={parent.acf.price}
-                  type="parent"
+                  key={dog.id}
+                  id={dog.id}
+                  image={dog.acf.picture}
+                  breed={dog.title.rendered}
+                  gender={getGenderFromClassList(dog.class_list)}
+                  age={calculateAgeDisplay(dog.acf.age)}
+                  price={dog.acf.price}
+                  type="adoption"
                 />
-              ))} */}
+              ))}
             </div>
           </div>
         </section>

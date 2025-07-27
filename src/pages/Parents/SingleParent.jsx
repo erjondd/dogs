@@ -5,17 +5,20 @@ import Container from "../../components/Container/Container";
 import Button from "../../components/Button/Button";
 import GalleryLightbox from "../../components/GalleryLightbox/GalleryLightbox";
 import Card from "../../components/Homepage/Card/Card";
-import {getAllParents} from "../../data/dogsWP";
+import {getAllDogs, getAllParents} from "../../data/dogsWP";
 import SingleDogSkeleton from "../SingleDog/SingleDogSkeleton";
 export default function SingleParent() {
   const {id} = useParams();
   const [parent, setParent] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [otherDogs, setOtherDogs] = useState([]);
 
   useEffect(() => {
     async function fetchData() {
       try {
         const data = await getAllParents(id);
+        const allDogs = await getAllDogs(id);
+        setOtherDogs(allDogs.filter((d) => d.id !== parseInt(id)).slice(0, 4));
         setParent(data);
       } catch (error) {
         console.error("Error fetching parent dog:", error);
@@ -26,7 +29,7 @@ export default function SingleParent() {
 
     fetchData();
   }, [id]);
-
+  console.log(otherDogs);
   if (loading) return <SingleDogSkeleton />;
   if (!parent) return <p>Parent not found</p>;
 
@@ -163,8 +166,8 @@ export default function SingleParent() {
         <section className={styles.seeMore}>
           <h2>See More Puppies</h2>
           <div className={styles.moreGrid}>
-            <div className={styles.parentList}>
-              {/* {parent.slice(0, 4).map((parent) => (
+            <div className={styles.dogList}>
+              {otherDogs.slice(0, 4).map((parent) => (
                 <Card
                   key={parent.id}
                   id={parent.id}
@@ -175,7 +178,7 @@ export default function SingleParent() {
                   price={parent.acf.price}
                   type="parent"
                 />
-              ))} */}
+              ))}
             </div>
           </div>
         </section>
