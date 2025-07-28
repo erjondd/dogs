@@ -13,7 +13,9 @@ function DogPosts() {
             <h2 className={styles.title}>Take a look at some of our pets</h2>
           </div>
           <div className={styles.buttons}>
-            <Button variant="third">View All</Button>
+            <a href="/dogs">
+              <Button variant="primary">View All</Button>
+            </a>
           </div>
         </div>
         <CardList limit={8} fetchData={getAllDogs} />
