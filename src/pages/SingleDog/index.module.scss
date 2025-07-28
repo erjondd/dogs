@@ -61,18 +61,18 @@
   h2 {
     margin: 0;
     text-align: left;
-    margin-left:4px;
+    margin-left: 4px;
     margin-bottom: 20px;
-    margin-top:11px;
-    color:#858585;
+    margin-top: 11px;
+    color: #858585;
   }
   p {
     margin: 0;
-    margin-bottom:15px;
+    margin-bottom: 15px;
     text-align: left;
   }
-  .details{
-    margin-bottom:15px;
+  .details {
+    margin-bottom: 15px;
   }
 }
 .mainDetails {
@@ -167,6 +167,7 @@
     font-size: 14px;
   }
 }
+
 .gallery {
   display: flex;
   gap: 50px;
@@ -181,6 +182,7 @@
     object-fit: cover;
   }
 }
+
 .seeMore {
   padding-top: 100px;
   padding-bottom: 100px;
@@ -193,6 +195,7 @@
     padding-bottom: 30px;
   }
 }
+
 .dogList {
   gap: 20px;
   display: flex;
