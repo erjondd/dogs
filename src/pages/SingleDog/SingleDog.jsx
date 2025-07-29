@@ -1,14 +1,14 @@
-import React, {useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./index.module.scss";
-import {useParams} from "react-router-dom";
+import { useParams } from "react-router-dom";
 import Container from "../../components/Container/Container";
 import Button from "../../components/Button/Button";
 import GalleryLightbox from "../../components/GalleryLightbox/GalleryLightbox";
 import Card from "../../components/Homepage/Card/Card";
-import {getDogById, getAllDogs, getAllParents} from "../../data/dogsWP";
+import { getDogById, getAllDogs, getAllParents } from "../../data/dogsWP";
 import SingleDogSkeleton from "./SingleDogSkeleton";
 export default function SingleDog() {
-  const {id} = useParams();
+  const { id } = useParams();
   const [dog, setDog] = useState(null);
   const [otherDogs, setOtherDogs] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -131,7 +131,10 @@ export default function SingleDog() {
                   alt={mother.acf.picture}
                   loading="lazy"
                 />
-                <h2>{dog.acf.female.post_title}</h2>
+                <h2>
+                  <span>Female:</span>
+                  <span>{dog.acf.female.post_title}</span>
+                </h2>
                 <p className={styles.description}>{motherText}</p>
               </div>
               <div className={styles.bottom}>
@@ -170,7 +173,10 @@ export default function SingleDog() {
                   alt={father.acf.picture}
                   loading="lazy"
                 />
-                <h2>{dog.acf.Stud.post_title}</h2>
+                <h2>
+                  <span>Studs:</span>
+                  <span>{dog.acf.Stud.post_title}</span>
+                </h2>
                 <p className={styles.description}>{fatherText}</p>
               </div>
               <div className={styles.bottom}>

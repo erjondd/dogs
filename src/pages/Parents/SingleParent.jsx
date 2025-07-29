@@ -1,14 +1,14 @@
-import React, {useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 import styles from "../SingleDog/index.module.scss";
-import {useParams} from "react-router-dom";
+import { useParams } from "react-router-dom";
 import Container from "../../components/Container/Container";
 import Button from "../../components/Button/Button";
 import GalleryLightbox from "../../components/GalleryLightbox/GalleryLightbox";
 import Card from "../../components/Homepage/Card/Card";
-import {getAllDogs, getAllParents} from "../../data/dogsWP";
+import { getAllDogs, getAllParents } from "../../data/dogsWP";
 import SingleDogSkeleton from "../SingleDog/SingleDogSkeleton";
 export default function SingleParent() {
-  const {id} = useParams();
+  const { id } = useParams();
   const [parent, setParent] = useState(null);
   const [loading, setLoading] = useState(true);
   const [otherDogs, setOtherDogs] = useState([]);

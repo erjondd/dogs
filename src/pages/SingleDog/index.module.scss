@@ -59,20 +59,23 @@
     object-fit: cover;
   }
   h2 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     margin: 0;
     text-align: left;
-    margin-left:4px;
+    margin-left: 4px;
     margin-bottom: 20px;
-    margin-top:11px;
-    color:#858585;
+    margin-top: 11px;
+    color: #858585;
   }
   p {
     margin: 0;
-    margin-bottom:15px;
+    margin-bottom: 15px;
     text-align: left;
   }
-  .details{
-    margin-bottom:15px;
+  .details {
+    margin-bottom: 15px;
   }
 }
 .mainDetails {
