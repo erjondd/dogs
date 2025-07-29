@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import styles from "./index.module.scss";
 import Container from "../../components/Container/Container";
 function About() {
@@ -9,7 +9,7 @@ function About() {
   });
 
   const handleChange = (e) => {
-    const {name, value} = e.target;
+    const { name, value } = e.target;
     setFormData((prev) => ({
       ...prev,
       [name]: value,
@@ -84,7 +84,7 @@ function About() {
               You can also reach out via our social media or use the contact
               form below.
             </div>
-            <div className={styles.contactForm}>
+            {/* <div className={styles.contactForm}>
               <form onSubmit={handleSubmit}>
                 <div>
                   <input
@@ -117,7 +117,7 @@ function About() {
                 </div>
                 <button type="submit">Send Message</button>
               </form>
-            </div>
+            </div> */}
           </div>
         </div>
       </Container>
