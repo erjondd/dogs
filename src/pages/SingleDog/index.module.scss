@@ -90,6 +90,7 @@
   padding: 20px;
   border-radius: $radius;
   margin-bottom: 100px;
+  margin-top:-30px;
   @media (max-width: 600px) {
     flex-direction: column-reverse;
   }
@@ -232,12 +233,12 @@
       width: calc(33% - 15px);
     }
     @media (max-width: 600px) {
-      width: calc(50% - 15px);
+      width: 100%;
     }
   }
 }
 .parentsSection {
-  margin-top: 60px;
+  margin-top: -30px;
   text-align: center;
 
   .parentsGrid {

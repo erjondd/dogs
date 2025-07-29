@@ -26,6 +26,10 @@
 .logo {
   height: 100%;
   z-index: 1;
+  @media (max-width: 768px) {
+    padding-left: 15px;
+    padding-top: 15px;
+  }
   a {
     height: 100%;
     align-items: center;
