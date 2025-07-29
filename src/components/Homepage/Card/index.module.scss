@@ -14,14 +14,14 @@
     border-radius: $radius;
     max-height: 260px;
     object-fit: cover;
-    @media (max-width: 1024px) {
-      max-width: 209px;
-      max-height: 209px;
-    }
-      @media (max-width: 600px) {
-      max-width: 153px;
-      max-height: 153px;
-    }
+    // @media (max-width: 1024px) {
+    //   max-width: 209px;
+    //   max-height: 209px;
+    // }
+    // @media (max-width: 600px) {
+    //   max-width: 153px;
+    //   max-height: 153px;
+    // }
   }
 }
 .content {
