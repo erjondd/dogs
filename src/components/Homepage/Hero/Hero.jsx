@@ -23,10 +23,14 @@ export default function Hero({isHomepage, pathName}) {
               unmatched lineage.
             </p>
             <div className={styles.buttons}>
-              <Button variant="primary">View Available Pups</Button>
-              <Button variant="secondary" withArrow>
-                See Our Bloodline
-              </Button>
+              <a href="/dogs">
+                <Button variant="primary">View Available Pups</Button>
+              </a>
+              <a href="/parents">
+                <Button variant="secondary" withArrow>
+                  See Our Bloodline
+                </Button>
+              </a>
             </div>
           </>
         );

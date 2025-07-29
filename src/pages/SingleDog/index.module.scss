@@ -51,6 +51,9 @@
   margin-bottom: 100px;
   width: 50%;
   flex-direction: column;
+  @media (max-width: 768px) {
+    width: 100%;
+  }
   img {
     border-radius: 5px;
     width: 100%;
@@ -73,6 +76,9 @@
     margin: 0;
     margin-bottom: 15px;
     text-align: left;
+    @media (max-width: 600px) {
+      margin-bottom: 50px;
+    }
   }
   .details {
     margin-bottom: 15px;
@@ -84,8 +90,16 @@
   padding: 20px;
   border-radius: $radius;
   margin-bottom: 100px;
+  @media (max-width: 600px) {
+    flex-direction: column-reverse;
+  }
   .left {
     width: 45%;
+    @media (max-width: 600px) {
+      width: 100%;
+      padding-bottom: 50px;
+    }
+
     img {
       width: 100%;
       height: auto;
@@ -104,6 +118,11 @@
   .right {
     width: 55%;
     padding-left: 20px;
+    @media (max-width: 600px) {
+      width: 100%;
+      padding-left: 0px;
+      padding-bottom: 50px;
+    }
     h2 {
       font-family: Eirene;
       font-weight: 700;
@@ -170,6 +189,7 @@
     font-size: 14px;
   }
 }
+
 .gallery {
   display: flex;
   gap: 50px;
@@ -182,8 +202,12 @@
     object-fit: cover;
 
     object-fit: cover;
+    @media (max-width: 768px) {
+    width:100%;
+    }
   }
 }
+
 .seeMore {
   padding-top: 100px;
   padding-bottom: 100px;
@@ -196,6 +220,7 @@
     padding-bottom: 30px;
   }
 }
+
 .dogList {
   gap: 20px;
   display: flex;
@@ -219,6 +244,10 @@
     display: flex;
     justify-content: center;
     gap: 50px;
+    @media (max-width: 768px) {
+      flex-direction: column;
+      align-items: center;
+    }
   }
 
   .parentCard {
