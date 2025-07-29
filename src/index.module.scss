@@ -10,4 +10,28 @@
   align-items: center;
   height: 100vh;
   z-index: 1000;
+  svg {
+    width: 150px;
+    path {
+      animation: colorChange 3s linear infinite;
+    }
+  }
+}
+
+@keyframes colorChange {
+  0% {
+    fill: #0d0d0d;
+  }
+  25% {
+    fill: #3b3b3b;
+  }
+  50% {
+    fill: #1b1a1a;
+  }
+  75% {
+    fill: #280101;
+  }
+  100% {
+    fill: #490101;
+  }
 }

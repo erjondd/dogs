@@ -12,7 +12,7 @@ import SingleAdoption from "./pages/Adoptions/SingleAdoption";
 import Privacy from "./pages/Privacy/Privacy";
 import styles from "./index.module.scss";
 import { useState, useEffect } from "react";
-import Logo from "./assets/Logo";
+import Logo2 from "./assets/Logo2";
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -20,7 +20,7 @@ function App() {
   useEffect(() => {
     setTimeout(() => {
       setIsLoading(false);
-    }, 10000);
+    }, 3000);
   }, []);
 
   return (
@@ -28,7 +28,7 @@ function App() {
       {isLoading && (
         <div className={styles.loadingContainer}>
           <div className={styles.loadingSpinner}>
-            <Logo />
+            <Logo2 />
           </div>
         </div>
       )}
