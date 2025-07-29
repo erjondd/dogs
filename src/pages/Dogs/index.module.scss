@@ -7,9 +7,9 @@
   flex-wrap: wrap;
   gap: 14px;
   margin-top: 50px;
-  @media(max-width: 768px) {
+  @media (max-width: 768px) {
     flex-direction: column;
-    display:none;
+    display: none;
   }
   .row {
     display: flex;
@@ -27,10 +27,51 @@
   }
 
   .twenty {
-    width: 20%;
+    width: auto;
     padding: 19px;
     background: #151515;
     border-radius: 5px;
     text-align: center;
+    display: flex;
+    align-items: center;
+    gap: 20px;
   }
+}
+
+.colorOption:hover,
+.colorOption:focus {
+  background: #e0e0e0;
+  border-color: #aaa;
+}
+
+.selected {
+  background: #0078d4;
+  color: #fff;
+  border-color: #0078d4;
+}
+
+.sizeOptions {
+  display: flex;
+  gap: 8px;
+  margin-top: 8px;
+  flex-wrap: wrap;
+}
+
+.sizeOption {
+  padding: 6px 16px;
+  background: #f2f2f2;
+  border-radius: 16px;
+  cursor: pointer;
+  border: 1px solid #ddd;
+  transition: background 0.2s, color 0.2s, border 0.2s;
+  color: #333;
+  outline: none;
+  user-select: none;
+}
+
+.sizeOption:hover,
+.sizeOption:focus {
+  background: $primary-color;
+  color:white;
+ 
 }

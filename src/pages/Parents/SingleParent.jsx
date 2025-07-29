@@ -29,7 +29,6 @@ export default function SingleParent() {
 
     fetchData();
   }, [id]);
-  console.log(otherDogs);
   if (loading) return <SingleDogSkeleton />;
   if (!parent) return <p>Parent not found</p>;
 

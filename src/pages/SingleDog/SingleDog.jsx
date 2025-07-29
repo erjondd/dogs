@@ -42,8 +42,6 @@ export default function SingleDog() {
   if (!dog) {
     return <p>Dog not found</p>;
   }
-  console.log(dog);
-  console.log(mother, father, "adasd");
   // Dangerous HTML TEXT
   function stripHtml(html) {
     const doc = new DOMParser().parseFromString(html, "text/html");
@@ -90,7 +88,6 @@ export default function SingleDog() {
     if (classList.includes("category-adult")) return "Adult";
     return "Unknown";
   }
-
   //calc years only for age
   function calculateAgeDisplay(birthDateStr) {
     if (!birthDateStr) return "Unknown";
@@ -119,6 +116,7 @@ export default function SingleDog() {
       return `${years} year${years !== 1 ? "s" : ""}`;
     }
   }
+  console.log(mother.class_list,"mother");
   return (
     <section className={styles.singleDog}>
       <Container>
