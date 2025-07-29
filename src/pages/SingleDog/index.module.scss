@@ -84,8 +84,16 @@
   padding: 20px;
   border-radius: $radius;
   margin-bottom: 100px;
+  @media (max-width: 600px) {
+    flex-direction: column-reverse;
+  }
   .left {
     width: 45%;
+    @media (max-width: 600px) {
+      width: 100%;
+      padding-bottom: 50px;
+    }
+
     img {
       width: 100%;
       height: auto;
@@ -104,6 +112,10 @@
   .right {
     width: 55%;
     padding-left: 20px;
+    @media (max-width: 600px) {
+      width: 100%;
+      padding-left: 0px;
+    }
     h2 {
       font-family: Eirene;
       font-weight: 700;
