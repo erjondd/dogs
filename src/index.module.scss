@@ -13,25 +13,26 @@
   svg {
     width: 150px;
     path {
-      animation: colorChange 3s linear infinite;
+      fill: #000000;
+      animation: colorChange 5s linear infinite;
     }
   }
 }
 
 @keyframes colorChange {
   0% {
-    fill: #0d0d0d;
+    fill: #000000;
   }
   25% {
-    fill: #3b3b3b;
+    fill: #0d0d0d;
   }
   50% {
-    fill: #1b1a1a;
+    fill: #232323;
   }
   75% {
-    fill: #280101;
+    fill: #1c0101;
   }
   100% {
-    fill: #490101;
+    fill: #560202;
   }
 }

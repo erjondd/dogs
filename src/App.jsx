@@ -18,9 +18,12 @@ function App() {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
+    const body = document.body;
+    body.style.overflow = "hidden";
     setTimeout(() => {
+      body.style.overflow = "auto";
       setIsLoading(false);
-    }, 3000);
+    }, 5000);
   }, []);
 
   return (
