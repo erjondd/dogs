@@ -14,6 +14,9 @@
 }
 .logoImage {
   object-fit: cover;
+  max-height: 70px;
+  fill: white;
+  width: 70px;
 }
 .icons {
   svg {
@@ -22,11 +25,6 @@
 }
 .logo {
   height: 100%;
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  top: 50%;
-  transform: translate(-50%, -50%);
   z-index: 1;
   a {
     height: 100%;

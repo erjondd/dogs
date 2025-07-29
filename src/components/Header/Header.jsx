@@ -1,7 +1,8 @@
 import {Link} from "react-router-dom";
 import styles from "./index.module.scss";
 import Container from "../Container/Container";
-import LogoImage from "../../../public/images/logo.png";
+import LogoImage from "../../../public/images/doggy.svg";
+import Logo from "../../assets/Logo2";
 import Navbar from "../Navbar/Navbar";
 import {useState} from "react";
 import {FiMenu, FiX} from "react-icons/fi";
@@ -12,24 +13,18 @@ export default function Header() {
     <Container>
       <header className={styles.header}>
         <div className={styles.nav}>
+          <div className={styles.logo}>
+            <Link to="/">
+              <Logo className={styles.logoImage} />
+            </Link>
+          </div>
           <nav
             className={`${styles.links} ${menuOpen ? styles.active : ""}`}
             onClick={() => setMenuOpen(false)} // close on click
           >
             <Navbar />
           </nav>
-          <div className={styles.logo}>
-            {/* <Link to="/">
-              <img
-                src={LogoImage}
-                alt="example"
-                loading="lazy"
-                width="160"
-                height="60"
-                className={styles.logoImage}
-              />
-            </Link> */}
-          </div>
+
           <div className={styles.icons}>
             <SearchIcon />
           </div>
