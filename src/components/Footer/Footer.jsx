@@ -1,7 +1,8 @@
 import React from "react";
 import styles from "./index.module.scss";
-import LogoImage from "../../../public/images/logo.png";
 import Logo2 from "../../assets/Logo";
+import Logo1 from "../../assets/Logo2";
+
 import Facebook from "../../assets/Facebook";
 import Instagram from "../../assets/Instagram";
 import Twitter from "../../assets/Twitter";
@@ -16,14 +17,7 @@ export default function Footer() {
           <div className={styles.firstColumn}>
             <div className={styles.logo}>
               <Link to="/">
-                <img
-                  src={LogoImage}
-                  alt="example"
-                  loading="lazy"
-                  width="160"
-                  height="60"
-                  className={styles.logoImage}
-                />
+                <Logo1 />
               </Link>
             </div>
             <div className={styles.description}>
