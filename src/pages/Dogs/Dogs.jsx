@@ -1,15 +1,35 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import styles from "./index.module.scss";
 import Container from "../../components/Container/Container";
 import CardList from "../../components/Homepage/CardList/CardList";
-import { getAllDogs } from "../../data/dogsWP";
+import {getAllDogs} from "../../data/dogsWP";
 function Dogs() {
+  const [dogs, setDogs] = useState([]);
+  const [filters, setFilters] = useState({
+    race: "",
+    age: "",
+    size: "",
+    color: "",
+    gender: "",
+    location: "",
+    cert: "",
+    vaccinated: "",
+    priceRange: "",
+  });
+  useEffect(() => {
+    async function fetchDogs() {
+      const data = await getAllDogs();
+      setDogs(data);
+    }
+    fetchDogs();
+  }, []);
+  console.log(dogs, "filters");
   return (
     <section className={styles.dogs}>
       <Container>
         <section className={styles.hero}>
           {/* <div className={styles.overlay}></div> */}
-        
+
           <div className={styles.filters}>
             <div className={styles.row}>
               <div className={styles.fourty}>Race</div>
