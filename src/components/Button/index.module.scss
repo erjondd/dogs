@@ -11,6 +11,9 @@
   cursor: pointer;
   transition: 0.3s;
   color: $text-color;
+  @media(max-width:600px){
+    width: 100%;
+  }
   svg {
     padding-left: 10px;
 
