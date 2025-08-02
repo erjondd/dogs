@@ -43,7 +43,7 @@ function CardList({fetchData, type = "dog"}) {
       return `${years} year${years !== 1 ? "s" : ""}`;
     }
   }
-
+  console.log(items);
   return (
     <div className={styles.dogList}>
       {loading
@@ -53,11 +53,11 @@ function CardList({fetchData, type = "dog"}) {
         : items.map((dog) => (
             <Card
               key={dog.id}
-              id={dog.id}
-              image={dog.acf.picture}
-              breed={dog.title.rendered}
-              gender={dog.gender}
-              age={calculateAgeDisplay(dog.acf.age)}
+              id={dog.id ? dog.id : ""}
+              image={dog.acf.picture ? dog.acf.picture : ""}
+              breed={dog.title.rendered ? dog.title.rendered : "Unknown"}
+              gender={dog.gender ? dog.gender : "Unknown"}
+              age={calculateAgeDisplay(dog.acf.age ? dog.acf.age : "")}
               price={dog.acf.price ? dog.acf.price : undefined}
               type={type}
             />

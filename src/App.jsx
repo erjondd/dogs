@@ -14,6 +14,7 @@ import styles from "./index.module.scss";
 import {useState, useEffect} from "react";
 import Logo2 from "./assets/Logo2";
 import Studs from "./pages/Parents/Studs";
+import Females from "./pages/Parents/Females";
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -45,6 +46,7 @@ function App() {
           <Route path="/contact-us" element={<Contact />} />
           <Route path="/parent/:id" element={<SingleParent />} />
           <Route path="/parent/studs" element={<Studs />} />
+          <Route path="/parent/females" element={<Females />} />
           <Route path="/adoption/:id" element={<SingleAdoption />} />
           <Route path="/privacy" element={<Privacy />} />
           <Route path="/dog/:id" element={<SingleDog />} />
