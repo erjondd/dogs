@@ -7,16 +7,18 @@ export default function GalleryLightbox({images}) {
   const [open, setOpen] = useState(false);
   const [index, setIndex] = useState(0);
 
+  // Filter only valid image URLs (strings)
+  const validImages = images?.filter((img) => typeof img === "string" && img.trim() !== "");
+
   const handleImageClick = (i) => {
     setIndex(i);
     setOpen(true);
   };
 
-  if (!images || images.length === 0) return null;
-
+  if (!validImages || validImages.length === 0) return null;
   return (
     <div style={{display: "flex", gap: "50px", flexWrap: "wrap"}}>
-      {images.map((img, i) => (
+      {validImages.map((img, i) => (
         <img
           key={i}
           src={img}
@@ -25,12 +27,11 @@ export default function GalleryLightbox({images}) {
           onClick={() => handleImageClick(i)}
         />
       ))}
-
       <Lightbox
         open={open}
         close={() => setOpen(false)}
         index={index}
-        slides={images.map((img) => ({src: img}))}
+        slides={validImages.map((img) => ({src: img}))}
       />
     </div>
   );

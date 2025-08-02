@@ -68,6 +68,13 @@ export default function Hero({isHomepage, pathName}) {
             <p>Home / Adoption</p>
           </>
         );
+           case "/parent/studs":
+        return (
+          <>
+            <h1>Discover our studs</h1>
+            <p>Home / Parents / Studs</p>
+          </>
+        );
       case "/contact-us":
         return (
           <>

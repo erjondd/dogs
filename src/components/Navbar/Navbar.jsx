@@ -13,11 +13,19 @@ export default function Navbar() {
           <li>
             <Link to="/dogs">For sale</Link>
           </li>
-          <li>
+          <li className={styles.hasSubmenu}>
             <Link to="/parents">Parents</Link>
+            <ul className={styles.submenu}>
+              <li>
+                <Link to="/parent/studs">Studs</Link>
+              </li>
+              <li>
+                <Link to="/parent/females">Females</Link>
+              </li>
+            </ul>
           </li>
           <li>
-            <Link to="/adoption">Adoption</Link>
+            <Link to="/adoption">For adoption</Link>
           </li>
           <li>
             <Link to="/about">About Us</Link>

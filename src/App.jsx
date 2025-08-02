@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
 import Home from "./pages/Home/Home";
 import About from "./pages/About-us/About";
 import Contact from "./pages/Contact-us/Contact";
@@ -11,8 +11,9 @@ import SingleParent from "./pages/Parents/SingleParent";
 import SingleAdoption from "./pages/Adoptions/SingleAdoption";
 import Privacy from "./pages/Privacy/Privacy";
 import styles from "./index.module.scss";
-import { useState, useEffect } from "react";
+import {useState, useEffect} from "react";
 import Logo2 from "./assets/Logo2";
+import Studs from "./pages/Parents/Studs";
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -35,7 +36,7 @@ function App() {
           </div>
         </div>
       )}
-      <Layout style={{ width: "100%" }}>
+      <Layout style={{width: "100%"}}>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/dogs" element={<Dogs />} />
@@ -43,6 +44,7 @@ function App() {
           <Route path="/adoption" element={<Adoption />} />
           <Route path="/contact-us" element={<Contact />} />
           <Route path="/parent/:id" element={<SingleParent />} />
+          <Route path="/parent/studs" element={<Studs />} />
           <Route path="/adoption/:id" element={<SingleAdoption />} />
           <Route path="/privacy" element={<Privacy />} />
           <Route path="/dog/:id" element={<SingleDog />} />
