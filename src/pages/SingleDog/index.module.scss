@@ -90,7 +90,7 @@
   padding: 20px;
   border-radius: $radius;
   margin-bottom: 100px;
-  margin-top:-30px;
+  margin-top: -30px;
   @media (max-width: 600px) {
     flex-direction: column-reverse;
   }
@@ -204,7 +204,7 @@
 
     object-fit: cover;
     @media (max-width: 768px) {
-    width:100%;
+      width: 100%;
     }
   }
 }
@@ -239,15 +239,14 @@
 }
 .parentsSection {
   margin-top: -30px;
-  text-align: center;
-
+  text-align: left;
   .parentsGrid {
     display: flex;
     justify-content: center;
     gap: 50px;
     @media (max-width: 768px) {
       flex-direction: column;
-      align-items: center;
+      align-items: left;
     }
   }
 

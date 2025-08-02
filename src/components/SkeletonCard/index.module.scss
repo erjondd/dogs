@@ -8,6 +8,9 @@
   @media (max-width: 768px) {
     width: calc(50% - 31px);
   }
+   @media (max-width: 600px) {
+    width: calc(100% - 31px);
+  }
 }
 
 .content {
@@ -27,4 +30,5 @@
   font-weight: 900;
   font-size: 14px;
   color: #999;
+  
 }

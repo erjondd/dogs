@@ -150,7 +150,7 @@ function Dogs() {
                   ))}
                 </div>
               </div>
-              <div className={styles.twenty}>
+              {/* <div className={styles.twenty}>
                 Price
                 <div className={styles.sizeOptions}>
                   <div
@@ -177,7 +177,7 @@ function Dogs() {
                     </div>
                   ))}
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
         </section>

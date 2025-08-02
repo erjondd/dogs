@@ -1,14 +1,14 @@
-import React, { useEffect, useState } from "react";
+import React, {useEffect, useState} from "react";
 import styles from "./index.module.scss";
-import { useParams } from "react-router-dom";
+import {useParams} from "react-router-dom";
 import Container from "../../components/Container/Container";
 import Button from "../../components/Button/Button";
 import GalleryLightbox from "../../components/GalleryLightbox/GalleryLightbox";
 import Card from "../../components/Homepage/Card/Card";
-import { getDogById, getAllDogs, getAllParents } from "../../data/dogsWP";
+import {getDogById, getAllDogs, getAllParents} from "../../data/dogsWP";
 import SingleDogSkeleton from "./SingleDogSkeleton";
 export default function SingleDog() {
-  const { id } = useParams();
+  const {id} = useParams();
   const [dog, setDog] = useState(null);
   const [otherDogs, setOtherDogs] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -116,10 +116,82 @@ export default function SingleDog() {
       return `${years} year${years !== 1 ? "s" : ""}`;
     }
   }
-  console.log(mother.class_list,"mother");
+  console.log(mother, "mother");
   return (
     <section className={styles.singleDog}>
       <Container>
+        <section className={styles.mainDetails}>
+          <div className={styles.left}>
+            <img
+              src={dog.acf.picture.url || dog.acf.picture}
+              alt={dog.title.rendered}
+              loading="lazy"
+            />
+            <p className={styles.description}>{plainText}</p>
+          </div>
+          <div className={styles.right}>
+            <h2>{dog.title.rendered}</h2>
+            <h3>{dog.acf.price}</h3>
+
+            <Button variant="primary">Contact Us</Button>
+            <div className={styles.details}>
+              <div>
+                <span className={styles.detleft}>SKU</span>
+                <span className={styles.detright}>: {dog.id}</span>
+              </div>
+              <div>
+                <span className={styles.detleft}>Gender</span>
+                <span className={styles.detright}>
+                  : {getGenderFromClassList(dog.class_list)}
+                </span>
+              </div>
+              <div>
+                <span className={styles.detleft}>Age</span>
+                <span className={styles.detright}>
+                  : {calculateAge(dog.acf.age)}
+                </span>
+              </div>
+              <div>
+                <span className={styles.detleft}>Size</span>
+                <span className={styles.detright}>
+                  : {getSizeFromClassList(dog.class_list)}
+                </span>
+              </div>
+              <div>
+                <span className={styles.detleft}>Color</span>
+                <span className={styles.detright}>: {dog.acf.colour}</span>
+              </div>
+              <div>
+                <span className={styles.detleft}>Vaccinated</span>
+                <span className={styles.detright}>
+                  : {dog.vaccinated ? "Yes" : "No"}
+                </span>
+              </div>
+              <div>
+                <span className={styles.detleft}>Certified</span>
+                <span className={styles.detright}>
+                  : {dog.cert ? "Yes" : "No"}
+                </span>
+              </div>
+              <div>
+                <span className={styles.detleft}>Dewormed</span>
+                <span className={styles.detright}>
+                  : {dog.dewormed ? "Yes" : "No"}
+                </span>
+              </div>
+              <div>
+                <span className={styles.detleft}>Microchip</span>
+                <span className={styles.detright}>
+                  : {dog.microchip ? "Yes" : "No"}
+                </span>
+              </div>
+              <div>
+                <span className={styles.detleft}>Location</span>
+                <span className={styles.detright}>: {dog.location}</span>
+              </div>
+            </div>
+          </div>
+        </section>
         <section className={styles.parentsSection}>
           <div className={styles.parentsGrid}>
             <div className={styles.parentsInfo}>
@@ -208,80 +280,6 @@ export default function SingleDog() {
             </div>
           </div>
         </section>
-
-        <section className={styles.mainDetails}>
-          <div className={styles.left}>
-            <img
-              src={dog.acf.picture.url || dog.acf.picture}
-              alt={dog.title.rendered}
-              loading="lazy"
-            />
-            <p className={styles.description}>{plainText}</p>
-          </div>
-          <div className={styles.right}>
-            <h2>{dog.title.rendered}</h2>
-            <h3>{dog.acf.price}</h3>
-
-            <Button variant="primary">Contact Us</Button>
-            <div className={styles.details}>
-              <div>
-                <span className={styles.detleft}>SKU</span>
-                <span className={styles.detright}>: {dog.id}</span>
-              </div>
-              <div>
-                <span className={styles.detleft}>Gender</span>
-                <span className={styles.detright}>
-                  : {getGenderFromClassList(dog.class_list)}
-                </span>
-              </div>
-              <div>
-                <span className={styles.detleft}>Age</span>
-                <span className={styles.detright}>
-                  : {calculateAge(dog.acf.age)}
-                </span>
-              </div>
-              <div>
-                <span className={styles.detleft}>Size</span>
-                <span className={styles.detright}>
-                  : {getSizeFromClassList(dog.class_list)}
-                </span>
-              </div>
-              <div>
-                <span className={styles.detleft}>Color</span>
-                <span className={styles.detright}>: {dog.acf.colour}</span>
-              </div>
-              <div>
-                <span className={styles.detleft}>Vaccinated</span>
-                <span className={styles.detright}>
-                  : {dog.vaccinated ? "Yes" : "No"}
-                </span>
-              </div>
-              <div>
-                <span className={styles.detleft}>Certified</span>
-                <span className={styles.detright}>
-                  : {dog.cert ? "Yes" : "No"}
-                </span>
-              </div>
-              <div>
-                <span className={styles.detleft}>Dewormed</span>
-                <span className={styles.detright}>
-                  : {dog.dewormed ? "Yes" : "No"}
-                </span>
-              </div>
-              <div>
-                <span className={styles.detleft}>Microchip</span>
-                <span className={styles.detright}>
-                  : {dog.microchip ? "Yes" : "No"}
-                </span>
-              </div>
-              <div>
-                <span className={styles.detleft}>Location</span>
-                <span className={styles.detright}>: {dog.location}</span>
-              </div>
-            </div>
-          </div>
-        </section>
-
         <section className={styles.gallery}>
           {dog.acf.gallery && dog.acf.gallery.length > 0 && (
             <GalleryLightbox
