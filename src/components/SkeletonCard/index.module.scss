@@ -8,7 +8,7 @@
   @media (max-width: 768px) {
     width: calc(50% - 31px);
   }
-   @media (max-width: 600px) {
+  @media (max-width: 600px) {
     width: calc(100% - 31px);
   }
 }
@@ -30,5 +30,12 @@
   font-weight: 900;
   font-size: 14px;
   color: #999;
-  
+}
+.card2 {
+  padding: 8px;
+  border-radius: 8px;
+  background-color: #151515;
+  display: flex;
+  flex-direction: column;
+  width: calc(50% - 31px);
 }

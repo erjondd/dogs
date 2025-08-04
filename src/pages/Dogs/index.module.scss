@@ -8,12 +8,10 @@
   gap: 14px;
   margin-top: 50px;
   @media (max-width: 768px) {
-    flex-direction: column;
-    display: none;
   }
   .row {
     display: flex;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
     width: 100%;
     gap: 14px;
   }
@@ -45,9 +43,8 @@
 }
 
 .selected {
-  background: #0078d4;
-  color: #fff;
-  border-color: #0078d4;
+  background: $primary-color !important;
+  color: #fff !important;
 }
 
 .sizeOptions {
@@ -69,9 +66,13 @@
   user-select: none;
 }
 
-.sizeOption:hover,
-.sizeOption:focus {
-  background: $primary-color;
-  color:white;
- 
+// .sizeOption:hover,
+// .sizeOption:focus {
+//   background: $primary-color;
+//   color:white;
+
+// }
+.noResults {
+  padding-top: 50px;
+  text-align: center;
 }

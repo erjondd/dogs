@@ -1,21 +1,13 @@
-import React, {useEffect, useState} from "react";
+import React from "react";
 import Card from "../Card/Card";
 import styles from "./index.module.scss";
 import SkeletonCard from "../../SkeletonCard/SkeletonCard";
 
-function CardList({fetchData, type = "dog"}) {
-  const [items, setItems] = useState([]);
-  const [loading, setLoading] = useState(true);
+function CardList({items = [], type = "dog"}) {
+  const loading = !items || items.length === 0;
 
-  useEffect(() => {
-    fetchData()
-      .then(setItems)
-      .finally(() => setLoading(false));
-  }, []);
-
-  const skeletonCount = items.length > 0 ? items.length : 2;
-
-  //calc years only for age
+  const skeletonCount = 2;
+  console.log(items.length, "items in CardList");
   function calculateAgeDisplay(birthDateStr) {
     if (!birthDateStr) return "Unknown";
 
@@ -43,7 +35,7 @@ function CardList({fetchData, type = "dog"}) {
       return `${years} year${years !== 1 ? "s" : ""}`;
     }
   }
-  console.log(items);
+
   return (
     <div className={styles.dogList}>
       {loading
@@ -53,12 +45,12 @@ function CardList({fetchData, type = "dog"}) {
         : items.map((dog) => (
             <Card
               key={dog.id}
-              id={dog.id ? dog.id : ""}
-              image={dog.acf.picture ? dog.acf.picture : ""}
-              breed={dog.title.rendered ? dog.title.rendered : "Unknown"}
-              gender={dog.gender ? dog.gender : "Unknown"}
-              age={calculateAgeDisplay(dog.acf.age ? dog.acf.age : "")}
-              price={dog.acf.price ? dog.acf.price : undefined}
+              id={dog.id}
+              image={dog.acf.picture || ""}
+              breed={dog.title.rendered || "Unknown"}
+              gender={dog.gender || "Unknown"}
+              age={calculateAgeDisplay(dog.acf.age || "")}
+              price={dog.acf.price}
               type={type}
             />
           ))}
