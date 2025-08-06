@@ -6,7 +6,7 @@
   display: flex;
   flex-wrap: wrap;
   gap: 14px;
-  margin-top: 50px;
+  margin-top: 30px;
   @media (max-width: 768px) {
   }
   .row {
@@ -14,8 +14,18 @@
     flex-wrap: wrap;
     width: 100%;
     gap: 14px;
+    @media (max-width: 768px) {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease, opacity 0.5s ease;
+    opacity: 0;
   }
+}
 
+.active {
+    max-height: 1000px; // big enough to hold the content
+    opacity: 1;
+  }
   .fourty {
     width: calc(40% + 60px);
     padding: 19px;
@@ -55,7 +65,7 @@
 }
 
 .sizeOption {
-  padding: 6px 16px;
+  padding: 6px 14px;
   background: #f2f2f2;
   border-radius: 16px;
   cursor: pointer;

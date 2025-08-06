@@ -9,7 +9,7 @@
     margin-block-start: 0em;
     margin-block-end: 0em;
     padding-inline-start: 0px;
-    @media(max-width: 768px) {
+    @media (max-width: 768px) {
       flex-direction: column;
       align-items: center;
     }
@@ -20,10 +20,13 @@
         text-decoration: none;
         color: $text-color;
         transition: 0.3s ease;
-        font-size:16px;
-        font-weight:400;
-        padding:20px;
-        display:flex;
+        font-size: 16px;
+        font-weight: 400;
+        padding: 20px;
+        display: flex;
+        &[aria-current="page"] {
+          color: $primary-color;
+        }
         &:hover {
           color: $primary-color;
         }
@@ -52,7 +55,7 @@
   border-radius: 5px;
   transform: translateY(10px);
   transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s ease;
-flex-direction: column;
+  flex-direction: column;
   li {
     a {
       padding: 10px 20px;

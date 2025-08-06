@@ -21,7 +21,8 @@ function Dogs() {
   const [raceFilter, setRaceFilter] = useState([]);
   const [availableRaces, setAvailableRaces] = useState([]);
   const [loading, setLoading] = useState(true);
-  console.log(loading, "loading state in Dogs");
+  const [filtersVisible, setFiltersVisible] = useState(false);
+
   useEffect(() => {
     const fetchDogs = async () => {
       try {
@@ -117,14 +118,22 @@ function Dogs() {
 
     setFilteredDogs(filtered);
   }, [colourFilter, genderFilter, sizeFilter, raceFilter, dogs]);
+  const toggleFilters = () => {
+    setFiltersVisible((prev) => !prev);
+  };
 
   return (
     <section className={styles.dogs}>
       <Container>
         <section className={styles.hero}>
           <div className={styles.filters}>
-            <div className={styles.row}>
-              {/* Color Filter */}
+            <div onClick={toggleFilters} className={styles.toggleButton}>
+              {filtersVisible ? "Hide Filters" : "Show Filters"}
+            </div>
+            <div
+              className={`${styles.row} ${
+                filtersVisible ? styles.active : ""
+              }`}>
               {loading ? (
                 <SkeletonFilter />
               ) : (
@@ -162,7 +171,6 @@ function Dogs() {
                 </div>
               )}
 
-              {/* Gender Filter from ACF */}
               {loading ? (
                 <SkeletonFilter />
               ) : (
@@ -200,7 +208,6 @@ function Dogs() {
                 </div>
               )}
 
-              {/* Size Filter */}
               {loading ? (
                 <SkeletonFilter />
               ) : (
