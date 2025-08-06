@@ -127,7 +127,7 @@ function Dogs() {
       <Container>
         <section className={styles.hero}>
           <div className={styles.filters}>
-            <div onClick={toggleFilters} className={styles.toggleButton}>
+            <div onClick={toggleFilters} className={styles.toggleButton} style={{padding:6, cursor: "pointer",border:"1px solid"}}>
               {filtersVisible ? "Hide Filters" : "Show Filters"}
             </div>
             <div
