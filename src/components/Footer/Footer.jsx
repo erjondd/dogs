@@ -57,15 +57,6 @@ export default function Footer() {
               <li>
                 <Link to="/bloodline">Studs & Females</Link>
               </li>
-              <li>
-                <Link to="/bloodline">Upcoming Litters</Link>
-              </li>
-              <li>
-                <Link to="/bloodline">Adoption Info </Link>
-              </li>
-              <li>
-                <Link to="/bloodline">Health & Care</Link>
-              </li>
             </ul>
           </div>
           <div className={styles.thirdColumn}>
@@ -80,31 +71,17 @@ export default function Footer() {
               <li>
                 <Link to="/bloodline">Bloodline Legacy</Link>
               </li>
-              <li>
-                <Link to="/bloodline">Show Records</Link>
-              </li>
-              <li>
-                <Link to="/bloodline">Genetic Guarantee</Link>
-              </li>
             </ul>
           </div>
           <div className={styles.fourthColumn}>
             <div className={styles.columnTitle}>Dogs</div>
             <ul className={styles.links}>
-              <li>
-                <Link to="/dogs">Kennel</Link>
-              </li>
+           
               <li>
                 <Link to="/available">About us</Link>
               </li>
               <li>
-                <Link to="/bloodline">FAQ</Link>
-              </li>
-              <li>
                 <Link to="/bloodline">Privacy & Policy</Link>
-              </li>
-              <li>
-                <Link to="/bloodline">Help</Link>
               </li>
             </ul>
           </div>

@@ -21,7 +21,13 @@
     opacity: 0;
   }
 }
+.toggleButton {
+  display: none; // hide by default
 
+  @media (max-width: 768px) {
+    display: inline-block; // show only on small screens
+  }
+}
 .active {
     max-height: 1000px; // big enough to hold the content
     opacity: 1;

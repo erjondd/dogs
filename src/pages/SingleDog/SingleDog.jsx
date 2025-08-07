@@ -7,6 +7,9 @@ import GalleryLightbox from "../../components/GalleryLightbox/GalleryLightbox";
 import Card from "../../components/Homepage/Card/Card";
 import {getDogById, getAllDogs, getAllParents} from "../../data/dogsWP";
 import SingleDogSkeleton from "./SingleDogSkeleton";
+import {LazyLoadImage} from "react-lazy-load-image-component";
+import "react-lazy-load-image-component/src/effects/blur.css";
+
 export default function SingleDog() {
   const {id} = useParams();
   const [dog, setDog] = useState(null);
@@ -122,11 +125,15 @@ export default function SingleDog() {
       <Container>
         <section className={styles.mainDetails}>
           <div className={styles.left}>
-            <img
-              src={dog.acf.picture.url || dog.acf.picture}
-              alt={dog.title.rendered}
-              loading="lazy"
-            />
+            <div className={styles.leftImage}>
+              <LazyLoadImage
+                src={dog.acf.picture.url || dog.acf.picture}
+                alt={dog.title.rendered}
+                effect="blur"
+                height="100%"
+                width="100%"
+              />
+            </div>
             <p className={styles.description}>{plainText}</p>
           </div>
           <div className={styles.right}>
@@ -196,11 +203,15 @@ export default function SingleDog() {
           <div className={styles.parentsGrid}>
             <div className={styles.parentsInfo}>
               <div className={styles.top}>
-                <img
-                  src={mother.acf.picture.url || mother.acf.picture}
-                  alt={mother.acf.picture}
-                  loading="lazy"
-                />
+                <div className={styles.leftImage}>
+                  <LazyLoadImage
+                    src={mother.acf.picture.url || mother.acf.picture}
+                    alt={mother.acf.picture}
+                    effect="blur"
+                    height="100%"
+                    width="100%"
+                  />
+                </div>
                 <h2>
                   <span>Female:</span>
                   <span>{dog.acf.female.post_title}</span>
@@ -238,11 +249,15 @@ export default function SingleDog() {
             </div>
             <div className={styles.parentsInfo}>
               <div className={styles.top}>
-                <img
-                  src={father.acf.picture.url || father.acf.picture}
-                  alt={father.acf.picture}
-                  loading="lazy"
-                />
+                <div className={styles.leftImage}>
+                  <LazyLoadImage
+                    src={father.acf.picture.url || father.acf.picture}
+                    alt={father.acf.picture}
+                    effect="blur"
+                    height="100%"
+                    width="100%"
+                  />
+                </div>
                 <h2>
                   <span>Studs:</span>
                   <span>{dog.acf.Stud.post_title}</span>
