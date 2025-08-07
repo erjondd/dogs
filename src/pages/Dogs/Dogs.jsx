@@ -127,7 +127,10 @@ function Dogs() {
       <Container>
         <section className={styles.hero}>
           <div className={styles.filters}>
-            <div onClick={toggleFilters} className={styles.toggleButton} style={{padding:6, cursor: "pointer",border:"1px solid"}}>
+            <div
+              onClick={toggleFilters}
+              className={styles.toggleButton}
+              style={{padding: 6, cursor: "pointer", border: "1px solid"}}>
               {filtersVisible ? "Hide Filters" : "Show Filters"}
             </div>
             <div
@@ -285,7 +288,15 @@ function Dogs() {
           </div>
         </section>
         {loading ? (
-          <div className={styles.cardGrid} style={{marginTop: 30}}>
+          <div
+            className={styles.cardGrid}
+            style={{
+              gap: "20px",
+              display: "flex",
+              flexWrap: "wrap",
+              paddingTop: "30px",
+              paddingBottom: "50px",
+            }}>
             {Array.from({length: 8}).map((_, index) => (
               <SkeletonCard key={index} />
             ))}
