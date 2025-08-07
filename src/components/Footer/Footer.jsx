@@ -52,10 +52,10 @@ export default function Footer() {
                 <Link to="/dogs">Our Dogs</Link>
               </li>
               <li>
-                <Link to="/available">Available Pups</Link>
+                <Link to="/dogs">Available Pups</Link>
               </li>
               <li>
-                <Link to="/bloodline">Studs & Females</Link>
+                <Link to="/parents">Studs & Females</Link>
               </li>
             </ul>
           </div>
@@ -63,25 +63,24 @@ export default function Footer() {
             <div className={styles.columnTitle}>Dogs</div>
             <ul className={styles.links}>
               <li>
-                <Link to="/dogs">Bloodline</Link>
+                <Link to="/about">Bloodline</Link>
               </li>
               <li>
-                <Link to="/available">Our story</Link>
+                <Link to="/about">Our story</Link>
               </li>
               <li>
-                <Link to="/bloodline">Bloodline Legacy</Link>
+                <Link to="/dogs">Bloodline Legacy</Link>
               </li>
             </ul>
           </div>
           <div className={styles.fourthColumn}>
             <div className={styles.columnTitle}>Dogs</div>
             <ul className={styles.links}>
-           
               <li>
-                <Link to="/available">About us</Link>
+                <Link to="/about">About us</Link>
               </li>
               <li>
-                <Link to="/bloodline">Privacy & Policy</Link>
+                <Link to="/privacy">Privacy & Policy</Link>
               </li>
             </ul>
           </div>
@@ -89,13 +88,13 @@ export default function Footer() {
             <div className={styles.columnTitle}>Dogs</div>
             <ul className={styles.links}>
               <li>
-                <Link to="/dogs">Contact</Link>
+                <Link to="/contact-us">Contact</Link>
               </li>
               <li>
-                <Link to="/available">info@yourkennel.com </Link>
+                <Link to="/contact-us">info@yourkennel.com </Link>
               </li>
               <li>
-                <Link to="/bloodline">(904) 111-01223</Link>
+                <Link to="/contact-us">(904) 111-01223</Link>
               </li>
             </ul>
           </div>
