@@ -82,6 +82,7 @@ export default function SingleParent() {
                 src={parent.acf.picture.url || parent.acf.picture}
                 effect="blur"
                 height="100%"
+                width="100%"
               />
             </div>
             <p className={styles.description}>{plainText}</p>

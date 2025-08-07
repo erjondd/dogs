@@ -196,11 +196,11 @@
   gap: 50px;
   flex-wrap: wrap;
   width: 100%;
+  margin-bottom:100px;
   img {
- 
     border-radius: $radius;
     object-fit: cover;
-cursor: pointer;
+    cursor: pointer;
     @media (max-width: 768px) {
       width: 100%;
     }
@@ -208,7 +208,6 @@ cursor: pointer;
 }
 
 .seeMore {
-  padding-top: 100px;
   padding-bottom: 100px;
   h2 {
     margin: 0;
@@ -278,4 +277,5 @@ cursor: pointer;
   max-height: 515px;
   display: block;
   height: 100%;
+  width: 100%;
 }
