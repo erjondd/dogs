@@ -5,10 +5,11 @@ import Container from "../../components/Container/Container";
 import Button from "../../components/Button/Button";
 import GalleryLightbox from "../../components/GalleryLightbox/GalleryLightbox";
 import Card from "../../components/Homepage/Card/Card";
-import {getAllDogs, getAllParents} from "../../data/dogsWP";
+import {getAllParents, getAllParent} from "../../data/dogsWP";
 import SingleDogSkeleton from "../SingleDog/SingleDogSkeleton";
 import {LazyLoadImage} from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
+
 export default function SingleParent() {
   const {id} = useParams();
   const [parent, setParent] = useState(null);
@@ -19,8 +20,10 @@ export default function SingleParent() {
     async function fetchData() {
       try {
         const data = await getAllParents(id);
-        const allDogs = await getAllDogs(id);
-        setOtherDogs(allDogs.filter((d) => d.id !== parseInt(id)).slice(0, 4));
+        const allParants = await getAllParent(id);
+        setOtherDogs(
+          allParants.filter((d) => d.id !== parseInt(id)).slice(0, 4)
+        );
         setParent(data);
       } catch (error) {
         console.error("Error fetching parent dog:", error);
@@ -67,18 +70,6 @@ export default function SingleParent() {
     }
   }
 
-  function getGenderFromClassList(classList) {
-    if (classList.includes("category-female")) return "Female";
-    if (classList.includes("category-male")) return "Male";
-    return "Unknown";
-  }
-
-  function getSizeFromClassList(classList) {
-    if (classList.includes("category-puppy")) return "Puppy";
-    if (classList.includes("category-adult")) return "Adult";
-    return "Unknown";
-  }
-
   const plainText = stripHtml(parent.content.rendered);
   console.log(parent, "oarebt");
   return (
@@ -107,9 +98,7 @@ export default function SingleParent() {
               </div>
               <div>
                 <span className={styles.detleft}>Gender</span>
-                <span className={styles.detright}>
-                  : {getGenderFromClassList(parent.class_list)}
-                </span>
+                <span className={styles.detright}>: {parent.acf.gender}</span>
               </div>
               <div>
                 <span className={styles.detleft}>Age</span>
@@ -119,9 +108,7 @@ export default function SingleParent() {
               </div>
               <div>
                 <span className={styles.detleft}>Size</span>
-                <span className={styles.detright}>
-                  : {getSizeFromClassList(parent.class_list)}
-                </span>
+                <span className={styles.detright}>: {parent.acf.size}</span>
               </div>
               <div>
                 <span className={styles.detleft}>Color</span>
@@ -168,7 +155,7 @@ export default function SingleParent() {
         </section>
 
         <section className={styles.seeMore}>
-          <h2>See More Puppies</h2>
+          <h2>See More Parents</h2>
           <div className={styles.moreGrid}>
             <div className={styles.dogList}>
               {otherDogs.slice(0, 4).map((parent) => (

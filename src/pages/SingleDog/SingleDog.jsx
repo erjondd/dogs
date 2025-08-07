@@ -79,18 +79,6 @@ export default function SingleDog() {
     }`;
   }
 
-  //check for gender and size in dog array
-  function getGenderFromClassList(classList) {
-    if (classList.includes("category-female")) return "Female";
-    if (classList.includes("category-male")) return "Male";
-    return "Unknown";
-  }
-
-  function getSizeFromClassList(classList) {
-    if (classList.includes("category-puppy")) return "Puppy";
-    if (classList.includes("category-adult")) return "Adult";
-    return "Unknown";
-  }
   //calc years only for age
   function calculateAgeDisplay(birthDateStr) {
     if (!birthDateStr) return "Unknown";
@@ -148,9 +136,7 @@ export default function SingleDog() {
               </div>
               <div>
                 <span className={styles.detleft}>Gender</span>
-                <span className={styles.detright}>
-                  : {getGenderFromClassList(dog.class_list)}
-                </span>
+                <span className={styles.detright}>: {dog.acf.gender}</span>
               </div>
               <div>
                 <span className={styles.detleft}>Age</span>
@@ -160,9 +146,7 @@ export default function SingleDog() {
               </div>
               <div>
                 <span className={styles.detleft}>Size</span>
-                <span className={styles.detright}>
-                  : {getSizeFromClassList(dog.class_list)}
-                </span>
+                <span className={styles.detright}>: {dog.acf.size}</span>
               </div>
               <div>
                 <span className={styles.detleft}>Color</span>
@@ -201,98 +185,98 @@ export default function SingleDog() {
         </section>
         <section className={styles.parentsSection}>
           <div className={styles.parentsGrid}>
-            <div className={styles.parentsInfo}>
-              <div className={styles.top}>
-                <div className={styles.leftImage}>
-                  <LazyLoadImage
-                    src={mother.acf.picture.url || mother.acf.picture}
-                    alt={mother.acf.picture}
-                    effect="blur"
-                    height="100%"
-                    width="100%"
-                  />
+            {mother ? (
+              <div className={styles.parentsInfo}>
+                <div className={styles.top}>
+                  <div className={styles.leftImage}>
+                    <LazyLoadImage
+                      src={mother.acf.picture.url || mother.acf.picture}
+                      alt={mother.acf.picture}
+                      effect="blur"
+                      height="100%"
+                      width="100%"
+                    />
+                  </div>
+                  <h2>
+                    <span>Female:</span>
+                    <span>{dog.acf.female.post_title}</span>
+                  </h2>
+                  <p className={styles.description}>{motherText}</p>
                 </div>
-                <h2>
-                  <span>Female:</span>
-                  <span>{dog.acf.female.post_title}</span>
-                </h2>
-                <p className={styles.description}>{motherText}</p>
-              </div>
-              <div className={styles.bottom}>
-                <div className={styles.details}>
-                  <div>
-                    <span className={styles.detleft}>Gender</span>
-                    <span className={styles.detright}>
-                      : {getGenderFromClassList(mother.class_list)}
-                    </span>
-                  </div>
-                  <div>
-                    <span className={styles.detleft}>Age</span>
-                    <span className={styles.detright}>
-                      : {calculateAge(mother.acf.age)}
-                    </span>
-                  </div>
-                  <div>
-                    <span className={styles.detleft}>Size</span>
-                    <span className={styles.detright}>
-                      : {getSizeFromClassList(mother.class_list)}
-                    </span>
-                  </div>
-                  <div>
-                    <span className={styles.detleft}>Color</span>
-                    <span className={styles.detright}>
-                      : {mother.acf.colour}
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className={styles.parentsInfo}>
-              <div className={styles.top}>
-                <div className={styles.leftImage}>
-                  <LazyLoadImage
-                    src={father.acf.picture.url || father.acf.picture}
-                    alt={father.acf.picture}
-                    effect="blur"
-                    height="100%"
-                    width="100%"
-                  />
-                </div>
-                <h2>
-                  <span>Studs:</span>
-                  <span>{dog.acf.Stud.post_title}</span>
-                </h2>
-                <p className={styles.description}>{fatherText}</p>
-              </div>
-              <div className={styles.bottom}>
-                <div className={styles.details}>
-                  <div>
-                    <span className={styles.detleft}>Gender</span>
-                    <span className={styles.detright}>
-                      : {getGenderFromClassList(father.class_list)}
-                    </span>
-                  </div>
-                  <div>
-                    <span className={styles.detleft}>Age</span>
-                    <span className={styles.detright}>
-                      : {calculateAge(father.acf.age)}
-                    </span>
-                  </div>
-                  <div>
-                    <span className={styles.detleft}>Size</span>
-                    <span className={styles.detright}>
-                      : {getSizeFromClassList(father.class_list)}
-                    </span>
-                  </div>
-                  <div>
-                    <span className={styles.detleft}>Color</span>
-                    <span className={styles.detright}>
-                      : {father.acf.colour}
-                    </span>
+                <div className={styles.bottom}>
+                  <div className={styles.details}>
+                    <div>
+                      <span className={styles.detleft}>Gender</span>
+                      <span className={styles.detright}>
+                        : {dog.acf.gender}
+                      </span>
+                    </div>
+                    <div>
+                      <span className={styles.detleft}>Age</span>
+                      <span className={styles.detright}>
+                        : {calculateAge(mother.acf.age)}
+                      </span>
+                    </div>
+                    <div>
+                      <span className={styles.detleft}>Size</span>
+                      <span className={styles.detright}>: {dog.acf.size}</span>
+                    </div>
+                    <div>
+                      <span className={styles.detleft}>Color</span>
+                      <span className={styles.detright}>
+                        : {mother.acf.colour}
+                      </span>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
+            ) : null}
+            {father ? (
+              <div className={styles.parentsInfo}>
+                <div className={styles.top}>
+                  <div className={styles.leftImage}>
+                    <LazyLoadImage
+                      src={father.acf.picture.url || father.acf.picture}
+                      alt={father.acf.picture}
+                      effect="blur"
+                      height="100%"
+                      width="100%"
+                    />
+                  </div>
+                  <h2>
+                    <span>Studs:</span>
+                    <span>{dog.acf.Stud.post_title}</span>
+                  </h2>
+                  <p className={styles.description}>{fatherText}</p>
+                </div>
+                <div className={styles.bottom}>
+                  <div className={styles.details}>
+                    <div>
+                      <span className={styles.detleft}>Gender</span>
+                      <span className={styles.detright}>
+                        : {dog.acf.gender}
+                      </span>
+                    </div>
+                    <div>
+                      <span className={styles.detleft}>Age</span>
+                      <span className={styles.detright}>
+                        : {calculateAge(father.acf.age)}
+                      </span>
+                    </div>
+                    <div>
+                      <span className={styles.detleft}>Size</span>
+                      <span className={styles.detright}>: {dog.acf.size}</span>
+                    </div>
+                    <div>
+                      <span className={styles.detleft}>Color</span>
+                      <span className={styles.detright}>
+                        : {father.acf.colour}
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ) : null}
           </div>
         </section>
         <section className={styles.gallery}>
@@ -316,6 +300,7 @@ export default function SingleDog() {
                   gender={dog.gender}
                   age={calculateAgeDisplay(dog.acf.age)}
                   price={dog.acf.price}
+                  type="dog"
                 />
               ))}
             </div>

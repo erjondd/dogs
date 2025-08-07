@@ -2,14 +2,14 @@ import React from "react";
 import styles from "./index.module.scss";
 import Container from "../../../components/Container/Container";
 
-import {getAllStuds} from "../../../data/dogsWP";
+import {getAllStudParents} from "../../../data/dogsWP";
 import CardList from "../../../components/Homepage/CardList/CardList";
 
 export default function Studs() {
   return (
     <section className={styles.singleDog}>
       <Container>
-        <CardList fetchData={getAllStuds} />
+        <CardList fetchData={getAllStudParents} type="parent" />
       </Container>
     </section>
   );

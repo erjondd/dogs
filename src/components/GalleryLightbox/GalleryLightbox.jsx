@@ -21,7 +21,7 @@ export default function GalleryLightbox({images}) {
 
   if (!validImages || validImages.length === 0) return null;
   return (
-    <div style={{display: "flex", gap: "50px", flexWrap: "wrap"}}>
+    <div style={{display: "flex", gap: "50px", flexWrap: "wrap",width:"100%"}}>
       {validImages.map((img, i) => (
         <div
           style={{

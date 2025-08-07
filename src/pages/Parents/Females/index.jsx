@@ -9,7 +9,7 @@ export default function Females() {
   return (
     <section className={styles.singleDog}>
       <Container>
-        <CardList fetchData={getAllFemales} />
+        <CardList fetchData={getAllFemales} type="parent" />
       </Container>
     </section>
   );

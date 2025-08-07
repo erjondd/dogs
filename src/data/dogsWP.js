@@ -58,10 +58,10 @@ export async function getDogById(id) {
     }
     return await response.json();
 }
-export async function getAllStuds() {
-    const response = await fetch(`${API_BASE}/dog/`);
+export async function getAllStudParents() {
+    const response = await fetch(`${API_BASE}/parent/`);
     if (!response.ok) {
-        throw new Error("Failed to fetch dog");
+        throw new Error("Failed to fetch parents");
     }
 
     const parents = await response.json();
@@ -74,9 +74,9 @@ export async function getAllStuds() {
 }
 
 export async function getAllFemales() {
-    const response = await fetch(`${API_BASE}/dog/`);
+    const response = await fetch(`${API_BASE}/parent/`);
     if (!response.ok) {
-        throw new Error("Failed to fetch dog");
+        throw new Error("Failed to fetch parents");
     }
 
     const parents = await response.json();
