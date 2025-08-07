@@ -52,14 +52,15 @@ export default function Search({open, onClose}) {
         />
 
         <ul className={styles.resultsList}>
-          {results.map((dog) => (
-            <li key={dog.id} className={styles.resultItem}>
-              <Link to={`/dog/${dog.id}`} onClick={onClose}>
-                {dog.title?.rendered}
-              </Link>
-            </li>
-          ))}
-        </ul>
+  {results.map((dog) => (
+    <li key={dog.id} className={styles.resultItem}>
+      <Link to={`/dog/${dog.id}`} onClick={onClose}>
+        {dog.title?.rendered}
+      </Link>
+    </li>
+  ))}
+</ul>
+
       </div>
     </Dialog>
   );
