@@ -1,0 +1,91 @@
+@import "../../index.scss";
+.searchContainer {
+  padding: 32px 36px;
+  background: #18191a;
+  border-radius: 18px;
+  box-shadow: 0 4px 32px rgba(0, 0, 0, 0.18);
+  color: #fff;
+}
+
+.searchInput {
+  width: 100%;
+  padding: 14px 18px;
+  border: 2px solid $primary-color;
+  border-radius: 10px;
+  font-size: 1.15rem;
+  margin-bottom: 24px;
+  background: #232526;
+  color: #fff;
+  outline: none;
+  transition: border 0.2s, background 0.2s;
+}
+
+.searchInput:focus {
+  border-color: lighten($primary-color, 10%);
+  background: #232526;
+}
+
+.resultsList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  margin-top: 10px;
+}
+input {
+  color: white !important;
+  &::placeholder {
+    color: white !important;
+  }
+}
+.resultItem {
+  padding: 14px 0;
+  border-bottom: 1.5px solid $primary-color;
+  font-size: 1.08rem;
+  color: #fff;
+  transition: color 0.2s, background 0.2s;
+  cursor: pointer;
+}
+
+.resultItem:last-child {
+  border-bottom: none;
+}
+
+.resultItem:hover {
+  background: rgba($primary-color, 0.12);
+  color: $primary-color;
+}
+
+.searchContainer {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-color: #1e1e1e; // or any background
+padding: 100px 20px;
+  box-sizing: border-box;
+  border-radius: 0;
+}
+
+.closeButtonWrapper {
+  position: absolute;
+  top: 5%;
+  right: 5%;
+  z-index: 10;
+
+  button {
+    width: 40px;
+    height: 40px;
+  }
+
+  svg {
+    font-size: 28px;
+    color: white;
+  }
+}
+.resultItem a {
+  color: white;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: none;
+  }
+}

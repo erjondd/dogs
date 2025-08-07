@@ -87,3 +87,12 @@ export async function getAllFemales() {
 
     return femaleParents;
 }
+
+export async function searchDogs(query) {
+    const API_BASE = "https://ergji.com/wp-json/wp/v2";
+    const response = await fetch(`${API_BASE}/dog?search=${encodeURIComponent(query)}`);
+    if (!response.ok) {
+        throw new Error("Failed to search dogs");
+    }
+    return await response.json();
+}
