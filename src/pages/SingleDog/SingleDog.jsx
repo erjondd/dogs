@@ -1,17 +1,17 @@
-import React, {useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./index.module.scss";
-import {useParams} from "react-router-dom";
+import { useParams } from "react-router-dom";
 import Container from "../../components/Container/Container";
 import Button from "../../components/Button/Button";
 import GalleryLightbox from "../../components/GalleryLightbox/GalleryLightbox";
 import Card from "../../components/Homepage/Card/Card";
-import {getDogById, getAllDogs, getAllParents} from "../../data/dogsWP";
+import { getDogById, getAllDogs, getAllParents } from "../../data/dogsWP";
 import SingleDogSkeleton from "./SingleDogSkeleton";
-import {LazyLoadImage} from "react-lazy-load-image-component";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
 
 export default function SingleDog() {
-  const {id} = useParams();
+  const { id } = useParams();
   const [dog, setDog] = useState(null);
   const [otherDogs, setOtherDogs] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -21,15 +21,20 @@ export default function SingleDog() {
     async function fetchData() {
       try {
         const dogData = await getDogById(id);
-        const motherID = dogData.acf?.female.ID || null;
-        const motherData = await getAllParents(motherID);
-        const fatherID = dogData.acf?.Stud.ID || null;
-        const fatherData = await getAllParents(fatherID);
+        const motherID = dogData.acf?.female?.ID;
+        const fatherID = dogData.acf?.stud?.ID;
         const allDogs = await getAllDogs(id);
         setDog(dogData);
         setOtherDogs(allDogs.filter((d) => d.id !== parseInt(id)).slice(0, 4));
-        setMother(motherData);
-        setFather(fatherData);
+
+        if (motherID) {
+          const motherData = await getAllParents(motherID);
+          setMother(motherData);
+        }
+        if (fatherID) {
+          const fatherData = await getAllParents(fatherID);
+          setFather(fatherData);
+        }
       } catch (error) {
         console.error("Error fetching dog:", error);
       } finally {
@@ -50,9 +55,9 @@ export default function SingleDog() {
     const doc = new DOMParser().parseFromString(html, "text/html");
     return doc.body.textContent || "";
   }
-  const plainText = stripHtml(dog.content.rendered);
-  const motherText = stripHtml(mother.content.rendered);
-  const fatherText = stripHtml(father.content.rendered);
+  const plainText = stripHtml(dog?.content.rendered) || "";
+  const motherText = stripHtml(mother?.content.rendered) || "";
+  const fatherText = stripHtml(father?.content.rendered) || "";
 
   //calcyulate age
 
@@ -107,7 +112,6 @@ export default function SingleDog() {
       return `${years} year${years !== 1 ? "s" : ""}`;
     }
   }
-  console.log(mother, "mother");
   return (
     <section className={styles.singleDog}>
       <Container>

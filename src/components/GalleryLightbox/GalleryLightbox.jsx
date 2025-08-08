@@ -1,11 +1,11 @@
 // src/components/GalleryLightbox/GalleryLightbox.jsx
-import React, {useState} from "react";
+import React, { useState } from "react";
 import Lightbox from "yet-another-react-lightbox";
 import "yet-another-react-lightbox/styles.css";
-import {LazyLoadImage} from "react-lazy-load-image-component";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
 
-export default function GalleryLightbox({images}) {
+export default function GalleryLightbox({ images }) {
   const [open, setOpen] = useState(false);
   const [index, setIndex] = useState(0);
 
@@ -21,16 +21,20 @@ export default function GalleryLightbox({images}) {
 
   if (!validImages || validImages.length === 0) return null;
   return (
-    <div style={{display: "flex", gap: "50px", flexWrap: "wrap",width:"100%"}}>
+    <div
+      style={{ display: "flex", gap: "50px", flexWrap: "wrap", width: "100%" }}
+    >
       {validImages.map((img, i) => (
         <div
+          key={`dog-image-${i}`}
           style={{
             width: "calc(33.33% - 34px)",
             maxHeight: "350px",
             minHeight: "350px",
             borderRadius: "5px",
             objectFit: "cover",
-          }}>
+          }}
+        >
           <LazyLoadImage
             key={i}
             src={img}
@@ -45,7 +49,7 @@ export default function GalleryLightbox({images}) {
         open={open}
         close={() => setOpen(false)}
         index={index}
-        slides={validImages.map((img) => ({src: img}))}
+        slides={validImages.map((img) => ({ src: img }))}
       />
     </div>
   );
