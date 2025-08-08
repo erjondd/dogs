@@ -40,6 +40,13 @@
   overflow: hidden;
   transition: all 0.3s linear;
 
+  @media (max-width: 768px) {
+    background: url("../../../../public/images/hero-mobile.png") center/cover
+      no-repeat;
+    background-size: cover;
+    background-position: 70% 100%;
+  }
+
   h1 {
     font-size: 64px;
     font-weight: 700;
