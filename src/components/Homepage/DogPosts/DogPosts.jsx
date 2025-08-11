@@ -18,7 +18,7 @@ function DogPosts() {
             </a>
           </div>
         </div>
-        <CardList limit={8} fetchData={getAllDogs} />
+        <CardList limit={4} fetchData={getAllDogs} />
       </Container>
     </section>
   );
