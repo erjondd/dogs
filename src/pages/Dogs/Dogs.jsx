@@ -70,7 +70,7 @@ function Dogs() {
 
     fetchDogs();
   }, []);
-
+console.log(filteredDogs,"filtered")
   const toggleSingleSelectFilter = (
     filterValue,
     filterArray,
@@ -302,7 +302,7 @@ function Dogs() {
             ))}
           </div>
         ) : filteredDogs.length > 0 ? (
-          <CardList items={filteredDogs} />
+          <CardList items={filteredDogs}/>
         ) : (
           <div className={styles.noResults}>
             No dogs found with selected filters.
