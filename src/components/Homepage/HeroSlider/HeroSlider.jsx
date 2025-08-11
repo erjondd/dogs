@@ -4,10 +4,10 @@ import "swiper/css";
 import "swiper/css/navigation";
 import styles from "./index.module.scss";
 import {FiArrowLeft, FiArrowRight} from "react-icons/fi";
-import Bulldog from "../../../assets/Bulldog";
-import Doberman from "../../../assets/Doberman";
-import Dachshund from "../../../assets/Dachshund";
-import Poodle from "../../../assets/Poodle";
+import Bulldog from "../../../assets/Race1";
+import Doberman from "../../../assets/Race2";
+import Dachshund from "../../../assets/Race3";
+import Poodle from "../../../assets/Race4";
 import Container from "../../Container/Container";
 
 export default function HeroSlider() {
@@ -34,27 +34,19 @@ export default function HeroSlider() {
             className={styles.slider}>
             <SwiperSlide className={styles.slide}>
               <Bulldog />
-              <p>Bulldog</p>
+              <p>Adult</p>
             </SwiperSlide>
             <SwiperSlide className={styles.slide}>
               <Doberman />
-              <p>Doberman</p>
+              <p>Puppies</p>
             </SwiperSlide>
             <SwiperSlide className={styles.slide}>
               <Poodle />
-              <p>Poodle</p>
+              <p>Female</p>
             </SwiperSlide>
             <SwiperSlide className={styles.slide}>
               <Dachshund />
-              <p>Dachshund</p>
-            </SwiperSlide>
-            <SwiperSlide className={styles.slide}>
-              <Dachshund />
-              <p>Dachshund</p>
-            </SwiperSlide>
-            <SwiperSlide className={styles.slide}>
-              <Dachshund />
-              <p>Dachshund</p>
+              <p>Stud</p>
             </SwiperSlide>
           </Swiper>
         </div>
