@@ -15,7 +15,7 @@
     }
     li {
       margin-right: 1.3rem;
-      position: relative;
+      // position: relative;
       a {
         text-decoration: none;
         color: $text-color;
@@ -45,7 +45,7 @@
 .submenu {
   position: absolute;
   top: 100%;
-  left: 0;
+    left: 270px;
   background-color: rgba(0, 0, 0, 0.336);
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
   list-style: none;
