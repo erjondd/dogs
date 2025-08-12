@@ -45,59 +45,62 @@ export default function Footer() {
               </a>
             </div>
           </div>
-          <div className={styles.secondColumn}>
-            <div className={styles.columnTitle}>Dogs</div>
-            <ul className={styles.links}>
-              <li>
-                <Link to="/dogs">Our Dogs</Link>
-              </li>
-              <li>
-                <Link to="/dogs">Available Pups</Link>
-              </li>
-              <li>
-                <Link to="/parents">Studs & Females</Link>
-              </li>
-            </ul>
-          </div>
-          <div className={styles.thirdColumn}>
-            <div className={styles.columnTitle}>Dogs</div>
-            <ul className={styles.links}>
-              <li>
-                <Link to="/about">Bloodline</Link>
-              </li>
-              <li>
-                <Link to="/about">Our story</Link>
-              </li>
-              <li>
-                <Link to="/dogs">Bloodline Legacy</Link>
-              </li>
-            </ul>
-          </div>
-          <div className={styles.fourthColumn}>
-            <div className={styles.columnTitle}>Dogs</div>
-            <ul className={styles.links}>
-              <li>
-                <Link to="/about">About us</Link>
-              </li>
-              <li>
-                <Link to="/privacy">Privacy & Policy</Link>
-              </li>
-            </ul>
-          </div>
-          <div className={styles.fifthColumn}>
-            <div className={styles.columnTitle}>Dogs</div>
-            <ul className={styles.links}>
-              <li>
-                <Link to="/contact-us">Contact</Link>
-              </li>
-              <li>
-                <Link to="/contact-us">info@yourkennel.com </Link>
-              </li>
-              <li>
-                <Link to="/contact-us">(904) 111-01223</Link>
-              </li>
-            </ul>
-          </div>
+         <div className={styles.secondColumn}>
+  <div className={styles.columnTitle}>Our Dogs</div>
+  <ul className={styles.links}>
+    <li>
+      <Link to="/dogs">Our Dogs</Link>
+    </li>
+    <li>
+      <Link to="/dogs">Available Pups</Link>
+    </li>
+    <li>
+      <Link to="/parents">Studs & Females</Link>
+    </li>
+  </ul>
+</div>
+
+<div className={styles.thirdColumn}>
+  <div className={styles.columnTitle}>About Our Bloodline</div>
+  <ul className={styles.links}>
+    <li>
+      <Link to="/about">Bloodline</Link>
+    </li>
+    <li>
+      <Link to="/about">Our Story</Link>
+    </li>
+    <li>
+      <Link to="/dogs">Bloodline Legacy</Link>
+    </li>
+  </ul>
+</div>
+
+<div className={styles.fourthColumn}>
+  <div className={styles.columnTitle}>Company Info</div>
+  <ul className={styles.links}>
+    <li>
+      <Link to="/about">About Us</Link>
+    </li>
+    <li>
+      <Link to="/privacy">Privacy & Policy</Link>
+    </li>
+  </ul>
+</div>
+
+<div className={styles.fifthColumn}>
+  <div className={styles.columnTitle}>Contact Us</div>
+  <ul className={styles.links}>
+    <li>
+      <Link to="/contact-us">Contact</Link>
+    </li>
+    <li>
+      <Link to="/contact-us">info@yourkennel.com</Link>
+    </li>
+    <li>
+      <Link to="/contact-us">(904) 111-01223</Link>
+    </li>
+  </ul>
+</div>
         </Container>
       </div>
       <div className={styles.footerBottom}>
