@@ -12,7 +12,7 @@ import SingleAdoption from "./pages/Adoptions/SingleAdoption";
 import Privacy from "./pages/Privacy/Privacy";
 import styles from "./index.module.scss";
 import { useState, useEffect } from "react";
-import Logo2 from "./assets/Logo2";
+import Logo2 from "./assets/LogoFWhite";
 import Studs from "./pages/Parents/Studs";
 import Females from "./pages/Parents/Females";
 import Search from "./pages/Search/Search";

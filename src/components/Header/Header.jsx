@@ -2,7 +2,7 @@ import {Link, Navigate} from "react-router-dom";
 import styles from "./index.module.scss";
 import Container from "../Container/Container";
 import LogoImage from "../../../public/images/doggy.svg";
-import Logo from "../../assets/Logo2";
+import Logo from "../../assets/LogoF";
 import Navbar from "../Navbar/Navbar";
 import {useState} from "react";
 import {FiMenu, FiX} from "react-icons/fi";

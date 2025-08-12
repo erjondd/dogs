@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./index.module.scss";
-import Logo2 from "../../assets/Logo";
-import Logo1 from "../../assets/Logo2";
+import Logo2 from "../../assets/LogoF";
+import Logo1 from "../../assets/LogoF";
 
 import Facebook from "../../assets/Facebook";
 import Instagram from "../../assets/Instagram";
