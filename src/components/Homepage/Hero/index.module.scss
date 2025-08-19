@@ -41,10 +41,9 @@
   transition: all 0.3s linear;
 
   @media (max-width: 768px) {
-    background: url("../../../../public/images/hero-mobile.png") center/cover
-      no-repeat;
     background-size: cover;
-    background-position: 70% 100%;
+    background-position: 75% 100%;
+    height: 650px;
   }
 
   h1 {
@@ -80,6 +79,23 @@
   );
   z-index: 0;
   transition: all 0.3s linear;
+
+  @media (max-width: 768px) {
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0.96) 0%,
+        transparent 30%,
+        #000000b0 70%,
+        rgba(0, 0, 0, 0.91) 100%
+      ),
+      linear-gradient(
+        to left,
+        rgba(0, 0, 0, 0.96) 0%,
+        transparent 30%,
+        #000000b0 90%,
+        rgba(0, 0, 0, 0.91) 100%
+      );
+  }
 }
 
 .content {

@@ -29,6 +29,9 @@ $button-padding: 19px 35px;
   color: $text-color;
   background-color: $bg-color;
 }
+* {
+  box-sizing: border-box;
+}
 body {
   margin: 0;
   padding: 0;

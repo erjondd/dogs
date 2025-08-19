@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import styles from "./index.module.scss";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import Container from "../../components/Container/Container";
 import Button from "../../components/Button/Button";
 import GalleryLightbox from "../../components/GalleryLightbox/GalleryLightbox";
@@ -131,8 +131,9 @@ export default function SingleDog() {
           <div className={styles.right}>
             <h2>{dog.title.rendered}</h2>
             <h3>{dog.acf.price}</h3>
-
-            <Button variant="primary">Contact Us</Button>
+            <Link to="/contact-us">
+              <Button variant="primary">Contact Us</Button>
+            </Link>
             <div className={styles.details}>
               <div>
                 <span className={styles.detleft}>SKU</span>

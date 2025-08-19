@@ -28,6 +28,10 @@
     font-size: 50px;
     color: $primary-color;
     padding-bottom: 50px;
+    @media (max-width: 768px) {
+      font-size: 30px;
+      padding-bottom: 10px;
+    }
   }
   .text {
     font-family: DM Sans;
@@ -35,6 +39,43 @@
     font-size: 20px;
     padding-bottom: 50px;
     color: $text-color;
+    @media (max-width: 768px) {
+      h2 {
+        margin: 0 0 10px 0;
+        font-size: 20px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      font-size: 18px;
+    }
+    ul {
+      padding: 0;
+      li {
+        padding: 0;
+      }
+    }
+
+    a {
+      text-decoration: none;
+      color: $text-color;
+      opacity: 0.8;
+      &:hover {
+        opacity: 0.7;
+      }
+    }
+  }
+  &::after {
+    content: "";
+    position: absolute;
+    width: 10px;
+    height: 10px;
+  }
+  &::after {
+    content: "";
+    position: absolute;
+    width: 10px;
+    height: 10px;
   }
 }
 .contactForm {

@@ -17,9 +17,11 @@ import Studs from "./pages/Parents/Studs";
 import Females from "./pages/Parents/Females";
 import Search from "./pages/Search/Search";
 import ScrollToTop from "./components/ScrollToTop/ScrollToTop";
+import LogoF from "./assets/LogoF";
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
     const body = document.body;
@@ -28,15 +30,25 @@ function App() {
       body.style.overflow = "auto";
       setIsLoading(false);
     }, 5000);
+
+    setIsMobile(window.innerWidth < 768);
+
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
+  console.log(isMobile);
   return (
     <Router>
       <ScrollToTop />
       {isLoading && (
         <div className={styles.loadingContainer}>
           <div className={styles.loadingSpinner}>
-            <Logo2 />
+            {isMobile ? <LogoF style={{ height: "200px" }} /> : <Logo2 />}
           </div>
         </div>
       )}
