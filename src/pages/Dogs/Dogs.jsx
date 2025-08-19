@@ -26,7 +26,9 @@ function Dogs() {
   useEffect(() => {
     const fetchDogs = async () => {
       try {
-        const response = await axios.get("https://ergji.com/wp-json/wp/v2/dog");
+        const response = await axios.get(
+          "https://app.bigdawgz.com/wp-json/wp/v2/dog"
+        );
         const allDogs = response.data;
         setDogs(allDogs);
         setFilteredDogs(allDogs);
@@ -70,7 +72,7 @@ function Dogs() {
 
     fetchDogs();
   }, []);
-console.log(filteredDogs,"filtered")
+  console.log(filteredDogs, "filtered");
   const toggleSingleSelectFilter = (
     filterValue,
     filterArray,
@@ -302,7 +304,7 @@ console.log(filteredDogs,"filtered")
             ))}
           </div>
         ) : filteredDogs.length > 0 ? (
-          <CardList items={filteredDogs}/>
+          <CardList items={filteredDogs} />
         ) : (
           <div className={styles.noResults}>
             No dogs found with selected filters.

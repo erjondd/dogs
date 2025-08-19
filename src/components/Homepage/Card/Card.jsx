@@ -20,7 +20,7 @@ function Card({id, image, breed, gender, age, price, type}) {
               Age: <span>{age}</span>
             </div>
           </div>
-          <div className={styles.price}>{price}</div>
+          {price && <div className={styles.price}>{price}€</div>}
         </div>
       </div>
     </Link>

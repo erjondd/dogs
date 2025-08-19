@@ -1,4 +1,4 @@
-const API_BASE = "https://ergji.com/wp-json/wp/v2";
+const API_BASE = "https://app.bigdawgz.com/wp-json/wp/v2";
 
 /**
  * Fetch all dogs
@@ -85,7 +85,7 @@ export async function getAllFemales() {
 }
 
 export async function searchDogs(query) {
-  const API_BASE = "https://ergji.com/wp-json/wp/v2";
+  const API_BASE = "https://app.bigdawgz.com/wp-json/wp/v2";
   const response = await fetch(
     `${API_BASE}/dog?search=${encodeURIComponent(query)}`
   );

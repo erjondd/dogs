@@ -4,6 +4,7 @@ import Lightbox from "yet-another-react-lightbox";
 import "yet-another-react-lightbox/styles.css";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
+import styles from "./GalleryLightbox.module.scss";
 
 export default function GalleryLightbox({ images }) {
   const [open, setOpen] = useState(false);
@@ -22,18 +23,20 @@ export default function GalleryLightbox({ images }) {
   if (!validImages || validImages.length === 0) return null;
   return (
     <div
-      style={{ display: "flex", gap: "50px", flexWrap: "wrap", width: "100%" }}
+      className={styles.gallery}
+      // style={{ display: "flex", gap: "50px", flexWrap: "wrap", width: "100%" }}
     >
       {validImages.map((img, i) => (
         <div
+          className={styles.image}
           key={`dog-image-${i}`}
-          style={{
-            width: "calc(33.33% - 34px)",
-            maxHeight: "350px",
-            minHeight: "350px",
-            borderRadius: "5px",
-            objectFit: "cover",
-          }}
+          // style={{
+          //   width: "calc(33.33% - 34px)",
+          //   maxHeight: "350px",
+          //   minHeight: "350px",
+          //   borderRadius: "5px",
+          //   objectFit: "cover",
+          // }}
         >
           <LazyLoadImage
             key={i}

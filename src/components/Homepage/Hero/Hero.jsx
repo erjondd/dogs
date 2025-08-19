@@ -1,9 +1,10 @@
-import {useMemo} from "react";
+import { useMemo } from "react";
+import { Link } from "react-router-dom";
 import Button from "../../Button/Button";
 import Container from "../../Container/Container";
 import styles from "./index.module.scss";
 
-export default function Hero({isHomepage, pathName}) {
+export default function Hero({ isHomepage, pathName }) {
   const childComponent = useMemo(() => {
     if (pathName.startsWith("/dog/")) {
       return (
@@ -23,14 +24,14 @@ export default function Hero({isHomepage, pathName}) {
               unmatched lineage.
             </p>
             <div className={styles.buttons}>
-              <a href="/dogs">
+              <Link to="/dogs">
                 <Button variant="primary">View Available Pups</Button>
-              </a>
-              <a href="/parents">
+              </Link>
+              <Link to="/parents">
                 <Button variant="secondary" withArrow>
                   See Our Bloodline
                 </Button>
-              </a>
+              </Link>
             </div>
           </>
         );

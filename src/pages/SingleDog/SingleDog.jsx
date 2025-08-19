@@ -1,17 +1,17 @@
-import React, { useEffect, useState } from "react";
+import React, {useEffect, useState} from "react";
 import styles from "./index.module.scss";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import Container from "../../components/Container/Container";
 import Button from "../../components/Button/Button";
 import GalleryLightbox from "../../components/GalleryLightbox/GalleryLightbox";
 import Card from "../../components/Homepage/Card/Card";
-import { getDogById, getAllDogs, getAllParents } from "../../data/dogsWP";
+import {getDogById, getAllDogs, getAllParents} from "../../data/dogsWP";
 import SingleDogSkeleton from "./SingleDogSkeleton";
-import { LazyLoadImage } from "react-lazy-load-image-component";
+import {LazyLoadImage} from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
 
 export default function SingleDog() {
-  const { id } = useParams();
+  const {id} = useParams();
   const [dog, setDog] = useState(null);
   const [otherDogs, setOtherDogs] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -131,8 +131,9 @@ export default function SingleDog() {
           <div className={styles.right}>
             <h2>{dog.title.rendered}</h2>
             <h3>{dog.acf.price}</h3>
-
-            <Button variant="primary">Contact Us</Button>
+            <Link to="/contact-us">
+              <Button variant="primary">Contact Us</Button>
+            </Link>
             <div className={styles.details}>
               <div>
                 <span className={styles.detleft}>SKU</span>

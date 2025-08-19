@@ -1,17 +1,17 @@
-import React, {useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 import styles from "../SingleDog/index.module.scss";
-import {useParams} from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import Container from "../../components/Container/Container";
 import Button from "../../components/Button/Button";
 import GalleryLightbox from "../../components/GalleryLightbox/GalleryLightbox";
 import Card from "../../components/Homepage/Card/Card";
-import {getAllParents, getAllParent} from "../../data/dogsWP";
+import { getAllParents, getAllParent } from "../../data/dogsWP";
 import SingleDogSkeleton from "../SingleDog/SingleDogSkeleton";
-import {LazyLoadImage} from "react-lazy-load-image-component";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
 
 export default function SingleParent() {
-  const {id} = useParams();
+  const { id } = useParams();
   const [parent, setParent] = useState(null);
   const [loading, setLoading] = useState(true);
   const [otherDogs, setOtherDogs] = useState([]);
@@ -89,9 +89,11 @@ export default function SingleParent() {
           </div>
           <div className={styles.right}>
             <h2>{parent.title.rendered}</h2>
-            <h3>{parent.acf.price}</h3>
+         <h3>{parent.acf.price && <h3>{parent.acf.price}€</h3>}</h3>
 
-            <Button variant="primary">Contact Us</Button>
+            <Link to="/contact-us">
+              <Button variant="primary">Contact Us</Button>
+            </Link>
             <div className={styles.details}>
               <div>
                 <span className={styles.detleft}>SKU</span>
