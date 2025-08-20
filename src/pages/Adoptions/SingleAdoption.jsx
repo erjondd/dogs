@@ -71,11 +71,6 @@ export default function SingleAdoption() {
     return "Unknown";
   }
 
-  function getSizeFromClassList(classList) {
-    if (classList.includes("category-puppy")) return "Puppy";
-    if (classList.includes("category-adult")) return "Adult";
-    return "Unknown";
-  }
   function capitalizeFirstLetter(str) {
     if (!str) return "";
     return str.charAt(0).toUpperCase() + str.slice(1);
