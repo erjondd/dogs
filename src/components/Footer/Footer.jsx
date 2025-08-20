@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import styles from "./index.module.scss";
 import Logo2 from "../../assets/LogoF";
 import Logo1 from "../../assets/LogoF";
@@ -10,6 +10,15 @@ import {Link} from "react-router-dom";
 import Container from "../Container/Container";
 
 export default function Footer() {
+  const [footerData, setFooterData] = useState(null);
+
+  useEffect(() => {
+    fetch("https://app.bigdawgz.com/wp-json/acf/v3/options/options")
+      .then((res) => res.json())
+      .then((data) => setFooterData(data?.acf));
+  }, []);
+
+  if (!footerData) return null;
   return (
     <footer className={styles.footer}>
       <div className={styles.footerContent}>
@@ -17,7 +26,11 @@ export default function Footer() {
           <div className={styles.firstColumn}>
             <div className={styles.logo}>
               <Link to="/">
-                <Logo1 />
+                <img
+                  src={footerData.logo}
+                  alt="BigDawgz Logo"
+                  className={styles.logo}
+                />
               </Link>
             </div>
             <div className={styles.description}>
@@ -25,24 +38,30 @@ export default function Footer() {
               <br /> bred for greatness.
             </div>
             <div className={styles.socials}>
-              <a
-                href="https://www.facebook.com/profile.php?id=61574964713064&locale=en_GB"
-                target="_blank"
-                rel="noopener noreferrer">
-                <Facebook />
-              </a>
-              <a
-                href="https://www.instagram.com/bigdawgz.kennel/"
-                target="_blank"
-                rel="noopener noreferrer">
-                <Instagram />
-              </a>
-              <a
-                href="https://www.tiktok.com/@bigdawgzkennels"
-                target="_blank"
-                rel="noopener noreferrer">
-                <Twitter />
-              </a>
+              {footerData.facebook_url && (
+                <a
+                  href={footerData.facebook_url}
+                  target="_blank"
+                  rel="noopener noreferrer">
+                  <Facebook />
+                </a>
+              )}
+              {footerData.instagram_url && (
+                <a
+                  href={footerData.instagram_url}
+                  target="_blank"
+                  rel="noopener noreferrer">
+                  <Instagram />
+                </a>
+              )}
+              {footerData.tiktok_url && (
+                <a
+                  href={footerData.tiktok_url}
+                  target="_blank"
+                  rel="noopener noreferrer">
+                  <Twitter />
+                </a>
+              )}
             </div>
           </div>
           <div className={styles.secondColumn}>
@@ -94,10 +113,12 @@ export default function Footer() {
                 <Link to="/contact-us">Contact</Link>
               </li>
               <li>
-                <a href="mailto:contact@bigdawgz.com">contact@bigdawgz.com</a>
+                <a href={`mailto:${footerData.email}`}>{footerData.email}</a>
               </li>
               <li>
-                <a href="tel:+38348405406">+383 48 405 406</a>
+                <a href={`tel:${footerData.phone_number}`}>
+                  {footerData.phone_number}
+                </a>
               </li>
             </ul>
           </div>

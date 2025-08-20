@@ -13,10 +13,13 @@
   z-index: 2;
 }
 .logoImage {
-  object-fit: cover;
+  // object-fit: cover;
   max-height: 70px;
   fill: white;
   width: 70px;
+  // img{
+  //   object-fit: cover;
+  // }
 }
 .icons {
   svg {
