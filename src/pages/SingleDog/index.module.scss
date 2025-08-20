@@ -1,4 +1,4 @@
-@import "../../index.scss";
+@use "../../index.scss" as *;
 
 // .singleDog {
 //   background-image: url("../../../public/images/hero.png"); // adjust path if needed
@@ -68,12 +68,14 @@
     text-align: left;
     margin-left: 4px;
     margin-bottom: 20px;
+    padding: 0 15px;
     margin-top: 11px;
     color: #858585;
   }
   p {
     margin: 0;
     margin-bottom: 15px;
+    padding: 0 15px;
     text-align: left;
     @media (max-width: 600px) {
       margin-bottom: 50px;
@@ -81,6 +83,7 @@
   }
   .details {
     margin-bottom: 15px;
+    padding: 0 15px;
   }
 }
 .mainDetails {
@@ -192,7 +195,7 @@
 
 .gallery {
   display: flex;
-  gap: 50px;
+  gap: 20px;
   flex-wrap: wrap;
   width: 100%;
   margin-bottom: 100px;

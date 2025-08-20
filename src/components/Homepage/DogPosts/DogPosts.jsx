@@ -2,7 +2,8 @@ import styles from "./index.module.scss";
 import Container from "../../Container/Container";
 import Button from "../../Button/Button";
 import CardList from "../CardList/CardList";
-import {getAllDogs} from "../../../data/dogsWP";
+import { getAllDogs } from "../../../data/dogsWP";
+import { Link } from "react-router-dom";
 function DogPosts() {
   return (
     <section className={styles.dogPosts}>
@@ -13,9 +14,9 @@ function DogPosts() {
             <h2 className={styles.title}>Take a look at some of our pets</h2>
           </div>
           <div className={styles.buttons}>
-            <a href="/dogs">
+            <Link to="/dogs">
               <Button variant="primary">View All</Button>
-            </a>
+            </Link>
           </div>
         </div>
         <CardList limit={4} fetchData={getAllDogs} />

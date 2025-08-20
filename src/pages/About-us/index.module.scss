@@ -1,4 +1,4 @@
-@import "../../index.scss";
+@use "../../index.scss" as *;
 
 .about {
   padding-top: 50px;
@@ -39,9 +39,9 @@
     font-size: 20px;
     padding-bottom: 50px;
     color: $text-color;
-    white-space: pre-line; 
-    p{
-      color:white;
+    white-space: pre-line;
+    p {
+      color: white;
     }
     @media (max-width: 768px) {
       h2 {
@@ -122,9 +122,9 @@
     flex-direction: column;
   }
   .left {
-      white-space: pre-line; 
-    p{
-      color:white;
+    white-space: pre-line;
+    p {
+      color: white;
     }
   }
 }

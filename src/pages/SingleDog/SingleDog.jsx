@@ -1,17 +1,18 @@
-import React, {useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./index.module.scss";
 import { Link, useParams } from "react-router-dom";
 import Container from "../../components/Container/Container";
 import Button from "../../components/Button/Button";
 import GalleryLightbox from "../../components/GalleryLightbox/GalleryLightbox";
 import Card from "../../components/Homepage/Card/Card";
-import {getDogById, getAllDogs, getAllParents} from "../../data/dogsWP";
+import { getDogById, getAllDogs, getAllParents } from "../../data/dogsWP";
 import SingleDogSkeleton from "./SingleDogSkeleton";
-import {LazyLoadImage} from "react-lazy-load-image-component";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
+import Skeleton from "@mui/material/Skeleton";
 
 export default function SingleDog() {
-  const {id} = useParams();
+  const { id } = useParams();
   const [dog, setDog] = useState(null);
   const [otherDogs, setOtherDogs] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -20,6 +21,7 @@ export default function SingleDog() {
   useEffect(() => {
     async function fetchData() {
       try {
+        setLoading(true);
         const dogData = await getDogById(id);
         const motherID = dogData.acf?.female?.ID;
         const fatherID = dogData.acf?.stud?.ID;
@@ -31,6 +33,7 @@ export default function SingleDog() {
           const motherData = await getAllParents(motherID);
           setMother(motherData);
         }
+
         if (fatherID) {
           const fatherData = await getAllParents(fatherID);
           setFather(fatherData);
@@ -203,7 +206,7 @@ export default function SingleDog() {
                     />
                   </div>
                   <h2>
-                    <span>Female:</span>
+                    <span>Parent Female:</span>
                     <span>{dog.acf.female.post_title}</span>
                   </h2>
                   <p className={styles.description}>{motherText}</p>
@@ -249,7 +252,7 @@ export default function SingleDog() {
                     />
                   </div>
                   <h2>
-                    <span>Studs:</span>
+                    <span>Parent Stud:</span>
                     <span>{dog.acf.Stud.post_title}</span>
                   </h2>
                   <p className={styles.description}>{fatherText}</p>

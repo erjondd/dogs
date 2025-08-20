@@ -1,4 +1,4 @@
-@import "../../index.scss";
+@use "../../index.scss" as *;
 
 .footer {
   font-family: "DM Sans";
@@ -41,7 +41,8 @@
   }
 }
 .logo {
-  img {
+  padding-bottom: 35px;
+  svg {
     width: 70px;
     height: 70px;
   }

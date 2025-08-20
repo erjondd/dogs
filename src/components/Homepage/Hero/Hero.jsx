@@ -9,8 +9,8 @@ export default function Hero({ isHomepage, pathName }) {
     if (pathName.startsWith("/dog/")) {
       return (
         <>
-          <h1>Meet Our Doberman</h1>
-          <p>Home / Our Dogs / Details</p>
+          <h1>Details</h1>
+          <p>Home / For sale / Details</p>
         </>
       );
     }
@@ -38,8 +38,8 @@ export default function Hero({ isHomepage, pathName }) {
       case "/dogs":
         return (
           <>
-            <h1>Discover our Doberman collection</h1>
-            <p>Home / Our Dogs</p>
+            <h1>Discover our dogs collection</h1>
+            <p>Home / For sale</p>
           </>
         );
       case "/about":
