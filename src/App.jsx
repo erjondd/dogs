@@ -49,7 +49,7 @@ function App() {
       <FloatingWhatsApp
         phoneNumber="0038348405406" // Your WhatsApp number with country code
         accountName="Big Dawgz Kennels"
-        avatar={isMobile ? <LogoF style={{height: "200px"}} /> : <Logo2 />}
+        avatar="https://app.bigdawgz.com/wp-content/uploads/2025/08/svgviewer-output-1-300x300.png"
         chatMessage="Hi👋 How can we help you?"
         placeholder="Type your message..."
         darkMode={true}
