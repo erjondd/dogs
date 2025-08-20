@@ -1,18 +1,18 @@
-import React, { useEffect, useState } from "react";
+import React, {useEffect, useState} from "react";
 import styles from "./index.module.scss";
-import { Link, useParams } from "react-router-dom";
+import {Link, useParams} from "react-router-dom";
 import Container from "../../components/Container/Container";
 import Button from "../../components/Button/Button";
 import GalleryLightbox from "../../components/GalleryLightbox/GalleryLightbox";
 import Card from "../../components/Homepage/Card/Card";
-import { getDogById, getAllDogs, getAllParents } from "../../data/dogsWP";
+import {getDogById, getAllDogs, getAllParents} from "../../data/dogsWP";
 import SingleDogSkeleton from "./SingleDogSkeleton";
-import { LazyLoadImage } from "react-lazy-load-image-component";
+import {LazyLoadImage} from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
 import Skeleton from "@mui/material/Skeleton";
 
 export default function SingleDog() {
-  const { id } = useParams();
+  const {id} = useParams();
   const [dog, setDog] = useState(null);
   const [otherDogs, setOtherDogs] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -115,6 +115,10 @@ export default function SingleDog() {
       return `${years} year${years !== 1 ? "s" : ""}`;
     }
   }
+  function capitalizeFirstLetter(str) {
+    if (!str) return "";
+    return str.charAt(0).toUpperCase() + str.slice(1);
+  }
   return (
     <section className={styles.singleDog}>
       <Container>
@@ -154,7 +158,9 @@ export default function SingleDog() {
               </div>
               <div>
                 <span className={styles.detleft}>Size</span>
-                <span className={styles.detright}>: {dog.acf.size}</span>
+                <span className={styles.detright}>
+                  : {capitalizeFirstLetter(dog.acf.size)}
+                </span>
               </div>
               <div>
                 <span className={styles.detleft}>Color</span>
