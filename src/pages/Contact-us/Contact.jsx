@@ -14,7 +14,6 @@ function Contact() {
   if (!pageData) return <p>Loading...</p>;
 
   console.log(pageData, "pageData");
-  console.log("asdasds");
   return (
     <section className={styles.about}>
       <Container>
