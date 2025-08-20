@@ -113,10 +113,7 @@ export default function SingleParent() {
               </div>
               <div>
                 <span className={styles.detleft}>Size</span>
-                <span className={styles.detright}>
-                  : {parent.acf.size}
-                  {capitalizeFirstLetter(parent.class_list)}
-                </span>
+                <span className={styles.detright}>: {capitalizeFirstLetter(parent.acf.size)}</span>
               </div>
               <div>
                 <span className={styles.detleft}>Color</span>
