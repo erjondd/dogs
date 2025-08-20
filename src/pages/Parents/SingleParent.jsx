@@ -1,17 +1,17 @@
-import React, { useEffect, useState } from "react";
+import React, {useEffect, useState} from "react";
 import styles from "../SingleDog/index.module.scss";
-import { Link, useParams } from "react-router-dom";
+import {Link, useParams} from "react-router-dom";
 import Container from "../../components/Container/Container";
 import Button from "../../components/Button/Button";
 import GalleryLightbox from "../../components/GalleryLightbox/GalleryLightbox";
 import Card from "../../components/Homepage/Card/Card";
-import { getAllParents, getAllParent } from "../../data/dogsWP";
+import {getAllParents, getAllParent} from "../../data/dogsWP";
 import SingleDogSkeleton from "../SingleDog/SingleDogSkeleton";
-import { LazyLoadImage } from "react-lazy-load-image-component";
+import {LazyLoadImage} from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
 
 export default function SingleParent() {
-  const { id } = useParams();
+  const {id} = useParams();
   const [parent, setParent] = useState(null);
   const [loading, setLoading] = useState(true);
   const [otherDogs, setOtherDogs] = useState([]);
@@ -69,9 +69,11 @@ export default function SingleParent() {
       return `${years} year${years !== 1 ? "s" : ""}`;
     }
   }
-
+  function capitalizeFirstLetter(str) {
+    if (!str) return "";
+    return str.charAt(0).toUpperCase() + str.slice(1);
+  }
   const plainText = stripHtml(parent.content.rendered);
-  console.log(parent, "oarebt");
   return (
     <section className={styles.singleDog}>
       <Container>
@@ -111,7 +113,10 @@ export default function SingleParent() {
               </div>
               <div>
                 <span className={styles.detleft}>Size</span>
-                <span className={styles.detright}>: {parent.acf.size}</span>
+                <span className={styles.detright}>
+                  : {parent.acf.size}
+                  {capitalizeFirstLetter(parent.class_list)}
+                </span>
               </div>
               <div>
                 <span className={styles.detleft}>Color</span>

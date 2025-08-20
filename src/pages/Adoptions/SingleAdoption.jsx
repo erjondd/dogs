@@ -1,18 +1,17 @@
-import React, { useEffect, useState } from "react";
+import React, {useEffect, useState} from "react";
 import styles from "../SingleDog/index.module.scss";
-import { Link, useParams } from "react-router-dom";
+import {Link, useParams} from "react-router-dom";
 import Container from "../../components/Container/Container";
 import Button from "../../components/Button/Button";
 import GalleryLightbox from "../../components/GalleryLightbox/GalleryLightbox";
 import Card from "../../components/Homepage/Card/Card";
-import { getAllAdoption, getAllAdoptions } from "../../data/dogsWP";
+import {getAllAdoption, getAllAdoptions} from "../../data/dogsWP";
 import SingleDogSkeleton from "../SingleDog/SingleDogSkeleton";
 export default function SingleAdoption() {
-  const { id } = useParams();
+  const {id} = useParams();
   const [parent, setParent] = useState(null);
   const [loading, setLoading] = useState(true);
   const [otherDogs, setOtherDogs] = useState([]);
-
   useEffect(() => {
     async function fetchData() {
       try {
@@ -32,7 +31,7 @@ export default function SingleAdoption() {
 
   if (loading) return <SingleDogSkeleton />;
   if (!parent) return <p>Parent not found</p>;
-
+  console.log(parent, "parent");
   function stripHtml(html) {
     const doc = new DOMParser().parseFromString(html, "text/html");
     return doc.body.textContent || "";
@@ -77,6 +76,10 @@ export default function SingleAdoption() {
     if (classList.includes("category-adult")) return "Adult";
     return "Unknown";
   }
+  function capitalizeFirstLetter(str) {
+    if (!str) return "";
+    return str.charAt(0).toUpperCase() + str.slice(1);
+  }
 
   const plainText = stripHtml(parent.content.rendered);
   return (
@@ -104,9 +107,7 @@ export default function SingleAdoption() {
               </div>
               <div>
                 <span className={styles.detleft}>Gender</span>
-                <span className={styles.detright}>
-                  : {getGenderFromClassList(parent.class_list)}
-                </span>
+                <span className={styles.detright}>{parent.acf.gender}</span>
               </div>
               <div>
                 <span className={styles.detleft}>Age</span>
@@ -117,7 +118,7 @@ export default function SingleAdoption() {
               <div>
                 <span className={styles.detleft}>Size</span>
                 <span className={styles.detright}>
-                  : {getSizeFromClassList(parent.class_list)}
+                  : {capitalizeFirstLetter(parent.acf.size)}
                 </span>
               </div>
               <div>
