@@ -1,4 +1,4 @@
-@import "../../index.scss";
+@use "../../index.scss" as *;
 .searchContainer {
   padding: 32px 36px;
   background: #18191a;
@@ -60,7 +60,7 @@ input {
   width: 100%;
   height: 100%;
   background-color: #1e1e1e; // or any background
-padding: 100px 20px;
+  padding: 100px 20px;
   box-sizing: border-box;
   border-radius: 0;
 }
@@ -81,7 +81,7 @@ padding: 100px 20px;
     color: white;
   }
 }
-li{
+li {
   overflow: hidden;
 }
 .resultItem a {

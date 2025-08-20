@@ -1,4 +1,4 @@
-@import "../../index.scss";
+@use "../../index.scss" as *;
 .main {
   min-height: 80vh;
   height: 100%;

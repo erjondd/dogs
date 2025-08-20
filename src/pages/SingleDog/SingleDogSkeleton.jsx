@@ -17,10 +17,10 @@ export default function SingleDogSkeleton() {
               variant="rectangular"
               width="100%"
               height={515}
-              sx={{borderRadius: 2}}
+              sx={{ borderRadius: 2 }}
             />
             {/* Description skeleton */}
-            <Box sx={{pt: 2}}>
+            <Box sx={{ pt: 2 }}>
               <Skeleton variant="text" width="90%" height={20} />
               <Skeleton variant="text" width="85%" height={20} />
               <Skeleton variant="text" width="80%" height={20} />
@@ -29,15 +29,15 @@ export default function SingleDogSkeleton() {
 
           <div className={styles.right}>
             {/* Title and Price */}
-            <Skeleton variant="text" width="60%" height={40} sx={{mb: 1}} />
-            <Skeleton variant="text" width="40%" height={40} sx={{mb: 3}} />
+            <Skeleton variant="text" width="60%" height={40} sx={{ mb: 1 }} />
+            <Skeleton variant="text" width="40%" height={40} sx={{ mb: 3 }} />
 
             {/* Contact Button */}
             <Skeleton
               variant="rectangular"
               width="100%"
               height={48}
-              sx={{mb: 3, borderRadius: 1}}
+              sx={{ mb: 3, borderRadius: 1 }}
             />
 
             {/* Details list */}
@@ -75,7 +75,7 @@ export default function SingleDogSkeleton() {
               variant="rectangular"
               width="30%"
               height={350}
-              sx={{borderRadius: 2}}
+              sx={{ borderRadius: 2 }}
             />
           ))}
         </section>
@@ -88,11 +88,11 @@ export default function SingleDogSkeleton() {
             <div className={styles.dogList}>
               {/* Show 4 skeleton cards placeholders */}
               {[...Array(4)].map((_, i) => (
-                <Box key={i} sx={{width: "calc(25% - 15px)"}}>
+                <Box key={i} sx={{ width: "calc(25% - 15px)" }}>
                   <Skeleton
                     variant="rectangular"
                     height={300}
-                    sx={{borderRadius: 2, mb: 2}}
+                    sx={{ borderRadius: 2, mb: 2 }}
                   />
                   <Skeleton variant="text" width="70%" />
                   <Skeleton variant="text" width="50%" />

@@ -1,4 +1,4 @@
-@import "../../../index.scss";
+@use "../../../index.scss" as *;
 
 .dogPosts {
   padding: 100px 0px;
@@ -26,10 +26,9 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  button{
-  @media(max-width:600px){
-    display:none;
+  button {
+    @media (max-width: 600px) {
+      display: none;
+    }
   }
-  }
-
 }

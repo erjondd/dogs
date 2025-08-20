@@ -89,7 +89,7 @@ export default function SingleParent() {
           </div>
           <div className={styles.right}>
             <h2>{parent.title.rendered}</h2>
-         <h3>{parent.acf.price && <h3>{parent.acf.price}€</h3>}</h3>
+            <h3>{parent.acf.price && <h3>{parent.acf.price}€</h3>}</h3>
 
             <Link to="/contact-us">
               <Button variant="primary">Contact Us</Button>

@@ -5,6 +5,7 @@ import "yet-another-react-lightbox/styles.css";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
 import styles from "./GalleryLightbox.module.scss";
+import Skeleton from "@mui/material/Skeleton";
 
 export default function GalleryLightbox({ images }) {
   const [open, setOpen] = useState(false);
@@ -41,6 +42,14 @@ export default function GalleryLightbox({ images }) {
           <LazyLoadImage
             key={i}
             src={img}
+            placeholderSrc={
+              <Skeleton
+                variant="rectangular"
+                width="100%"
+                height={350}
+                sx={{ borderRadius: 2 }}
+              />
+            }
             effect="blur"
             height="100%"
             width="100%"
