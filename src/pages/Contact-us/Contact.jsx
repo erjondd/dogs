@@ -13,7 +13,6 @@ function Contact() {
 
   if (!pageData) return <p>Loading...</p>;
 
-  console.log(pageData, "pageData");
   return (
     <section className={styles.about}>
       <Container>

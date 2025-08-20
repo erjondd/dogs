@@ -31,7 +31,6 @@ export default function SingleAdoption() {
 
   if (loading) return <SingleDogSkeleton />;
   if (!parent) return <p>Parent not found</p>;
-  console.log(parent, "parent");
   function stripHtml(html) {
     const doc = new DOMParser().parseFromString(html, "text/html");
     return doc.body.textContent || "";

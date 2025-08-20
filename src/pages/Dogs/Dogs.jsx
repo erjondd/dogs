@@ -72,7 +72,6 @@ function Dogs() {
 
     fetchDogs();
   }, []);
-  console.log(filteredDogs, "filtered");
   const toggleSingleSelectFilter = (
     filterValue,
     filterArray,
