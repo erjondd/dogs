@@ -50,7 +50,6 @@ function App() {
   }, []);
 
   if (!Data) return null;
-  console.log(Data, "Data");
   return (
     <Router>
       <ScrollToTop />

@@ -24,11 +24,10 @@ export default function SingleDog() {
         setLoading(true);
         const dogData = await getDogById(id);
         const motherID = dogData.acf?.female?.ID;
-        const fatherID = dogData.acf?.stud?.ID;
+        const fatherID = dogData.acf?.male?.ID;
         const allDogs = await getAllDogs(id);
         setDog(dogData);
         setOtherDogs(allDogs.filter((d) => d.id !== parseInt(id)).slice(0, 4));
-
         if (motherID) {
           const motherData = await getAllParents(motherID);
           setMother(motherData);
@@ -259,7 +258,7 @@ export default function SingleDog() {
                   </div>
                   <h2>
                     <span>Parent Stud:</span>
-                    <span>{dog.acf.Stud.post_title}</span>
+                    <span>{dog.acf.male.post_title}</span>
                   </h2>
                   <p className={styles.description}>{fatherText}</p>
                 </div>
