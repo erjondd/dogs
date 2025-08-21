@@ -53,7 +53,6 @@ function CardList({items = [], fetchData, type = "dog"}) {
       {loading
         ? Array.from({length: 4}).map((_, i) => <SkeletonCard key={i} />)
         : displayItems
-            .slice(0, 4)
             .map((dog) => (
               <Card
                 key={dog.id}

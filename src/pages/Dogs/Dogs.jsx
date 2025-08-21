@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, {useEffect, useState} from "react";
 import styles from "./index.module.scss";
 import Container from "../../components/Container/Container";
 import CardList from "../../components/Homepage/CardList/CardList";
@@ -22,7 +22,7 @@ function Dogs() {
   const [availableRaces, setAvailableRaces] = useState([]);
   const [loading, setLoading] = useState(true);
   const [filtersVisible, setFiltersVisible] = useState(false);
-
+console.log(dogs,"dogs")
   useEffect(() => {
     const fetchDogs = async () => {
       try {
@@ -131,13 +131,13 @@ function Dogs() {
             <div
               onClick={toggleFilters}
               className={styles.toggleButton}
-              style={{ padding: 6, cursor: "pointer", border: "1px solid" }}
-            >
+              style={{padding: 6, cursor: "pointer", border: "1px solid"}}>
               {filtersVisible ? "Hide Filters" : "Show Filters"}
             </div>
             <div
-              className={`${styles.row} ${filtersVisible ? styles.active : ""}`}
-            >
+              className={`${styles.row} ${
+                filtersVisible ? styles.active : ""
+              }`}>
               {loading ? (
                 <SkeletonFilter />
               ) : (
@@ -150,8 +150,7 @@ function Dogs() {
                       }`}
                       onClick={() => clearFilter(setColourFilter)}
                       tabIndex={0}
-                      role="button"
-                    >
+                      role="button">
                       All
                     </div>
                     {availableColours.map((color, index) => (
@@ -168,8 +167,7 @@ function Dogs() {
                           )
                         }
                         tabIndex={0}
-                        role="button"
-                      >
+                        role="button">
                         {color.charAt(0).toUpperCase() + color.slice(1)}
                       </div>
                     ))}
@@ -189,8 +187,7 @@ function Dogs() {
                       }`}
                       onClick={() => clearFilter(setGenderFilter)}
                       tabIndex={0}
-                      role="button"
-                    >
+                      role="button">
                       All
                     </div>
                     {availableGenders.map((gender) => (
@@ -207,8 +204,7 @@ function Dogs() {
                           )
                         }
                         tabIndex={0}
-                        role="button"
-                      >
+                        role="button">
                         {gender.charAt(0).toUpperCase() + gender.slice(1)}
                       </div>
                     ))}
@@ -228,8 +224,7 @@ function Dogs() {
                       }`}
                       onClick={() => clearFilter(setSizeFilter)}
                       tabIndex={0}
-                      role="button"
-                    >
+                      role="button">
                       All
                     </div>
                     {availableSizes.map((size, index) => (
@@ -246,8 +241,7 @@ function Dogs() {
                           )
                         }
                         tabIndex={0}
-                        role="button"
-                      >
+                        role="button">
                         {size.charAt(0).toUpperCase() + size.slice(1)}
                       </div>
                     ))}
@@ -266,8 +260,7 @@ function Dogs() {
                       }`}
                       onClick={() => clearFilter(setRaceFilter)}
                       tabIndex={0}
-                      role="button"
-                    >
+                      role="button">
                       All
                     </div>
                     {availableRaces.map((race, index) => (
@@ -284,8 +277,7 @@ function Dogs() {
                           )
                         }
                         tabIndex={0}
-                        role="button"
-                      >
+                        role="button">
                         {race.charAt(0).toUpperCase() +
                           race.slice(1).replace(/-/g, " ")}
                       </div>
@@ -305,9 +297,8 @@ function Dogs() {
               flexWrap: "wrap",
               paddingTop: "30px",
               paddingBottom: "50px",
-            }}
-          >
-            {Array.from({ length: 8 }).map((_, index) => (
+            }}>
+            {Array.from({length: 8}).map((_, index) => (
               <SkeletonCard key={index} />
             ))}
           </div>
