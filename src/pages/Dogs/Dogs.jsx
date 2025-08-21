@@ -22,7 +22,6 @@ function Dogs() {
   const [availableRaces, setAvailableRaces] = useState([]);
   const [loading, setLoading] = useState(true);
   const [filtersVisible, setFiltersVisible] = useState(false);
-console.log(dogs,"dogs")
   useEffect(() => {
     const fetchDogs = async () => {
       try {
@@ -131,7 +130,12 @@ console.log(dogs,"dogs")
             <div
               onClick={toggleFilters}
               className={styles.toggleButton}
-              style={{padding: 6, cursor: "pointer", border: "1px solid"}}>
+              style={{
+                padding: 6,
+                cursor: "pointer",
+                border: "1px solid",
+                borderRadius: 5,
+              }}>
               {filtersVisible ? "Hide Filters" : "Show Filters"}
             </div>
             <div
