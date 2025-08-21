@@ -59,7 +59,7 @@
 }
 
 .selected {
-  background: $primary-color !important;
+  background: var(--primary-color) !important;
   color: #fff !important;
 }
 

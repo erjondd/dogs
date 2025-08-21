@@ -26,7 +26,7 @@
     font-family: Eirene;
     font-weight: 700;
     font-size: 50px;
-    color: $primary-color;
+    color: var(--primary-color);
     padding-bottom: 50px;
     @media (max-width: 768px) {
       font-size: 30px;
@@ -139,7 +139,7 @@
   }
   button {
     width: 100%;
-    background: #004f44 !important;
+    background: var(--primary-color) !important;
     border-top: none !important;
     border-left: none !important;
     border-right: none !important;

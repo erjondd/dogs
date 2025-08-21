@@ -70,7 +70,7 @@
   justify-content: center;
   cursor: pointer;
   svg {
-    color: $primary-color;
+    color: var(--primary-color);
     height: 30px;
   }
   &.swiper-button-disabled {

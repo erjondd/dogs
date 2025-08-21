@@ -25,10 +25,10 @@
         padding: 20px;
         display: flex;
         &[aria-current="page"] {
-          color: $primary-color;
+          color: var(--primary-color);
         }
         &:hover {
-          color: $primary-color;
+          color: var(--primary-color);
         }
       }
     }

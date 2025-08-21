@@ -49,7 +49,29 @@ function App() {
       .then((data) => setData(data?.acf));
   }, []);
 
+  useEffect(() => {
+    fetch("https://app.bigdawgz.com/wp-json/acf/v3/options/options")
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.acf) {
+          const colors = {
+            "--primary-color": data.acf.first_color,
+            "--secondary-color": data.acf.second_color,
+            "--bg-color": data.acf.third_color,
+          };
+          console.log(data.acf.second_color, "second color");
+          console.log(data.acf.first_color, "first color");
+          console.log(data.acf.third_color, "third color");
+          // Set each color as a CSS variable
+          Object.entries(colors).forEach(([key, value]) => {
+            document.documentElement.style.setProperty(key, value);
+          });
+        }
+      })
+      .catch((err) => console.error("Error fetching ACF colors:", err));
+  }, []);
   if (!Data) return null;
+
   return (
     <Router>
       <ScrollToTop />
