@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
 import Home from "./pages/Home/Home";
 import About from "./pages/About-us/About";
 import Contact from "./pages/Contact-us/Contact";
@@ -11,18 +11,19 @@ import SingleParent from "./pages/Parents/SingleParent";
 import SingleAdoption from "./pages/Adoptions/SingleAdoption";
 import Privacy from "./pages/Privacy/Privacy";
 import styles from "./index.module.scss";
-import { useState, useEffect } from "react";
+import {useState, useEffect} from "react";
 import Logo2 from "./assets/LogoFWhite";
 import Studs from "./pages/Parents/Studs";
 import Females from "./pages/Parents/Females";
 import Search from "./pages/Search/Search";
 import ScrollToTop from "./components/ScrollToTop/ScrollToTop";
 import LogoF from "./assets/LogoF";
-import { FloatingWhatsApp } from "react-floating-whatsapp";
+import {FloatingWhatsApp} from "react-floating-whatsapp";
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
   const [isMobile, setIsMobile] = useState(false);
+  const [Data, setData] = useState(null);
 
   useEffect(() => {
     const body = document.body;
@@ -42,14 +43,22 @@ function App() {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
+  useEffect(() => {
+    fetch("https://app.bigdawgz.com/wp-json/acf/v3/options/options")
+      .then((res) => res.json())
+      .then((data) => setData(data?.acf));
+  }, []);
+
+  if (!Data) return null;
+  console.log(Data, "Data");
   return (
     <Router>
       <ScrollToTop />
       {!isLoading && (
         <FloatingWhatsApp
-          phoneNumber="0038348405406" // Your WhatsApp number with country code
+          phoneNumber={Data.phone_number.replace(/^00/, "+")} // convert 00383... → +383...
           accountName="Big Dawgz Kennels"
-          avatar="https://app.bigdawgz.com/wp-content/uploads/2025/08/svgviewer-output-1-300x300.png"
+          avatar={Data.logo}
           chatMessage="Hi👋 How can we help you?"
           placeholder="Type your message..."
           darkMode={true}
@@ -58,11 +67,11 @@ function App() {
       {isLoading && (
         <div className={styles.loadingContainer}>
           <div className={styles.loadingSpinner}>
-            {isMobile ? <LogoF style={{ height: "200px" }} /> : <Logo2 />}
+            {isMobile ? <LogoF style={{height: "200px"}} /> : <Logo2 />}
           </div>
         </div>
       )}
-      <Layout style={{ width: "100%" }}>
+      <Layout style={{width: "100%"}}>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/dogs" element={<Dogs />} />
