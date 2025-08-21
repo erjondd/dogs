@@ -14,7 +14,7 @@
     font-family: DM Sans;
     font-weight: 400;
     font-size: 20px;
-    color: #858585;
+    color: var(--secondary-color);
   }
 }
 .mainContent {
@@ -26,7 +26,7 @@
     font-family: Eirene;
     font-weight: 700;
     font-size: 50px;
-    color: $primary-color;
+    color: var(--primary-color);
     padding-bottom: 50px;
     @media (max-width: 768px) {
       font-size: 30px;
@@ -123,6 +123,9 @@
   }
   .left {
     white-space: pre-line;
+    a {
+      color: var(--primary-color);
+    }
     p {
       color: white;
     }
@@ -154,7 +157,7 @@
     padding-left: 10px !important;
     padding-bottom: 3px !important;
     padding-top: 0px !important;
-    border-color: #858585 !important;
+    border-color: var(--secondary-color) !important;
     color: $text-color !important;
     &:focus-visible {
       outline: none;
@@ -162,7 +165,7 @@
   }
   button {
     width: 100%;
-    background: #004f44 !important;
+    background: var(--primary-color) !important;
     border-top: none !important;
     border-left: none !important;
     border-right: none !important;

@@ -1,7 +1,7 @@
 @use "../../index.scss" as *;
 
 .button {
-  font-family: var(--secondary-color);
+ font-family: $secondary-font;
   background-color: var(--primary-color);
   color: $text-color;
   padding: $button-padding;
