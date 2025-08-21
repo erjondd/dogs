@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./index.module.scss";
 import Container from "../../components/Container/Container";
 function About() {
@@ -10,35 +10,37 @@ function About() {
       .then((data) => setPageData(data));
   }, []);
 
-  if (!pageData) return <p>Loading...</p>;
-
   return (
     <section className={styles.about}>
       <Container>
         <div className={styles.mainContent}>
-          <div className={styles.title}>{pageData[0].acf?.title}</div>
-          <div
-            className={styles.text}
-            dangerouslySetInnerHTML={{__html: pageData[0].acf?.subtitle}}
-          />
-          <div className={styles.title}>{pageData[0].acf?.shipping_title}</div>
-          <div
-            className={styles.text}
-            dangerouslySetInnerHTML={{
-              __html: pageData[0].acf?.shipping_subtitle,
-            }}
-          />
-          <div className={styles.title}>
-            {pageData[0].acf?.contact_us_title}
-          </div>
-          <div className={styles.others}>
-            <div
-              className={styles.left}
-              dangerouslySetInnerHTML={{
-                __html: pageData[0].acf?.contact_us_subtitle,
-              }}
-            />
-            {/* <div className={styles.contactForm}>
+          {pageData && (
+            <>
+              <div className={styles.title}>{pageData[0].acf?.title}</div>
+              <div
+                className={styles.text}
+                dangerouslySetInnerHTML={{ __html: pageData[0].acf?.subtitle }}
+              />
+              <div className={styles.title}>
+                {pageData[0].acf?.shipping_title}
+              </div>
+              <div
+                className={styles.text}
+                dangerouslySetInnerHTML={{
+                  __html: pageData[0].acf?.shipping_subtitle,
+                }}
+              />
+              <div className={styles.title}>
+                {pageData[0].acf?.contact_us_title}
+              </div>
+              <div className={styles.others}>
+                <div
+                  className={styles.left}
+                  dangerouslySetInnerHTML={{
+                    __html: pageData[0].acf?.contact_us_subtitle,
+                  }}
+                />
+                {/* <div className={styles.contactForm}>
               <form onSubmit={handleSubmit}>
                 <div>
                   <input
@@ -72,7 +74,9 @@ function About() {
                 <button type="submit">Send Message</button>
               </form>
             </div> */}
-          </div>
+              </div>
+            </>
+          )}
         </div>
       </Container>
     </section>

@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./index.module.scss";
 import Container from "../../components/Container/Container";
 
@@ -11,86 +11,91 @@ function Contact() {
       .then((data) => setPageData(data));
   }, []);
 
-  if (!pageData) return <p>Loading...</p>;
-
   return (
     <section className={styles.about}>
       <Container>
         <div className={styles.mainContent}>
-          {/* Section Title */}
-          <div className={styles.title}>{pageData[0].acf?.title}</div>
-          <div className={styles.text}>
-            <p>{pageData[0].acf?.subtitle}</p>
-          </div>
+          {pageData && (
+            <>
+              {/* Section Title */}
+              <div className={styles.title}>{pageData[0].acf?.title}</div>
+              <div className={styles.text}>
+                <p>{pageData[0].acf?.subtitle}</p>
+              </div>
 
-          {/* Shipping Info */}
-          <div className={styles.text}>
-            <h2>{pageData[0].acf?.phone_title}</h2>
-            <p>{pageData[0].acf?.phone_subtitle}</p>
-          </div>
+              {/* Shipping Info */}
+              <div className={styles.text}>
+                <h2>{pageData[0].acf?.phone_title}</h2>
+                <p>{pageData[0].acf?.phone_subtitle}</p>
+              </div>
 
-          {/* Email */}
-          <div className={styles.text}>
-            <h2>{pageData[0].acf?.email_title}</h2>
-            <p>{pageData[0].acf?.email_subtitle}</p>
-          </div>
+              {/* Email */}
+              <div className={styles.text}>
+                <h2>{pageData[0].acf?.email_title}</h2>
+                <p>{pageData[0].acf?.email_subtitle}</p>
+              </div>
 
-          {/* Location */}
-          <div className={styles.text}>
-            <h2>{pageData[0].acf?.location_title}</h2>
-            <p>{pageData[0].acf?.location_subtitle}</p>
-          </div>
+              {/* Location */}
+              <div className={styles.text}>
+                <h2>{pageData[0].acf?.location_title}</h2>
+                <p>{pageData[0].acf?.location_subtitle}</p>
+              </div>
 
-          {/* Social Media */}
-          <div className={styles.text}>
-            <h2>{pageData[0].acf?.social_media_title}</h2>
-            <ul>
-              {/* Instagram */}
-              {pageData[0].acf?.instagram_name && (
-                <li>
-                  🐾 Instagram:{" "}
-                  <a
-                    href={pageData[0].acf.instagram_url?.url}
-                    target="_blank"
-                    rel="noopener noreferrer">
-                    {pageData[0].acf.instagram_name}
-                  </a>
-                </li>
-              )}
+              {/* Social Media */}
+              <div className={styles.text}>
+                <h2>{pageData[0].acf?.social_media_title}</h2>
+                <ul>
+                  {/* Instagram */}
+                  {pageData[0].acf?.instagram_name && (
+                    <li>
+                      🐾 Instagram:{" "}
+                      <a
+                        href={pageData[0].acf.instagram_url?.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        {pageData[0].acf.instagram_name}
+                      </a>
+                    </li>
+                  )}
 
-              {/* Facebook */}
-              {pageData[0].acf?.facebook_name && (
-                <li>
-                  🐾 Facebook:{" "}
-                  <a
-                    href={pageData[0].acf.facebook_url?.url}
-                    target="_blank"
-                    rel="noopener noreferrer">
-                    {pageData[0].acf.facebook_name}
-                  </a>
-                </li>
-              )}
+                  {/* Facebook */}
+                  {pageData[0].acf?.facebook_name && (
+                    <li>
+                      🐾 Facebook:{" "}
+                      <a
+                        href={pageData[0].acf.facebook_url?.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        {pageData[0].acf.facebook_name}
+                      </a>
+                    </li>
+                  )}
 
-              {/* TikTok */}
-              {pageData[0].acf?.tiktok_name && (
-                <li>
-                  🐾 TikTok:{" "}
-                  <a
-                    href={pageData[0].acf.tiktok_url?.url}
-                    target="_blank"
-                    rel="noopener noreferrer">
-                    {pageData[0].acf.tiktok_name}
-                  </a>
-                </li>
-              )}
-            </ul>
-          </div>
+                  {/* TikTok */}
+                  {pageData[0].acf?.tiktok_name && (
+                    <li>
+                      🐾 TikTok:{" "}
+                      <a
+                        href={pageData[0].acf.tiktok_url?.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        {pageData[0].acf.tiktok_name}
+                      </a>
+                    </li>
+                  )}
+                </ul>
+              </div>
 
-          {/* FAQ */}
-          <div className={styles.text}>
-            <h2>{pageData[0].acf.frequently_asked_questions_title}</h2>
-            <p>{pageData[0].acf.frequently_asked_questions_subtitle}</p>
-          </div>
+              {/* FAQ */}
+              <div className={styles.text}>
+                <h2>{pageData[0].acf.frequently_asked_questions_title}</h2>
+                <p>{pageData[0].acf.frequently_asked_questions_subtitle}</p>
+              </div>
+            </>
+          )}
         </div>
       </Container>
     </section>

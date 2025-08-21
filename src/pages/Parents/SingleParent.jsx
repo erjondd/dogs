@@ -1,23 +1,24 @@
-import React, {useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 import styles from "../SingleDog/index.module.scss";
-import {Link, useParams} from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import Container from "../../components/Container/Container";
 import Button from "../../components/Button/Button";
 import GalleryLightbox from "../../components/GalleryLightbox/GalleryLightbox";
 import Card from "../../components/Homepage/Card/Card";
-import {getAllParents, getAllParent} from "../../data/dogsWP";
+import { getAllParents, getAllParent } from "../../data/dogsWP";
 import SingleDogSkeleton from "../SingleDog/SingleDogSkeleton";
-import {LazyLoadImage} from "react-lazy-load-image-component";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
 
 export default function SingleParent() {
-  const {id} = useParams();
+  const { id } = useParams();
   const [parent, setParent] = useState(null);
   const [loading, setLoading] = useState(true);
   const [otherDogs, setOtherDogs] = useState([]);
 
   useEffect(() => {
     async function fetchData() {
+      setLoading(true);
       try {
         const data = await getAllParents(id);
         const allParants = await getAllParent(id);
@@ -113,7 +114,9 @@ export default function SingleParent() {
               </div>
               <div>
                 <span className={styles.detleft}>Size</span>
-                <span className={styles.detright}>: {capitalizeFirstLetter(parent.acf.size)}</span>
+                <span className={styles.detright}>
+                  : {capitalizeFirstLetter(parent.acf.size)}
+                </span>
               </div>
               <div>
                 <span className={styles.detleft}>Color</span>

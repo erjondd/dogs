@@ -10,7 +10,27 @@ export default function Hero({ isHomepage, pathName }) {
       return (
         <>
           <h1>Details</h1>
-          <p>Home / For sale / Details</p>
+          <p>Home / For sale </p>
+        </>
+      );
+    }
+    if (
+      pathName !== "/parent/studs" &&
+      pathName !== "/parent/females" &&
+      pathName.startsWith("/parent/")
+    ) {
+      return (
+        <>
+          <h1>Details</h1>
+          <p>Home / Parents </p>
+        </>
+      );
+    }
+    if (pathName.startsWith("/adoption/")) {
+      return (
+        <>
+          <h1>Details</h1>
+          <p>Home / Adoption </p>
         </>
       );
     }
@@ -79,7 +99,7 @@ export default function Hero({ isHomepage, pathName }) {
       case "/parent/females":
         return (
           <>
-            <h1>Discover our studs</h1>
+            <h1>Discover our females</h1>
             <p>Home / Parents / Females</p>
           </>
         );

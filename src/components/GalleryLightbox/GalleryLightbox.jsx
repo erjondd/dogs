@@ -42,7 +42,7 @@ export default function GalleryLightbox({ images }) {
           <LazyLoadImage
             key={i}
             src={img}
-            placeholderSrc={
+            placeholder={
               <Skeleton
                 variant="rectangular"
                 width="100%"
