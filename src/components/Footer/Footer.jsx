@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react";
 import styles from "./index.module.scss";
 import Logo2 from "../../assets/LogoF";
-import Logo1 from "../../assets/LogoF";
+import Logo1 from "../../assets/LogoFWhite";
 
 import Facebook from "../../assets/Facebook";
 import Instagram from "../../assets/Instagram";
@@ -127,7 +127,7 @@ export default function Footer() {
       <div className={styles.footerBottom}>
         <div className={styles.logoFoot}>
           <Link to="/">
-            <Logo2 />
+            <Logo1 width={250} />
           </Link>
         </div>
       </div>
