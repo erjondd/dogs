@@ -54,14 +54,14 @@ export async function getDogById(id) {
   }
   return await response.json();
 }
-export async function getAllStudParents() {
-  const response = await fetch(`${API_BASE}/parent/`);
+export async function getAllMales() {
+  const response = await fetch(`${API_BASE}/parent?per_page=100`);
+
   if (!response.ok) {
     throw new Error("Failed to fetch parents");
   }
 
   const parents = await response.json();
-
   const studParents = parents.filter(
     (parent) => parent.acf?.gender?.toLowerCase() === "stud"
   );
@@ -70,7 +70,8 @@ export async function getAllStudParents() {
 }
 
 export async function getAllFemales() {
-  const response = await fetch(`${API_BASE}/parent/`);
+  const response = await fetch(`${API_BASE}/parent?per_page=100`);
+
   if (!response.ok) {
     throw new Error("Failed to fetch parents");
   }

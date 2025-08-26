@@ -1,4 +1,4 @@
-import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home/Home";
 import About from "./pages/About-us/About";
 import Contact from "./pages/Contact-us/Contact";
@@ -11,14 +11,14 @@ import SingleParent from "./pages/Parents/SingleParent";
 import SingleAdoption from "./pages/Adoptions/SingleAdoption";
 import Privacy from "./pages/Privacy/Privacy";
 import styles from "./index.module.scss";
-import {useState, useEffect} from "react";
+import { useState, useEffect } from "react";
 import Logo2 from "./assets/LogoFWhite";
 import Studs from "./pages/Parents/Studs";
 import Females from "./pages/Parents/Females";
 import Search from "./pages/Search/Search";
 import ScrollToTop from "./components/ScrollToTop/ScrollToTop";
 import LogoF from "./assets/LogoF";
-import {FloatingWhatsApp} from "react-floating-whatsapp";
+import { FloatingWhatsApp } from "react-floating-whatsapp";
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -59,10 +59,7 @@ function App() {
             "--secondary-color": data.acf.second_color,
             "--bg-color": data.acf.third_color,
           };
-          console.log(data.acf.second_color, "second color");
-          console.log(data.acf.first_color, "first color");
-          console.log(data.acf.third_color, "third color");
-          // Set each color as a CSS variable
+
           Object.entries(colors).forEach(([key, value]) => {
             document.documentElement.style.setProperty(key, value);
           });
@@ -88,11 +85,11 @@ function App() {
       {isLoading && (
         <div className={styles.loadingContainer}>
           <div className={styles.loadingSpinner}>
-            {isMobile ? <LogoF style={{height: "200px"}} /> : <Logo2 />}
+            {isMobile ? <LogoF style={{ height: "200px" }} /> : <Logo2 />}
           </div>
         </div>
       )}
-      <Layout style={{width: "100%"}}>
+      <Layout style={{ width: "100%" }}>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/dogs" element={<Dogs />} />

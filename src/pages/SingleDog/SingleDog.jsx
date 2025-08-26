@@ -1,18 +1,17 @@
-import React, {useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./index.module.scss";
-import {Link, useParams} from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import Container from "../../components/Container/Container";
 import Button from "../../components/Button/Button";
 import GalleryLightbox from "../../components/GalleryLightbox/GalleryLightbox";
 import Card from "../../components/Homepage/Card/Card";
-import {getDogById, getAllDogs, getAllParents} from "../../data/dogsWP";
+import { getDogById, getAllDogs, getAllParents } from "../../data/dogsWP";
 import SingleDogSkeleton from "./SingleDogSkeleton";
-import {LazyLoadImage} from "react-lazy-load-image-component";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
-import Skeleton from "@mui/material/Skeleton";
 
 export default function SingleDog() {
-  const {id} = useParams();
+  const { id } = useParams();
   const [dog, setDog] = useState(null);
   const [otherDogs, setOtherDogs] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -24,7 +23,7 @@ export default function SingleDog() {
         setLoading(true);
         const dogData = await getDogById(id);
         const motherID = dogData.acf?.female?.ID;
-        const fatherID = dogData.acf?.male?.ID;
+        const fatherID = dogData.acf?.stud?.ID;
         const allDogs = await getAllDogs(id);
         setDog(dogData);
         setOtherDogs(allDogs.filter((d) => d.id !== parseInt(id)).slice(0, 4));
@@ -32,7 +31,6 @@ export default function SingleDog() {
           const motherData = await getAllParents(motherID);
           setMother(motherData);
         }
-
         if (fatherID) {
           const fatherData = await getAllParents(fatherID);
           setFather(fatherData);
@@ -49,19 +47,19 @@ export default function SingleDog() {
   if (loading) {
     return <SingleDogSkeleton />;
   }
+
   if (!dog) {
     return <p>Dog not found</p>;
   }
-  // Dangerous HTML TEXT
+
   function stripHtml(html) {
     const doc = new DOMParser().parseFromString(html, "text/html");
     return doc.body.textContent || "";
   }
+
   const plainText = stripHtml(dog?.content.rendered) || "";
   const motherText = stripHtml(mother?.content.rendered) || "";
   const fatherText = stripHtml(father?.content.rendered) || "";
-
-  //calcyulate age
 
   function calculateAge(birthDateStr) {
     if (!birthDateStr) return "Unknown";
@@ -78,15 +76,12 @@ export default function SingleDog() {
       months += 12;
     }
 
-    // Optional: prevent future dates
     if (birthDate > today) return "Invalid date";
 
-    return `${years} year${years !== 1 ? "s" : ""} ${months} month${
-      months !== 1 ? "s" : ""
-    }`;
+    return `${years} year${years !== 1 ? "s" : ""} ${months} month${months !== 1 ? "s" : ""
+      }`;
   }
 
-  //calc years only for age
   function calculateAgeDisplay(birthDateStr) {
     if (!birthDateStr) return "Unknown";
 
@@ -114,10 +109,12 @@ export default function SingleDog() {
       return `${years} year${years !== 1 ? "s" : ""}`;
     }
   }
+
   function capitalizeFirstLetter(str) {
     if (!str) return "";
     return str.charAt(0).toUpperCase() + str.slice(1);
   }
+
   return (
     <section className={styles.singleDog}>
       <Container>
@@ -212,7 +209,7 @@ export default function SingleDog() {
                   </div>
                   <h2>
                     <span>Parent Female:</span>
-                    <span>{dog.acf.female.post_title}</span>
+                    <span>{mother.title.rendered}</span>
                   </h2>
                   <p className={styles.description}>{motherText}</p>
                 </div>
@@ -221,7 +218,7 @@ export default function SingleDog() {
                     <div>
                       <span className={styles.detleft}>Gender</span>
                       <span className={styles.detright}>
-                        : {dog.acf.gender}
+                        : {mother.acf.gender}
                       </span>
                     </div>
                     <div>
@@ -258,7 +255,7 @@ export default function SingleDog() {
                   </div>
                   <h2>
                     <span>Parent Stud:</span>
-                    <span>{dog.acf.male.post_title}</span>
+                    <span>{father.title.rendered}</span>
                   </h2>
                   <p className={styles.description}>{fatherText}</p>
                 </div>
@@ -267,7 +264,7 @@ export default function SingleDog() {
                     <div>
                       <span className={styles.detleft}>Gender</span>
                       <span className={styles.detright}>
-                        : {dog.acf.gender}
+                        : {father.acf.gender}
                       </span>
                     </div>
                     <div>
@@ -278,7 +275,7 @@ export default function SingleDog() {
                     </div>
                     <div>
                       <span className={styles.detleft}>Size</span>
-                      <span className={styles.detright}>: {dog.acf.size}</span>
+                      <span className={styles.detright}>: {father.acf.size}</span>
                     </div>
                     <div>
                       <span className={styles.detleft}>Color</span>
@@ -292,6 +289,7 @@ export default function SingleDog() {
             ) : null}
           </div>
         </section>
+        
         <section className={styles.gallery}>
           {dog.acf.gallery && dog.acf.gallery.length > 0 && (
             <GalleryLightbox

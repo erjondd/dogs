@@ -1,12 +1,11 @@
-import React, {useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 import Card from "../Card/Card";
 import styles from "./index.module.scss";
 import SkeletonCard from "../../SkeletonCard/SkeletonCard";
 
-function CardList({items = [], fetchData, type = "dog"}) {
+function CardList({ items = [], fetchData, type = "dog" }) {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(!items.length && !!fetchData);
-
   useEffect(() => {
     const fetchItems = async () => {
       if (fetchData) {
@@ -51,20 +50,20 @@ function CardList({items = [], fetchData, type = "dog"}) {
   return (
     <div className={styles.dogList}>
       {loading
-        ? Array.from({length: 4}).map((_, i) => <SkeletonCard key={i} />)
+        ? Array.from({ length: 4 }).map((_, i) => <SkeletonCard key={i} />)
         : displayItems
-            .map((dog) => (
-              <Card
-                key={dog.id}
-                id={dog.id}
-                image={dog.acf?.picture || ""}
-                breed={dog.title?.rendered || "Unknown"}
-                gender={dog.acf?.gender || "Unknown"}
-                age={calculateAgeDisplay(dog.acf?.age || "")}
-                price={dog.acf?.price}
-                type={type}
-              />
-            ))}
+          .map((dog) => (
+            <Card
+              key={dog.id}
+              id={dog.id}
+              image={dog.acf?.picture || ""}
+              breed={dog.title?.rendered || "Unknown"}
+              gender={dog.acf?.gender || "Unknown"}
+              age={calculateAgeDisplay(dog.acf?.age || "")}
+              price={dog.acf?.price}
+              type={type}
+            />
+          ))}
     </div>
   );
 }

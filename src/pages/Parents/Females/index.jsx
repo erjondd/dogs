@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./index.module.scss";
 import Container from "../../../components/Container/Container";
 
-import {getAllFemales} from "../../../data/dogsWP";
+import { getAllFemales } from "../../../data/dogsWP";
 import CardList from "../../../components/Homepage/CardList/CardList";
 
 export default function Females() {

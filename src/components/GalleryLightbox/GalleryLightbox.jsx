@@ -1,18 +1,18 @@
 // src/components/GalleryLightbox/GalleryLightbox.jsx
-import React, {useState} from "react";
+import React, { useState } from "react";
 import Lightbox from "yet-another-react-lightbox";
 import "yet-another-react-lightbox/styles.css";
-import {LazyLoadImage} from "react-lazy-load-image-component";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
 import styles from "./GalleryLightbox.module.scss";
 import Skeleton from "@mui/material/Skeleton";
 
-export default function GalleryLightbox({images}) {
+export default function GalleryLightbox({ images }) {
   const [open, setOpen] = useState(false);
   const [index, setIndex] = useState(0);
-  const [loadedCount, setLoadedCount] = useState(0); // how many images are fully loaded
+  const [loadedCount, setLoadedCount] = useState(0);
 
-  // Filter only valid image URLs (strings)
+
   const validImages = images?.filter(
     (img) => typeof img === "string" && img.trim() !== ""
   );
@@ -35,14 +35,17 @@ export default function GalleryLightbox({images}) {
               height="100%"
               width="100%"
               onClick={() => handleImageClick(i)}
-              afterLoad={() => setLoadedCount((prev) => prev + 1)} // when loaded, allow next
+              afterLoad={() => setLoadedCount((prev) => prev + 1)}
             />
           ) : (
             <Skeleton
               variant="rectangular"
               width="100%"
               height="100%"
-              sx={{borderRadius: "5px"}}
+              sx={{
+                borderRadius: "5px",
+                bgcolor: "rgba(58, 58, 58, 0.6)",
+              }}
             />
           )}
         </div>
@@ -52,7 +55,7 @@ export default function GalleryLightbox({images}) {
         open={open}
         close={() => setOpen(false)}
         index={index}
-        slides={validImages.map((img) => ({src: img}))}
+        slides={validImages.map((img) => ({ src: img }))}
       />
     </div>
   );
